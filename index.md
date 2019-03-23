@@ -15,7 +15,7 @@ Hi there and welcome to my personal website!\\
 Read on to get a sense of what I do in my freetime\\
 and what some of my favorite projects of the last few years are.\\
 \\
-[Click here]({% link aboutme.md %}) to read more about me and what else I am interested in.\\
+[Click here]({% link aboutme.md %}) and [here]({% link blog/index.html %}) to read more about me and what else I am interested in.\\
 \\
 Scroll down to the bottom of the page to find ways to contact me.
 </p>
