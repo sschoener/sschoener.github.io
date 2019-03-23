@@ -22,6 +22,7 @@ I am especially interested in
  * teamwork and leadership,
  * GPGPU programming,
  * cache-friendly programming, high performance, optimization, x86/x64 assembly,
+ * clean API and software design,
  * learning new programming languages,
  * Stone Duality for formal languages,
  * and incremental games,
