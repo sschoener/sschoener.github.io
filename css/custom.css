@@ -1,0 +1,47 @@
+
+/* --- Custom --- */
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+}
+
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
+}
+
+.center-table
+{
+    margin: 0 auto;
+}
+
+.flexbox 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: start;
+}
+
+.flexleft
+{
+    width: 60%;
+    padding-right: 4rem;
+    padding-top: 1rem;
+    padding-left: 1rem; 
+}
+
+.flexright
+{
+    width: 60%;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-left: 4rem; 
+}
+
+h4 a {
+  color: #404040;
+}
