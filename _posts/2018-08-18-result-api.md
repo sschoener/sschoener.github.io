@@ -17,7 +17,7 @@ I'm not actually that interested in giving you the whole code (you can find it [
 4. Constructing a success of any type `T` works via `Result.Success(T value)`. You never have to write something like `Result<T>.Success(T value)`.
 5. There is no implicit cast from `Result<T>` to `Result`. This is on purpose. I found that other developers often wanted to return `Result<string>` in a method that had return type `Result`. Implicit casts that lose information should be avoided whenever possible (= always). If you *want* to downcast, you can use the `ToResult()` method.
 
-I'm torn on whether to put the various overloads for `Bind` into its own static class and make them extensions (as it is) or to have them defined in the structs themselves. I find the extensions approach much more readable, but there is a semantic difference: With extensions, the structs are passed by value. Methods defined within the struct however are taking `this` by refence, which is potentially worrisome if `Result<T>` is used with large value-types `T`.
+I'm torn on whether to put the various overloads for `Bind` into its own static class and make them extensions (as it is) or to have them defined in the structs themselves. I find the extensions approach much more readable, but there is a semantic difference: Methods defined within the struct however are taking `this` by refence, but with extensions, the structs are passed by value, which is potentially worrisome if `Result<T>` is used with large value-types `T`.
 
 ---
 
