@@ -2,7 +2,7 @@
 layout: post
 title: TensorFlow - Multi GPU Computation
 excerpt: In which I explain how to use multiple GPUs across multiple computers to train deep neural networks.
-tags: [computer science, deep learning, python, tensorflow]
+tags: [computer science, machine learning, python, tensorflow]
 image: /img/2017-12-12-tensorflow-intro/tf_logo.png
 ---
 
