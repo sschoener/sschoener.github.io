@@ -88,18 +88,3 @@ I believe that the most important benefits that single responsibility provides a
 First, parts of your codebase will essentially become read-only: They solve specific, well-defined problems that are independent of changing requirements and hence need to be changed.
 
 Secondly, single responsibility makes reacting to changing requirements much easier: Ideally, your business logic is just glue code and you only have to plug your smaller problem solutions together in a new way.
-
-{% capture comment %}
-
----
-
-## Granularity
-One part of single responsibility is divide-and-conquer: Break things down into smaller problems that are meaningful by themselves, solve them, and combine the solutions to solve the actual problem. I found that some people find it hard to identify the smaller problems and while I do not believe that I know how to fix that, here are some things to make it easier:
-
- * Do not be afraid to write functions, type or packages that are very short or simple; especially for functions there is no *too short*[^short],
- * Try to take a bottom-up approach instead of a top-down approach; 
- 
-
-[^short]: Usually the compiler will inline small functions anyway and if your language has proper support for value-semantics as in C++, classes can be quite cheap, too. Of course, profile it and ignore my advice if you have reason to think that this is causing you issues. As an interesting side note, the design of languages like C# punishes single responsibility on a type-level because  class-type fields will always cost you a dereference and a potential cache miss.
-
-{% endcapture %}
