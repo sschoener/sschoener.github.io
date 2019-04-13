@@ -317,6 +317,29 @@ footer .theme-by {
 
 /* --- Post preview --- */
 
+.blog-post-entry {
+  margin-bottom: 3px;
+}
+
+.posts-table {
+  background: transparent;
+}
+
+.posts-table-entry {
+  border: 0;
+  background: transparent;
+}
+
+.posts-table table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
 .post-preview {
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -397,10 +420,11 @@ footer .theme-by {
 /* --- Tags --- */
 
 .blog-tags {
+  text-align:right;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #999;
-  font-size: 15px;
-  margin-bottom: 30px;
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 .blog-tags a {
