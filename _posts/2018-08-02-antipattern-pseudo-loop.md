@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programming Antipatterns - The Pesudo-Loop
+title: Programming Antipatterns - The Pseudo-Loop
 excerpt: In which I complain about certain loops that I keep running into
 tags: [computer science, programming, golang]
 ---
