@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Short Introduction to Computational Complexity Theory
-tags: [computer science, patterna]
+tags: [computer science]
 ---
 \\(\newcommand{\NP}{\mathsf{NP}}\\)
 \\(\newcommand{\P}{\mathsf{P}}\\)

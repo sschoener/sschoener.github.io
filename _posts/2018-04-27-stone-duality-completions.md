@@ -3,7 +3,7 @@ layout: post
 title: Stone Spaces as Completions
 subtitle: An introduction to Stone Duality
 excerpt: In which I begin a short series on profinite spaces in the context of formal language theory.
-tags: [mathematics, computer science, logic]
+tags: [mathematics, computer science]
 ---
 
 Whenever I have a maths problem, I usually try to see what people more clever than me have to say about it so I can refer to their writings as a better introduction. Some time ago, I was dabbling in profinite topology, Stone duality, and its links to formal language theory and computational complexity. This is a relatively young research topic, so naturally there is only very little literature available . Luckily, a person that is very obviously more clever than me, Terry Tao, has taken the time to write about a very related subject: His blog post titled [*Nonstandard Analysis as a Completion of Standard Analysis*](https://terrytao.wordpress.com/2010/11/27/nonstandard-analysis-as-a-completion-of-standard-analysis/) has been around since 2010 and picks up quite a few of the ideas present in the field and connects very nicely to some thoughts I have been having. For this post, it is sufficient to read the introduction and the first section of that post stopping after *Remark 1*. I might return to the rest of the article some other day.

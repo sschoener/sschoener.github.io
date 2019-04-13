@@ -2,7 +2,7 @@
 layout: post
 title: I want Results!
 excerpt: In which I describe a useful error handling class that I miss in C#
-tags: [computer science, programming, C#]
+tags: [computer science, programming, c#]
 ---
 
 Functional programming languages frequently contain a data type that is either an error or some useful result, like `Either<Error, T>` or just `Error<T>` (assuming C#-style generics). Focusing on the error is one way, but I'm more optimistic and call this `Result<T>`. As so often, I miss this data type from the functional world in C#, so here is my take on it. I do not often feel the need to use something like `Result` but right now I am working on a highly concurrent piece of software that is using a database as its datastore and for business reasons that database needs to have a global lock (sorry). It was originally meant to be a quick-and-dirty project, but this lock means that any kind of error reporting should only happen once the lock has been released again in order to keep the lock-times per operation as low as possible. Given that the database will likely be small enough to fit into RAM in its entirety, sending out error messages would wreck the performance of an otherwise innocent operation. `Result` here is used to collect errors and return them to a handler than can operate when the lock has been released[^exception].

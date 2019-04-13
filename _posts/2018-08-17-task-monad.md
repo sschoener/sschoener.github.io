@@ -2,7 +2,7 @@
 layout: post
 title: Asynchronous programming in C# and the Task monad
 excerpt: In which I show a few methods that really should be in the standard library
-tags: [computer science, programming, C#]
+tags: [computer science, programming, c#]
 ---
 
 Asynchronous programming in C# is truly awesome. I'm not going to give a full introduction into the topic, but here is the general gist: Suppose you have a operation that is expensive, not because it is CPU-heavy, but because it involves a lot of waiting. Typical examples of this are sending web requests or doing disk I/O. You *could* have a thread just wait for a hardware controller to come back with it with some results (the thread is *blocked*, the operation is *blocking*), or that thread could do something useful while it is waiting. C# gives you the option to do the latter very easily. Before `async/await` you had to juggle callbacks and use `BeginAsync/EndAsync` in cumbersome ways.

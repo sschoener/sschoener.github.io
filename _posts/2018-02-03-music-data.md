@@ -3,7 +3,7 @@ layout: page
 title: Exploring 65 years of music
 subtitle: An exploratory data analysis look on MusicBrainz and Discogs
 excerpt: In which I share some fascinating findings from an exploratory analysis of a music dataset I assembled in 2017.
-tags: [music, data analysis, eda]
+tags: [music, data analysis]
 image: /img/2018-02-03-music-data/15-metal-violin-relative.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Computational Complexity of Patterna
-tags: [computer science, patterna]
+tags: [computer science]
 ---
 \\(\newcommand{\NP}{\mathsf{NP}}\\)
 \\(\newcommand{\coNP}{\mathsf{coNP}}\\)

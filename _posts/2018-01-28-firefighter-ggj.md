@@ -3,7 +3,7 @@ layout: post
 title: FireFighter
 subtitle: A Physical Game for GGJ'18
 excerpt: In which I encourage you to try out an Arduino, because even I managed to do it.
-tags: [gamejam, arduino]
+tags: [arduino]
 image: /img/2018-01-28-firefighter-ggj/preview.jpg
 ---
 
