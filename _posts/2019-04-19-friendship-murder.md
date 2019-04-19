@@ -14,3 +14,5 @@ Just don't tell them you were initially plotting to kill them.
 ---
 
 It's a thought that I had for well over 10 years now, originally in German: "Jede gute Freundschaft beginnt mit einer Morddrohung" (see title). It reflects the fact that I often get the most from talking to people that (like me) have strong opinions but disagree with me. I might hate them at first, but give it some time and we will both realize how much we can learn from each other just because we disagree so much. (Please don't literally send death threats; if you have to, keep it in your head.)
+
+Oh, and if you are software developer and want to get some practice on this topic, [read this set of slides](https://twitter.com/mike_acton/status/1108858383560380417) to find a new future friend :)
