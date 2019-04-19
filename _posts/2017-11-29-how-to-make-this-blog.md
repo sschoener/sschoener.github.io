@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How this blog was setup
-tags: [quine]
+tags: []
 ---
 
 Dear future me,
