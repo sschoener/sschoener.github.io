@@ -14,7 +14,7 @@ The setup is as follows: I have a local repository and multiple external reposit
  2. Go into your local repository.
  3. In the root directory, execute
     `git subrepo clone <remote-url> <subdir>`
-    where `<remote-url>` is the url of the remote and `<subdir>` is the subdir that you want to clone into.
+    where `<remote-url>` is the url of the remote and `<subdir>` is the subdir that you want to clone into. Note that the tool will _not_ create another subdirectory with the name of the subrepo that you are adding.
  4. Use `git subrepo pull <subdir>` and `git subrepo push <subdir>` to pull and push.
  5. Commit as usual, the tool is smart enough to figure out what goes where.
 
