@@ -5,7 +5,7 @@ excerpt:
 tags: [programming]
 ---
 
-In thet past, I have used both `git submodules` and `git subtrees` until I eventually ran into so many problems with them that I just gave up and started looking for alternatives. I stumbled over `git-subrepo` ([github](https://github.com/ingydotnet/git-subrepo)), so this is the next thing I will try and then most likely give up on in 6 months.
+In the past, I have used both `git submodules` and `git subtrees` until I eventually ran into so many problems with them that I just gave up and started looking for alternatives. I stumbled over `git-subrepo` ([github](https://github.com/ingydotnet/git-subrepo)), so this is the next thing I will try and then most likely give up on in 6 months.
 Since I already have trouble remembering what I need to do just to get started, here are some notes for future me.
 
 The setup is as follows: I have a local repository and multiple external repositories that I want to install.
