@@ -8,7 +8,7 @@ show-avatar: true
 
 ![A picture of me. You are missing out.](/img/face_small.jpg){: .center-image}
 
-My name is Sebastian Schöner and this is my rarely updated website.
+My name is Sebastian Schöner and this is my rarely updated website. I'm currently working for Paradox Development Studios, working on tools for the Clausewitz Engine.
 I dabble in all kinds of things, including but not limited to
 
  * (theoretical) computer science,
