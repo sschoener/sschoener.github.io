@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Exploring 65 years of music
 subtitle: An exploratory data analysis look on MusicBrainz and Discogs
 excerpt: In which I share some fascinating findings from an exploratory analysis of a music dataset I assembled in 2017.
