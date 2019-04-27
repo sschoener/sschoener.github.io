@@ -350,7 +350,7 @@ Useful attributes:
  * `[Unity.Collections.DeallocateOnJobCompletion]` ([documentation](https://docs.unity3d.com/ScriptReference/Unity.Collections.DeallocateOnJobCompletionAttribute.html)). You can apply this to a native containers in a job to deallocate the container once the job is done:
     ```csharp
     struct MyJob : IJob {
-        // Will be automatically
+        // Will be automatically freed when the job is done.
         [DeallocateOnJobCompletion]
         public NativeArray<int> Data;
         public void Execute() {}
@@ -364,6 +364,7 @@ Useful attributes:
 
         public void Execute(int i) {
             // Without the attribute above, we would get a runtime error from the safety checks
+            // because we are writing to an index that is not the one we are currently processing
             Data[0] = 0;
         }
     }
