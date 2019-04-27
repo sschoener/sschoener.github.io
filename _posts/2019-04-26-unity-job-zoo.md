@@ -5,6 +5,11 @@ excerpt:
 tags: [programming, unity, c#]
 ---
 
+* TOC
+{:toc}
+
+---
+
 I found it quite hard to find all the information I needed to get started with using the various kinds of jobs in Unity in one place, so this is my attempt to compile the necessary information for Unity 2019.1, the `jobs` package `preview.10 - 0.0.7`, and the `collections` package `preview.17 - 0.0.9`. I will hopefully have a short write-up about the ECS-specific jobs soon as well.
 
 I am going to assume that you have already read the [official documentation](https://docs.unity3d.com/Manual/JobSystem.html). It's quite good at explaining all the concepts required (safety checking, race conditions, dependencies) and I am trying to add value beyond that. Also, here is a special shout-out to their [troubleshooting section](https://docs.unity3d.com/Manual/JobSystemTroubleshooting.html) which is worth reading even if you already feel comfortable with everything else and to the [documentation](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/scheduling_a_job_from_a_job.html) of the `jobs` package that answers some more questions.
@@ -24,10 +29,10 @@ Note that the job types are all given as interfaces that a struct consisting of 
 
 Also note that some of the job types are implemented in pure C# on top of the primitive job types (e.g. the hashtable jobs are implemented as `IJobParallelFor`). This means that you can just get the respective package and look at their implementation to add custom job types (more info available [here](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html)) or understand the existing ones (looking at the tests for them is a good start).
 
-### `IJob`
+## `IJob`
 This is the basic job that just allows you to do whatever you need to do on a single thread. The [Unity documentation](https://docs.unity3d.com/ScriptReference/Unity.Jobs.IJob.html) for this covers pretty much everything. For completeness, here are [the](https://docs.unity3d.com/Manual/JobSystemCreatingJobs.html) [two](https://docs.unity3d.com/Manual/JobSystemSchedulingJobs.html) sections from the general job system documentation that are most important.
 
-### `IJobParallelFor`
+## `IJobParallelFor`
 This job type is for running the same operation (_kernel_) on many elements, potentially in parallel. Here are the [relevant sections](https://docs.unity3d.com/ScriptReference/Unity.Jobs.IJobParallelFor.html) from the [docs](https://docs.unity3d.com/Manual/JobSystemParallelForJobs.html) and a usage example:
 ```csharp
 [BurstCompile]
@@ -139,7 +144,7 @@ public void DeferredList([Values(0,1,2,3,16,32,1023,1024)] int n)
 }
 ```
 
-### `IJobParallelForTransform`
+## `IJobParallelForTransform`
 This works similarly to a parallel for job, but also allows you to access transforms. The [documentation](https://docs.unity3d.com/Manual/JobSystemParallelForTransformJobs.html) for this job type is entirely unhelpful, but it is not hard to understand:
 ```csharp
 private JobHandle CreateMoveForwardJob(Transform[] transformData)
@@ -167,7 +172,7 @@ struct MoveForwardJob : IJobParallelForTransform
 ```
 The additional types involved are documented [here](https://docs.unity3d.com/ScriptReference/Jobs.TransformAccess.html) and [here](https://docs.unity3d.com/ScriptReference/Jobs.TransformAccessArray.html).
 
-### `IJobParallelForBatch`
+## `IJobParallelForBatch`
 This one is from the `jobs` package, which unfortunately doesn't contain explicit documentation for this job type. You can get a good idea by just looking at the interface itself or reading the first few paragraphs of the [documentation](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) about custom job types. Here is a usage example:
 
 ```csharp
@@ -212,7 +217,7 @@ JobHandle CreateParallelBatchAddJob(int n)
 }
 ```
 
-### `IJobParallelForFilter`
+## `IJobParallelForFilter`
 This is a job type that lets you filter indices in parallel. Its main function has the signature `bool Execute(int index)`, with the understanding that returning `true` means that the indx passes the filter. There are two different ways in which this job type can be scheduled:
  * `ScheduleFilter` - takes a list of integers (the indices that are going to be passed into the filter) and removes all entries that do not pass the filter.
     ```csharp
@@ -275,7 +280,7 @@ This is a job type that lets you filter indices in parallel. Its main function h
     ```
 As of writing, this job is not _actually_ run in parallel, but that will probably change some time in the future. 
 
-### `IJobNativeMultiHashMapVisitKeyValue<TKey, TValue>` and `IJobNativeMultiHashMapVisitKeyMutableValue<TKey, TValue>`
+## `IJobNativeMultiHashMapVisitKeyValue<TKey, TValue>` and `IJobNativeMultiHashMapVisitKeyMutableValue<TKey, TValue>`
 This job type is quite straight forward. It allows you to walk a hash map from a job. The scheduling function takes a `NativeMultiHashMap<K,V>` and a batch size.
 ```csharp
 struct HashMapJob : IJobNativeMultiHashMapVisitKeyValue<K, V>
@@ -295,7 +300,7 @@ struct MutableHashMapJob : IJobNativeMultiHashMapVisitKeyMutableValue<K, V>
 }
 ```
 
-### `IJobNativeMultiHashMapMergedSharedKeyIndices` 
+## `IJobNativeMultiHashMapMergedSharedKeyIndices` 
 This is a quite specialised job that takes `NativeMultiHashMap<int, int>` plus a batch size and visits all values associated to a key, without telling you which key the currently processed values are associated with. It's an efficient way to iterate all the values in said hashmap that might be useful in certain cases. The name is a bit of a misnomer because it does not need to be about indices at all; it could just as well work for `NativeMultiHashMap<int, V>`. The interface looks like this:
 ```csharp
 struct HasMapJob : IJobNativeMultiHashMapMergedSharedKeyIndices
@@ -316,11 +321,11 @@ struct HasMapJob : IJobNativeMultiHashMapMergedSharedKeyIndices
 }
 ```
 
-### Managed Jobs
+## Managed Jobs
 Jobs can only contain blittable types and native collections, which means that you cannot just pass arbitrary object to a job. There are however ways to use the job system to execute arbitrary jobs for you (without Burst compilation, of course). [CoffeBrainGames](https://coffeebraingames.wordpress.com/2019/03/17/run-managed-code-in-unitys-job-system/) have a nice write-up on this topic and there is this [helpful thread](https://forum.unity.com/threads/solved-c-job-system-vs-managed-threaded-code.545360/) on the Unity forums.
 
 
-## Useful Native Containers
+# Useful Native Containers
 The `collections` package contains a few handy data structures for use in jobs. Here is a quick overview:
  * `NativeList<T>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.NativeList-1.html)) - basically a `std::vector<T>`; is to `NativeArray<T>` what `List<T>` is to `T[]`. You can use this to build up lists via filtering and get some more dynamicism with `IJobParallelFor` (see there). As of the time of writing, this type does not support concurrent writing. 
  * `NativeQueue<T>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.NativeQueue-1.html)) - a queue for use in jobs. Use the method `ToConcurrent()` on a queue to get an adapter that you can use for concurrent writing. Note that _concurrent writing_ in case of the job system is still only allowed within a single job (but that job might be split across multiple threads). The safety system will still complain if you use the same `NativeQueue<T>.Concurrent` in multiple jobs at once.
@@ -336,7 +341,7 @@ The `collections` package contains a few handy data structures for use in jobs. 
  * `NativeHashMap<K,V>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.NativeHashMap-2.html)) and `NativeMultiHashMap<K,V>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.NativeMultiHashMap-2.html)) - a hash map for use in jobs. Use the method `ToConcurrent()` on both of the types to get an adapter that you can use for concurrent writing (the same restrictions as for the concurrent queue above apply).
  * `ResizableArray64Byte<T>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.ResizableArray64Byte-1.html)) - a 64 byte buffer that is stack allocated and allows you to place multiple values of type `T` in it. The `Resizable` part does not mean that it will automatically switch to a heap-allocated array if you try to add more elements than it can hold but merely that it keeps track of how many items you have actually placed in its storage using its `Add` method.
 
-## Useful Attributes
+# Useful Attributes
 There are a bunch of useful attributes that you can use in conjunction with jobs. They are all in Unity 2019.1, no packages required, except for the `BurstCompile`/`NoAlias` attributes which require the [Burst package](https://docs.unity3d.com/Packages/com.unity.burst@1.0/manual/index.html). I'm skipping attributes that are only required to implement native containers. You can find those and more information on that [here](https://docs.unity3d.com/ScriptReference/Unity.Collections.LowLevel.Unsafe.NativeContainerAttribute.html).
 
 Useful attributes:
