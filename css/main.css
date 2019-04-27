@@ -25,7 +25,7 @@ p {
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 400;
 }
 a {
   color: {{ site.link-col }};
@@ -315,6 +315,66 @@ footer .theme-by {
   }
 }
 
+/* --- Pages --- */
+
+.page {
+  font-size: 14px;
+}
+
+.page h1 {
+  font-size: 27px;
+}
+.page h2 {
+  font-size: 24px;
+}
+.page h3 {
+  font-size: 21px;
+}
+.page h4 {
+  font-size: 18px;
+}
+.page h5 {
+  font-size: 16px;
+}
+.page h6 {
+  font-size: 14px;
+}
+.page blockquote {
+  font-size: 15px;
+}
+
+/* --- Posts --- */
+
+.post-heading h1 {
+  font-size: 30px;
+}
+
+.blog-post {
+  font-size: 14px;
+}
+
+.blog-post h1 {
+  font-size: 27px;
+}
+.blog-post h2 {
+  font-size: 24px;
+}
+.blog-post h3 {
+  font-size: 21px;
+}
+.blog-post h4 {
+  font-size: 18px;
+}
+.blog-post h5 {
+  font-size: 16px;
+}
+.blog-post h6 {
+  font-size: 14px;
+}
+.blog-post blockquote {
+  font-size: 15px;
+}
+
 /* --- Post preview --- */
 
 .blog-post-entry {
@@ -559,7 +619,7 @@ footer .theme-by {
     font-size: 80px;
   }
   .intro-header .post-heading h1 {
-    font-size: 50px;
+    font-size: 30px;
   }
   .intro-header.big-img .img-desc {
     font-size: 14px;
@@ -698,7 +758,7 @@ table tr td :last-child {
 /* --- Code blocks --- */
 
 pre {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5em;
 }
 pre code {

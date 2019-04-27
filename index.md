@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: main
 title: Welcome!
 subtitle: You have found my personal website.
 use-site-title: true
