@@ -17,9 +17,9 @@ I am going to assume that you have already read the [official documentation](htt
 # Job Types
 These are the kinds of jobs available:
  * `IJob` ([documentation](https://docs.unity3d.com/ScriptReference/Unity.Jobs.IJob.html)) - your standard job,
- * `IJobParallelFor` ([documentation](https://docs.unity3d.com/Manual/JobSystemParallelForJobs.html)) - a job that uniformly applies a kernel to each element in an array,
- * `IJobParallelForTransform` ([documentation](https://docs.unity3d.com/ScriptReference/Jobs.IJobParallelForTransform.html)) - a job that uniformly applies a kernel to each transform in an array
- * `IJobParallelForBatch` (`jobs` package) - a job that uniformly applies a kernel to consecutive slices of an array,
+ * `IJobParallelFor` ([documentation](https://docs.unity3d.com/Manual/JobSystemParallelForJobs.html)) - a job that applies a function to each element in an array,
+ * `IJobParallelForTransform` ([documentation](https://docs.unity3d.com/ScriptReference/Jobs.IJobParallelForTransform.html)) - a job that applies a function to each transform in an array
+ * `IJobParallelForBatch` (`jobs` package) - a job that function applies a function to consecutive slices of an array,
  * `IJobParallelForFilter` (`jobs` package, [documentation](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/api/Unity.Jobs.IJobParallelForFilter.html)) - a job that filters a list of indices,
  * `IJobNativeMultiHashMapVisitKeyValue<TKey, TValue>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.IJobNativeMultiHashMapVisitKeyValue-2.html)) and `IJobNativeMultiHashMapVisitKeyMutableValue<TKey, TValue>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.IJobNativeMultiHashMapVisitKeyMutableValue-2.html), `collections` package) -  visits all entries in a multi hash map,
  * `IJobNativeMultiHashMapMergedSharedKeyIndices` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.IJobNativeMultiHashMapMergedSharedKeyIndices.html), `collections` package) - a specialized job for traversing the values of a `NativeMultiHashMap<int, int>`,
@@ -33,7 +33,9 @@ Also note that some of the job types are implemented in pure C# on top of the pr
 This is the basic job that just allows you to do whatever you need to do on a single thread. The [Unity documentation](https://docs.unity3d.com/ScriptReference/Unity.Jobs.IJob.html) for this covers pretty much everything. For completeness, here are [the](https://docs.unity3d.com/Manual/JobSystemCreatingJobs.html) [two](https://docs.unity3d.com/Manual/JobSystemSchedulingJobs.html) sections from the general job system documentation that are most important.
 
 ## `IJobParallelFor`
-This job type is for running the same operation (_kernel_) on many elements, potentially in parallel. Here are the [relevant sections](https://docs.unity3d.com/ScriptReference/Unity.Jobs.IJobParallelFor.html) from the [docs](https://docs.unity3d.com/Manual/JobSystemParallelForJobs.html) and a usage example:
+This job type is for running the same operation (_kernel_) on many elements, potentially in parallel. Here are the [relevant sections](https://docs.unity3d.com/ScriptReference/Unity.Jobs.IJobParallelFor.html) from the [docs](https://docs.unity3d.com/Manual/JobSystemParallelForJobs.html). 
+
+Usage example:
 ```csharp
 [BurstCompile]
 struct ParallelAddJob : IJobParallelFor
@@ -170,7 +172,7 @@ struct MoveForwardJob : IJobParallelForTransform
     }
 }
 ```
-The additional types involved are documented [here](https://docs.unity3d.com/ScriptReference/Jobs.TransformAccess.html) and [here](https://docs.unity3d.com/ScriptReference/Jobs.TransformAccessArray.html).
+The additional types involved are documented [here](https://docs.unity3d.com/ScriptReference/Jobs.TransformAccess.html) and [here](https://docs.unity3d.com/ScriptReference/Jobs.TransformAccessArray.html). An interesting note is that the transform job splits the data across threads by their root transform, meaning that transforms with the same root will be transformed on the same thread.
 
 ## `IJobParallelForBatch`
 This one is from the `jobs` package, which unfortunately doesn't contain explicit documentation for this job type. You can get a good idea by just looking at the interface itself or reading the first few paragraphs of the [documentation](https://docs.unity3d.com/Packages/com.unity.jobs@0.0/manual/custom_job_types.html) about custom job types. Here is a usage example:
@@ -328,7 +330,7 @@ Jobs can only contain blittable types and native collections, which means that y
 # Useful Native Containers
 The `collections` package contains a few handy data structures for use in jobs. Here is a quick overview:
  * `NativeList<T>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.NativeList-1.html)) - basically a `std::vector<T>`; is to `NativeArray<T>` what `List<T>` is to `T[]`. You can use this to build up lists via filtering and get some more dynamicism with `IJobParallelFor` (see there). As of the time of writing, this type does not support concurrent writing. 
- * `NativeQueue<T>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.NativeQueue-1.html)) - a queue for use in jobs. Use the method `ToConcurrent()` on a queue to get an adapter that you can use for concurrent writing. Note that _concurrent writing_ in case of the job system is still only allowed within a single job (but that job might be split across multiple threads). The safety system will still complain if you use the same `NativeQueue<T>.Concurrent` in multiple jobs at once.
+ * `NativeQueue<T>` ([documentation](https://docs.unity3d.com/Packages/com.unity.collections@0.0/api/Unity.Collections.NativeQueue-1.html)) - a queue for use in jobs. Use the method `ToConcurrent()` on a queue to get an adapter that you can use for concurrent writing. Note that _concurrent writing_ in case of the job system is still only allowed within a single job (but that job might be split across multiple threads). The safety system will still complain if you use the same `NativeQueue<T>.Concurrent` in multiple jobs at once (you can use `[NativeDisableContainerSafetyRestriction]` to disable that warning).
  The proper usage in a job looks like this:
    ```csharp
    struct QueueJob : IJobParallelFor 
@@ -356,7 +358,7 @@ Useful attributes:
         public void Execute() {}
     }
     ```
- * `[Unity.Collections.NativeDisableParallelForRestriction]` ([documentation](https://docs.unity3d.com/ScriptReference/Unity.Collections.NativeDisableParallelForRestrictionAttribute.html)). You can apply this to a native array to disable some safety cehcks for `IJobParallelFor` and `IJobParallelForBatch`. These will ensure that for *any* array your job is using, you are only writing to the current index (or an index within the batch range for the batched version). You can still read from them.
+ * `[Unity.Collections.NativeDisableParallelForRestriction]` ([documentation](https://docs.unity3d.com/ScriptReference/Unity.Collections.NativeDisableParallelForRestrictionAttribute.html)). You can apply this to a native array to disable some safety checks for `IJobParallelFor` and `IJobParallelForBatch`. These checks ensure that for *any* array your job is using, you are only writing to the current index (or an index within the batch range for the batched version). You can still read from them, even without using the attribute.
     ```csharp
     struct MyJob : IJobParallelFor {
         [NativeDisableParallelForRestriction]
