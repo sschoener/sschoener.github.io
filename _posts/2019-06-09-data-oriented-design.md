@@ -128,6 +128,8 @@ This next quote is not framed as relating to DOD, but it very much reflects how 
 > I don't want to solve problems of analytical philosophy and Platonic essentialism to write code.  
 > -- [Brian Will](https://youtu.be/IRTfhkiAqPw?t=166), _Object-Oriented Programming is Embarrassing_, 2016, while trying to figure out what should go into a `Chair` class
 
+This also ties in nicely with the previous statements: If you know your input and your output, there are only so many reasonable, non-ridiculous ways to implement that mapping. This gives you some measure of how reasonable the transformation you actually implemented is and serves as a nice indication whether you should take a step back and re-evaluate your approach.
+
 ---
 
 So how does the whole ECS architecture fit into this? My argument would be that ECS is one solution you might find using DOD when your requirements look as follows:
@@ -148,7 +150,7 @@ Here are some thoughts and ideas that I think might be helpful to get started:
  * Learn about your target hardware. It is a tool and you should be aware of how to use it. Reading [Intel's manuals](https://software.intel.com/en-us/articles/intel-sdm) is a big ask, so maybe start by regularly looking at the assembly produced by your compiler using [Compiler Explorer](https://godbolt.org/) or whatever tools you have. Personally, I also enjoy [Agner's writing](https://www.agner.org/optimize/).
  * If you are optimizing for performance, take a look at these parts of Mike Acton's CppCon 2014 talk about [bools in structs](https://youtu.be/rX0ItVEVjHc?t=2508) and [states](https://youtu.be/rX0ItVEVjHc?t=3477) (make sure to also watch the segment about the transform function after that). Note how the _goal_ is performance (and hence cache-line usage), but the method is to look at the data, figure out what is needed, what is probable, and what is frequent or common.
  * Look for places in your codebase where adding booleans or enums to a struct forces you to deal with combinations of these flags that are actually never set. Can you get rid of them by sorting the data instead? Quoting [Pitfalls of OOP](http://harmful.cat-v.org/software/OO_programming/_pdf/Pitfalls_of_Object_Oriented_Programming_GCAP_09.pdf): `Don't test for exceptions - sort by them.`
- * Question your choices: Do you _really_ need a quad-tree? Is the added complexity necessary or are you imposing a mental model on the data when that really does not require it?
+ * Question your choices: Do you _really_ need a quad-tree? Is the added complexity necessary or are you imposing a mental model on the data when that really does not require it? Is this a reasonable approach for the problem you are solving, to help transform the data?
 
 ## Wrapping up
 Actually, looking back over the quotes above, my interpretation of DOD might be summarized by: "Realize that your problem is actually about transforming data and apply engineering principles to solve these data transformation problems." After all, gathering the requirements (_knowing the data_), understanding the problem, and evaluating the costs associated with it (_understanding the hardware_) to arrive at a design (_a conscious trade-off_, that is) that solves the problem is the minimum expectation in all other engineering disciplines. But maybe I'm painting too broad strokes here?
