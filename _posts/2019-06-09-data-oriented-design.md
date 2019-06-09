@@ -4,7 +4,7 @@ title: Data Oriented Design - An Interpretation
 tags: [computer science, programming]
 ---
 
-_Data Oriented Design_ (DOD) is one of those buzzwords that seems to come up frequently, especially since Unity has gone all-in on what they refer to as _DOTS_ - their _data oriented technology stack_. This, for all I know, mostly encompasses their Burst compiler, a job system, and the Entity-Component-System (ECS) architecture. Find more information [here](https://unity.com/dots); it's all pretty cool stuff and definitely worth your time.
+_Data Oriented Design_ (DOD) is one of those buzzwords that seems to come up frequently in discussions with my co-workers, especially since Unity has gone all-in on what they refer to as _DOTS_ - their _data oriented technology stack_. This, for all I know, mostly encompasses their Burst compiler, a job system, and the Entity-Component-System (ECS) architecture. Find more information [here](https://unity.com/dots); it's all pretty cool stuff and definitely worth your time.
 
 Now I have to admit that I don't like buzzwords. They usually have the side effect that people start using tools they don't understand to solve problems they don't have. This is especially unfortunate in the context of DOD for reasons that I will try to make somewhat clearer in my interpretation of DOD below.
 
