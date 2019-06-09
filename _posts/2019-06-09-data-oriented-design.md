@@ -10,7 +10,7 @@ Now I have to admit that I don't like buzzwords. They usually have the side effe
 
 Let me get some stuff out of the way: I am in no way claiming that I have any authority on this whole topic and I do not believe to have any privileged access to what people like Mike Acton _really_ think. This is merely my interpretation of what is said and I will attempt to provide references for some of the claims I make. Also, this is not a post about benefits or why you should be using it (should you?), although I definitely appreciate the approach and consider it useful.
 
-## Data-Oriented Design is not just ECS
+## Data-Oriented Design is not just ECS and fewer cache misses
 The typical story of data-oriented design that you are bound to stumble over when you start looking into DOD goes like this:
  * You are using an object-oriented design.
  * Object-oriented design causes cache misses.
