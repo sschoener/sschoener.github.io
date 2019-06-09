@@ -11,7 +11,7 @@ layout: null
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 18px;
-  color: #404040;
+  color: #202020;
   position: relative;
   background-color: {{ site.page-col }};
   {% if site.page-img %}
@@ -318,7 +318,7 @@ footer .theme-by {
 /* --- Pages --- */
 
 .page {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .page h1 {
@@ -328,16 +328,16 @@ footer .theme-by {
   font-size: 24px;
 }
 .page h3 {
-  font-size: 21px;
+  font-size: 22px;
 }
 .page h4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 .page h5 {
-  font-size: 16px;
+  font-size: 18px;
 }
 .page h6 {
-  font-size: 14px;
+  font-size: 16px;
 }
 .page blockquote {
   font-size: 15px;
@@ -350,7 +350,7 @@ footer .theme-by {
 }
 
 .blog-post {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .blog-post h1 {
@@ -360,16 +360,16 @@ footer .theme-by {
   font-size: 24px;
 }
 .blog-post h3 {
-  font-size: 21px;
+  font-size: 22px;
 }
 .blog-post h4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 .blog-post h5 {
-  font-size: 16px;
+  font-size: 18px;
 }
 .blog-post h6 {
-  font-size: 14px;
+  font-size: 16px;
 }
 .blog-post blockquote {
   font-size: 15px;
