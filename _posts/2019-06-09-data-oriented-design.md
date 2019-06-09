@@ -8,7 +8,7 @@ _Data Oriented Design_ (DOD) is one of those buzzwords that seems to come up fre
 
 Now I have to admit that I don't like buzzwords. They usually have the side effect that people start using tools they don't understand to solve problems they don't have. This is especially unfortunate in the context of DOD for reasons that I will try to make somewhat clearer in my interpretation of DOD below.
 
-Let me get some stuff out of the way: I am in no way claiming that I have any authority on this whole topic and I do not believe to have any privileged access to what people like Mike Acton _really_ think. This is merely my interpretation of what is said and I will attempt to provide references for some of the claims I make.
+Let me get some stuff out of the way: I am in no way claiming that I have any authority on this whole topic and I do not believe to have any privileged access to what people like Mike Acton _really_ think. This is merely my interpretation of what is said and I will attempt to provide references for some of the claims I make. Also, this is not a post about benefits or why you should be using it (should you?), although I definitely appreciate the approach and consider it useful.
 
 ## Data-Oriented Design is not just ECS
 The typical story of data-oriented design that you are bound to stumble over when you start looking into DOD goes like this:
