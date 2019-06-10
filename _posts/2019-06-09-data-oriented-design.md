@@ -128,7 +128,7 @@ This next quote is not framed as relating to DOD, but it very much reflects how 
 > I don't want to solve problems of analytical philosophy and Platonic essentialism to write code.  
 > -- [Brian Will](https://youtu.be/IRTfhkiAqPw?t=166), _Object-Oriented Programming is Embarrassing_, 2016, while trying to figure out what should go into a `Chair` class
 
-This also ties in nicely with the previous statements: If you know your input and your output, there are only so many reasonable, non-ridiculous ways to implement that mapping. This gives you some measure of how reasonable the transformation you actually implemented is and serves as a nice indication whether you should take a step back and re-evaluate your approach.
+This also ties in nicely with the previous statements: If you know your input and your output, there are only so many reasonable, non-ridiculous ways to implement that mapping. This gives you some measure of how reasonable your implementation of the transformation actually is and serves as a nice indication whether you should take a step back and re-evaluate your approach. If you think in terms of the model that you have already built in your software, you are already buying into a great deal of complexity that you might not actually need to compute the actual data transformation. This does not mean that you never need the complexity for some reason like performance, but make sure to _have_ a good reason. (More thoughts on that soon.)
 
 ---
 
