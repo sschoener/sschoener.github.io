@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Theory vs. Reality
+title: When Theory Doesn't Fit Reality
 excerpt: 
 tags: [programming]
 ---
