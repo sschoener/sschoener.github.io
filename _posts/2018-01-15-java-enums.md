@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Confession
+title: A Few Thoughts on Java Enums
 subtitle: Java enums vs. C# enums
 excerpt: In which I talk about why I like Java's enums and stumble upon a nice application of C#'s partial classes.
 tags: [computer science, c#, java, programming]
