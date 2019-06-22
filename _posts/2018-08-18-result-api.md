@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I want Results!
+title: A Small Result Type for C#
 excerpt: In which I describe a useful error handling class that I miss in C#
 tags: [computer science, programming, c#]
 ---
