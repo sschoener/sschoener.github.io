@@ -185,3 +185,6 @@ Here is some further reading/watching around this general topic. I have tried to
 
 ## Acknowledgments
 Thanks to my friend & colleague [Jesper Stefansson](https://twitter.com/grousejst) for fruitful discussions and feedback on the writing.
+
+---
+Addendum (2019-07-01): [This](https://theartofmachinery.com/2019/06/30/data_still_dominates.html) is a great follow-up, I think.
