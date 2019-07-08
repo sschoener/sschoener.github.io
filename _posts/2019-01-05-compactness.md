@@ -32,7 +32,7 @@ A *filter* on $X$ is a non-empty subset $F \subseteq \tau$ with the following pr
  2. If $U, V \in F$, then $U \cap V \in F$.
  3. $\emptyset \notin F$.
 
-Additionally, a filter $F$ is an *ultrafilter* if for every $U \subseteq X$ either $U \in F$ or $X \setminus U \in F$ (this is equivalent to the usual definition that $F$ is maximal w.r.t. inclusion among filters). Establishing the existence of interesting ultrafilters is not difficult, but requires stronger assumptions like the axiom of choice.[^axioms] This statement is usually known as *the ultrafilter lemma* and is mostly used to say that a filter can be extended to an ultrafilter (not necessarily a unique one).
+Additionally, a filter $F$ is an *ultrafilter* if it is maximal w.r.t. inclusion among filters. Establishing the existence of interesting ultrafilters is not difficult, but requires stronger assumptions like the axiom of choice.[^axioms] This statement is usually known as *the ultrafilter lemma* and is mostly used to say that a filter can be extended to an ultrafilter (not necessarily a unique one).
 
 There is also the notion of an *ultrafilter on a set*, which is the same as an ultrafilter on that said equipped with a discrete topology (i.e. all subsets of open). The typical definition for ultrafilters that you will likely find elsewhere is that for sets. You can use that one, too, for the most part, but will notice that all of its properties are defined by the open sets it contains, so we might just as well limit ourselves to them.
 
