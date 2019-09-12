@@ -1,6 +1,6 @@
 ---
 layout: main
-title: Welcome!
+title: Hi there!
 subtitle: You have found my personal website.
 use-site-title: true
 image: /img/face_small.jpg
@@ -10,14 +10,14 @@ show-avatar: true
 
 <div style="text-align: center;">
 <p markdown="1">
-Hi there and welcome to my personal website!\\
+Welcome to my personal website!\\
 \\
 Read on to get a sense of what I do in my freetime\\
 and what some of my favorite projects of the last few years are.\\
 \\
-[Click here]({% link aboutme.md %}) and [here]({% link blog/index.html %}) to read more about me and what else I am interested in.\\
+[My Blog]({% link blog/index.html %}) and [About Me]({% link aboutme.md %}) page will tell you more about what I do.\\
 \\
-Scroll down to the bottom of the page to find ways to contact me.
+Write me an [e-mail](mailto:mail@s-schoener.com) or find more ways to contact me at the bottom of the page.
 </p>
 </div>
 

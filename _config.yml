@@ -24,7 +24,7 @@ description: Personal website of Sebastian Schöner
 
 # List of links in the navigation bar
 navbar-links:
-  Projects: "index.html"
+  Home: "index.html"
   Blog: "blog"
   About Me: "aboutme"
   KernTief: "http://www.kerntief.com"
