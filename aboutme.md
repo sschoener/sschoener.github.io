@@ -8,6 +8,8 @@ show-avatar: true
 
 ![A picture of me. You are missing out.](/img/face_small.jpg){: .center-image}
 
+<br/>
+
 My name is Sebastian Schöner and this is my rarely updated website. I'm currently working in the core R&D team at Unity Technologies in Copenhagen.
 I dabble in all kinds of things, including but not limited to
 
@@ -18,19 +20,21 @@ I dabble in all kinds of things, including but not limited to
  * user experience and design,
  * and mathematics.
 
-\\
+<br/>
 
 I am especially interested in 
  * teaching mathematics and computer science,
  * teamwork and leadership,
  * GPGPU programming,
- * cache-aware programming, high performance, optimization, x86/x64 assembly,
+ * high performance, optimization, x86/x64 assembly,
  * API and software design,
  * learning new programming languages,
  * Stone Duality for formal languages,
  * and incremental games,
- 
+
 in no particular order.
+
+<br/>
 
 I try to maintain a regular blog, but by the time you read this it will probably not be obvious anymore for what kind of regularity I was originally shooting. See there for other things I might be interested in.
 
