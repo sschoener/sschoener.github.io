@@ -2,7 +2,7 @@
 layout: post
 title: Two notes on UX and software
 excerpt: 
-tags: [programming]
+tags: [programming, design]
 ---
 
 I'm currently taking a few course at the [Interaction Design Foundation](https://www.interaction-design.org/). I have always been interested in UX, so it seemed like a good idea to take the time and expose myself to more ideas from that particular field. This seems especially important to me because when you are writing software, this (as I'd argue) is the prime factor as to whether what you are writing is useful or not.
