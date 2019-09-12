@@ -21,7 +21,6 @@ body {
 }
 p {
   line-height: 1.5;
-  margin: 15px 0;
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -343,6 +342,11 @@ footer .theme-by {
   font-size: 15px;
 }
 
+.page li {
+  margin-top: 1px;
+  margin-right: 0px;
+}
+
 /* --- Posts --- */
 
 .post-heading h1 {
@@ -373,6 +377,11 @@ footer .theme-by {
 }
 .blog-post blockquote {
   font-size: 15px;
+}
+
+.blog-post li {
+  margin-top: 2px;
+  margin-right: 0px;
 }
 
 /* --- Post preview --- */
