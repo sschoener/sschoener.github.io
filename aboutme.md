@@ -8,21 +8,24 @@ show-avatar: true
 
 ![A picture of me. You are missing out.](/img/face_small.jpg){: .center-image}
 
-My name is Sebastian Schöner and this is my rarely updated website. I'm currently working for Paradox Development Studios, working on tools for the Clausewitz Engine.
+My name is Sebastian Schöner and this is my rarely updated website. I'm currently working in the core R&D team at Unity Technologies in Copenhagen.
 I dabble in all kinds of things, including but not limited to
 
  * (theoretical) computer science,
  * machine learning,
  * game programming,
  * generative art,
+ * user experience and design,
  * and mathematics.
+
+\\
 
 I am especially interested in 
  * teaching mathematics and computer science,
  * teamwork and leadership,
  * GPGPU programming,
- * cache-friendly programming, high performance, optimization, x86/x64 assembly,
- * clean API and software design,
+ * cache-aware programming, high performance, optimization, x86/x64 assembly,
+ * API and software design,
  * learning new programming languages,
  * Stone Duality for formal languages,
  * and incremental games,
