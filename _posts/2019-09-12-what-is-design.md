@@ -5,7 +5,7 @@ excerpt:
 tags: [programming, design]
 ---
 
-I have been pondering the meaning of the term _design_ since I am currently spending a lot of time reading and learning more about UX design. But what does it mean?
+I have been pondering the meaning of the term _design_ since I am currently spending a lot of time reading and learning more about UX design. But what does _design_ mean?
 
 _Design_ comes up in many contexts:
  * visual _design_,
