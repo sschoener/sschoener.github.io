@@ -13,7 +13,7 @@ I usually see Bayes' Theorem stated as:
 \\[
  P(A|B) = \frac{P(B|A)P(A)}{P(B)}.
 \\]
-This is correct, but not indicative of anything. Let's replace the letters with something more indicative, like \\(M\\) for Model instead of \\(A\\), and \\(D\\) for Data instead of \\(B\\):
+This is correct, but not indicative of anything. Let's replace the letters with something more speaking, like \\(M\\) for Model instead of \\(A\\), and \\(D\\) for Data instead of \\(B\\):
 \\[
  P(M|D) = \frac{P(D|M)P(M)}{P(D)}.
 \\]
@@ -29,8 +29,8 @@ When I read this, I'm drawn towards this mental model that is essentially about 
 
  * I imagine a diagram where \\(M\\) and \\(D\\) are regions, and
  * the term \\(P(D\|M)\\) is computed as a ratio of areas, \\(\frac{P(M \cap D)}{P(M)}\\).
- 
-I find it neither helpful nor does it model how I use the theorem. Even the mental gymnastics required to make intuitive sense of \\(D \cap M\\) seem wasteful.
+
+Yes, this is correct. But I find it neither helpful nor does it model how I use the theorem. Even the mental gymnastics required to make intuitive sense of \\(D \cap M\\) seem wasteful.
 
 ------
 
