@@ -1048,7 +1048,6 @@ but can already give you some good insights into what your model is doing
 many features that take a high-level approach to training models. Take a look at
 `MonitoredTrainingSession`, which automates checkpoint saving, writing
 summaries, failure handling, etc.
-*
-[`tf.contrib.data`](https://www.tensorflow.org/api_docs/python/tf/contrib/data)
+* [`tf.contrib.data`](https://www.tensorflow.org/api_docs/python/tf/contrib/data)
 contains the dataset API that we have been using in this notebook. This API is
 under very active development and should get even better over time :)
