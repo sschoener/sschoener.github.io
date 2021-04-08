@@ -1,6 +1,6 @@
 ---
 layout: post
-title: So you are an engineering team lead?
+title: So you are an engineering team lead
 excerpt: 
 tags: []
 ---
