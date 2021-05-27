@@ -18,9 +18,9 @@ For a hobby that is already challenging to get in, I'm amazed how bad of a job t
 
 Here are the models I am painting:
 <p align="middle">
-  <img src="/img/2021-05-26-miniature-painting/1a.png" width="300" />
-  <img src="/img/2021-05-26-miniature-painting/1b.png" width="300" /> 
-  <img src="/img/2021-05-26-miniature-painting/1c.png" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/1a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/1b.jpg" width="300" /> 
+  <img src="/img/2021-05-26-miniature-painting/1c.jpg" width="300" />
 </p>
 
 ### Black priming
