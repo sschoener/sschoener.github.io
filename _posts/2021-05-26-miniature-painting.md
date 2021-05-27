@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-{% raw %}{% include clickable-image.html %}{% endraw %}
+{% include clickable-image.html %}
 
 15 years ago, I picked up some miniatures from the then new Lord of the Rings miniature game. I was in love with the dioramas you can recreate with hundreds of these miniatures but quickly lost interest once I realized that I am completely out of my depth when it comes to painting them. I still vividly remember trying to apply some of the various common painting techniques (dry brushing, for example) without success and getting more demotivated by the day. My biggest problem in retrospect was using _way_ too much paint, not thinning it at all.
 
