@@ -5,6 +5,8 @@ excerpt:
 tags: []
 ---
 
+{% raw %}{% include clickable-image.html %}{% endraw %}
+
 15 years ago, I picked up some miniatures from the then new Lord of the Rings miniature game. I was in love with the dioramas you can recreate with hundreds of these miniatures but quickly lost interest once I realized that I am completely out of my depth when it comes to painting them. I still vividly remember trying to apply some of the various common painting techniques (dry brushing, for example) without success and getting more demotivated by the day. My biggest problem in retrospect was using _way_ too much paint, not thinning it at all.
 
 One way or another, I started to look into miniatures again a few weeks ago - maybe to establish a hobby away from my computer that I can more easily work on while overlooking an infant in the living room ;) These 15 years made all the difference: Of course there is a vibrant community of miniature painters on YouTube now. Back then, at 13 years old living in a remote village, there was no-one to reach out to and little opportunity for me to learn. Maybe I also just got better at following instructions.
