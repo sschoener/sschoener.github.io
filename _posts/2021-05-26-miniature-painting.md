@@ -16,20 +16,77 @@ I bought a package containing 3 Necron warriors from Warhammer 40k, 9th edition,
 
 For a hobby that is already challenging to get in, I'm amazed how bad of a job this particular box is at getting anyone into it.
 
-Here are the models I am painting:
+It's worth noting that while following Dana's tutorial, I realized that my brand new plastic glue was clogged with, well, glue. I was able to clean it using water, a small needle, and lots of patience.
+
+Here are the models I am painting.
 <p align="middle">
   <img src="/img/2021-05-26-miniature-painting/1a.jpg" width="300" />
-  <img src="/img/2021-05-26-miniature-painting/1b.jpg" width="300" /> 
+  <img src="/img/2021-05-26-miniature-painting/1b.jpg" width="300" />
   <img src="/img/2021-05-26-miniature-painting/1c.jpg" width="300" />
 </p>
 
 ### Black priming
+Not much to say here. Black priming it is! I should point out that opening the army painter spray can requires a screw driver, and even with it you may just hurt two of your fingers.
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/2a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/2b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/2c.jpg" width="300" />
+</p>
 
 ### Zenithal priming
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/3a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/3b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/3c.jpg" width="300" />
+</p>
 
 ### First dry-brushing
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/4a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/4b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/4c.jpg" width="300" />
+</p>
 
 ### Using Nuln Oil
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/5a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/5b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/5c.jpg" width="300" />
+</p>
 
+### Manual highlighting
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/6a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/6b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/6c.jpg" width="300" />
+</p>
+
+### Base coating
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/7a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/7b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/7c.jpg" width="300" />
+</p>
+
+### Metals
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/8a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/8b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/8c.jpg" width="300" />
+</p>
+
+### Glow, more color, and details
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/9a.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/9b.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/9c.jpg" width="300" />
+</p>
+
+### More dry brushing and contrast
+<p align="middle">
+  <img src="/img/2021-05-26-miniature-painting/Aa.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/Ab.jpg" width="300" />
+  <img src="/img/2021-05-26-miniature-painting/Ac.jpg" width="300" />
+</p>
 
 ### Learnings
