@@ -9,7 +9,19 @@ tags: []
 
 One way or another, I started to look into miniatures again a few weeks ago - maybe to establish a hobby away from my computer that I can more easily work on while overlooking an infant in the living room ;) These 15 years made all the difference: Of course there is a vibrant community of miniature painters on YouTube now. Back then, at 13 years old living in a remote village, there was no-one to reach out to. Maybe I also just got better at following instructions.
 
-Anyway! I picked up a Necron painting starter kit and followed Dana Howl's excellent [Hobby Basics](https://www.youtube.com/watch?v=RgjZmJo29os) series. In this post I want to show and critique the results and the process, with pictures because I personally always find it difficult to see the effects of, say, dry-brushing on video.
+Anyway! I picked up a Necron painting starter kit and followed Dana Howl's excellent [Hobby Basics](https://www.youtube.com/watch?v=RgjZmJo29os) series to paint what I consider my first few miniatures. In this post I want to show and critique the results and the process with pictures because I personally always find it difficult to see the effects of, say, dry-brushing in a video.
+
+### Learnings
+Before we look at the process, here is what I learned:
+1. Patience! Thin coats take some time to show an effect, but it works. If you are impatient and apply thick coats, you might as well
+2. Plan your color scheme. I ended up abandoning an idea mid-paint because I wasn't confident I could make it work. That would not have happened had I made a sketch or an overpaint of a photo. Similarly, I swapped a color out last minute because I couldn't get a color mixed (presumably because I don't know how to mix colors yet). I don't think this last minute change was helpful and it's the result I'm least happy with. There is a lot to say here in general: I think my models suffer because their colors do not create enough contrast and the brightest parts don't necessarily draw attention to where it is most appropriate (e.g. the head). Also, using yellow on a mainly black priming is just another way of asking for pain.
+3. A smaller brush is not necessarily better. I found it surprisingly hard to apply even coats using a small brush. The ideal brush size depends on what size of an area you are painting, and a large brush will make applying paint evenly easier on large areas.
+4. Contrast! I found myself going into the painting process thinking `OK, contrast is super important!`, then did the thing, and then realized that I had somehow forgot about it. Contrast doesn't just _happen_. You have to actually plan for it. I think in retrospect I would have liked to have a clear white and a clear black paint at hand
+5. Highlighting is hard. I found it exceedingly difficult to see what I should highlight and why. I understand that you'd want to highlight specular reflections and can use the zenithal highlight to understand where light is most present, but there's a difference between intellectual understanding and being able to intuitively apply it. I think this is a particular subskill that could be practiced in isolation.
+6. I think I would not recommend using metal paints exclusively on big parts of the model. Metals are shiny and draw attention, spreading them out just dilutes attention.
+7. It is generally a good idea to not limit yourself by the sculpt of the model. Just because something is sculpted as a smooth area doesn't mean you have to paint it as a contiguous area.
+8. Clean your brushes and learn how to handle them. Did you know you are not supposed to let brushes stand in water vertically? (Ruins the bristles.) Or that you should not let paint go too far up the brush? (Will break hairs.) And that there are plenty of tools available for cleaning brushes that will help you prolong the lifespan of your brushes?
+9. Experiment! I think I wouldn't have learned nearly as much from these three models if I had chosen to paint them all in a similar color scheme.
 
 ### The raw models
 I bought a package containing 3 Necron warriors from Warhammer 40k, 9th edition, plus some colors. As a bit of commentary on this box: Wow did Games Workshop miss the mark here. It is obviously aimed at beginners, yet it comes without any painting instructions (like "Hey, maybe thin your colors!"). There's a comment there that you should look at their Citadel Color's app to get help though that particular figure is hard to find in the app and there is no painting scheme that corresponds to the colors in the box.
@@ -115,7 +127,7 @@ After my revelation about doing whatever I like, I added a splash of blue to the
 
 The orange model really benefitted from some dry-brushing. The face looks way more interesting. I am amazed that this model turned out so nicely, compared to all of the headache it caused me.
 
-Finally, the purple one. It's OK, I guess? At this point I'd say its main problem is low contrast. The purple doesn't really hit hard enough. It's been the model that I had the least concerns with going into this, but in the end I find it the weakest of the three, by far.
+Now for the purple one. It's OK, I guess? At this point I'd say its main problem is low contrast. The purple doesn't really hit hard enough. I also managed to screw it up some more with dry brushing. Turns out that when you are not careful you might get paint further up in the brush, and even when you brush off the tip you can still ruin your model when you dry brush too hard (because you'll leak paint from the back part of the brush). It's been the model that I had the least concerns with going into this, but in the end I find it the weakest of the three, by far.
 
 <p align="middle">
   <img src="/img/2021-05-26-miniature-painting/Aa.jpg" width="300" />
@@ -124,10 +136,12 @@ Finally, the purple one. It's OK, I guess? At this point I'd say its main proble
 </p>
 
 ### Basing and finishing
+Finally, basing and some last minute changes. The base is just a generous coat of Astrogranite (seriously Games Workshop: how can you ship a beginner paint kit with _two_ technical paints in there but no painting guide?) with an Agrax Earthshade wash plus some dry brushing. I also painted in a slight drop shadow below the model.
+
+The last minute changes mostly affect the purple model. I gave it another coat of purple (plus dry brushing and washes). At this point, none of the priming shows through anymore. I didn't like the look, so I painted the shoulder plates yellow. It didn't help. For now, I'm cutting my losses with this model, take the learnings, and will move on.
+
 <p align="middle">
   <img src="/img/2021-05-26-miniature-painting/Ba.jpg" width="300" />
   <img src="/img/2021-05-26-miniature-painting/Bb.jpg" width="300" />
   <img src="/img/2021-05-26-miniature-painting/Bc.jpg" width="300" />
 </p>
-
-### Learnings
