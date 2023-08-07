@@ -3,7 +3,7 @@ layout: main
 title: Hi there!
 subtitle: You have found my personal website.
 use-site-title: true
-image: /img/face_small.jpg
+image: /img/profile.png
 show-avatar: true
 ---
 
@@ -25,14 +25,14 @@ Write me an [e-mail](mailto:mail@s-schoener.com) or find more ways to contact me
 
 <div class="flexbox">
   <div class="flexleft">
-    <a href="http://kerntief.com">
+    <a href="https://store.steampowered.com/app/1584170/Block_Machine/">
       <img src="img/projects/blockmachine.gif"/>
     </a>
   </div>
   <div style="flex-basis: 100%;">
     <h4 style="text-align: left">
-      <a href="http://kerntief.com">
-        Block Machine, 2017/2018, ongoing
+      <a href="https://store.steampowered.com/app/1584170/Block_Machine/">
+        Block Machine, 2017/2018
       </a>
     </h4>
     <p markdown="1" style="font-size: .9em; text-align: left; ">
@@ -92,7 +92,7 @@ Write me an [e-mail](mailto:mail@s-schoener.com) or find more ways to contact me
 <div class="flexbox">
   <div style="flex-basis: 100%; text-align: justify">
     <h4 style="text-align: right">
-      <a href="http://www.kerntief.com">
+      <a href="https://store.steampowered.com/app/503860/Patterna/">
         Patterna, 2016
       </a>
     </h4>
@@ -103,7 +103,7 @@ Write me an [e-mail](mailto:mail@s-schoener.com) or find more ways to contact me
     </p>
   </div>
   <div class="flexright">
-    <a href="http://www.kerntief.com">
+    <a href="https://store.steampowered.com/app/503860/Patterna/">
       <img src="img/projects/patterna.png"/>
     </a>
   </div>
