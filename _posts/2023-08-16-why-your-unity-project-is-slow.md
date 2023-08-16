@@ -1,7 +1,7 @@
 ---
 layout: post
-title: What to look out for when your Unity project is getting slow in the editor
-excerpt: 
+title: Why your Unity Project is slow in the Editor
+excerpt: Things you can do to improve the editor experience in your Unity project
 tags: []
 ---
 
