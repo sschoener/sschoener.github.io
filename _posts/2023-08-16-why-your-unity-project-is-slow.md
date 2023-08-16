@@ -21,7 +21,7 @@ The best way to measure the performance of the Editor is to use one or multiple 
 Additionally I would suggest that you instrument the most common workflows (see below) in your project for your team and then collect the data centrally. It takes a bit of creativity to be able to measure some of the workflows, but it's possible and it will allow you to monitor the health of your project over time.
 
 ## Common Workflows and Reasons for slowdowns
-There are some common user workflows that frequently become "slow", for some measure of slow. The most common ones are:
+Here are common user workflows that frequently become "slow":
  - Opening a project,
  - Entering playmode,
  - Making a script change,
@@ -29,7 +29,7 @@ There are some common user workflows that frequently become "slow", for some mea
  - Editing a prefab,
  - Making a build.
 
-One the other hand, some common reasons for wait times are:
+Common reasons for wait times are:
  - Domain reloads,
  - Serialization,
  - Script compilation,
@@ -37,7 +37,7 @@ One the other hand, some common reasons for wait times are:
  - Asset loading,
  - Callbacks into C# code.
 
-I'll try to first talk a bit about the different reasons for slowdowns, and then I'll try to map the workflows to the reasons. Then I will give you any residual advice I might still have. I'll just warn you right now that I don't have much to say about builds, unfortunately, and there are no magic tricks: For the most part, things are slow because someone somewhere made a bad choice and wrote slow code.
+I will  first talk about the different reasons for slowdowns, and then map the workflows to the reasons. Then I will give you any residual advice I might still have. I'll just warn you right now that I don't have much to say about builds, unfortunately, and there are no magic tricks or silver bullets.
 
 ## Reasons for slowdowns
 
