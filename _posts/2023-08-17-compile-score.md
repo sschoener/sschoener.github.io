@@ -100,3 +100,5 @@ With this new information, the timeline view also contains more details, especia
 </p>
 
 The new views are largely self-explanatory. In my experience, the template instantiation views are (unsurprisingly) helpful when you are dealing with code that does a lot of compile time meta programming. That doesn't seem to be the case with Godot, thankfully. I do recall using these views on Unity to reduce the compile times for some very expensive functions - it's a good way to dig into the rare pathologically bad cases. But that might be for another time.
+
+{% include clickable-image.html %}

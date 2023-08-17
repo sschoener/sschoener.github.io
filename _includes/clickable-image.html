@@ -11,7 +11,7 @@
   
   // When the user clicks on <span> (x), close the modal
   modal.onclick = function() {
-      this.classList.remove("model-shown");
+      this.classList.remove("modal-shown");
   }
   
   var i;
@@ -21,7 +21,7 @@
       var img = document.images[i];
   
       img.onclick = function(){
-          modal.classList.add("model-shown");
+          modal.classList.add("modal-shown");
           modalImg.src = this.src;
           captionText.innerHTML = this.alt;
       }

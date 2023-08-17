@@ -65,7 +65,7 @@ h4 a {
     pointer-events: none;
 }
 
-.model-shown {
+.modal-shown {
     pointer-events: all;
     opacity: 1;
 }
