@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-For the last 100 days, I haveve been practicing the piano! Well, not quite: For the last 107 days, I have been practicing the piano, and I missed seven days due to sickness or sheer exhaustion. But that's a good opportunity to reflect!
+For the last 100 days, I have been practicing the piano! Well, not quite: For the last 107 days, I have been practicing the piano, and I missed seven days due to sickness or sheer exhaustion. But that's a good opportunity to reflect!
 
 I grew up playing a few instruments very badly, including the recorder (very briefly in elementary school), the piano (I never practiced and did not enjoy any part of it, and I was predictably not very good), and finally the alto-saxophone to which I developed a relationship so neurotic that towards the end I would take the instrument to my lessons, then chat to the teacher for 30 minutes, and not play a single note. I never got beyond the basics and did not enjoy any of it. Needless to say, traditional lessons formats have not worked out well for me.
 
