@@ -164,7 +164,13 @@ static void ScheduleFileRead(FileReadBuffer* readBuffer) {
         }
         CloseThreadpoolTimer(readBuffer->Timer);
         CloseThreadpoolIo(readBuffer->Io);
-        ASSERT(error == ERROR_OPERATION_ABORTED || error == ERROR_BROKEN_PIPE, "ReadFile async failed, error code %d", error);
+        if (error == ERROR_BROKEN_PIPE)
+        {
+            // YOUR CODE HERE
+            // We've read the entire thing, what now?
+            return;
+        }
+        ASSERT(error == ERROR_OPERATION_ABORTED, "ReadFile async failed, error code %d", error);
     }
 }
 
