@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-I [recently]({% post_url 2024-06-09-find-first-large-fetch %}).recently covered `FIND_FIRST_EX_LARGE_FETCH` for `FindFirstFileExW`, which instructs the function to use a larger buffer for listing (or searching) files in a directory, thus saving on expensive trips down to the I/O device. Before I could even fully articulate the thought that it ought to be possible to control the entire buffer in userspace, [Per Vognsen](https://mastodon.gamedev.place/deck/@pervognsen@mastodon.social) had already suggested using `NtQueryDirectoryFileEx` for exactly that purpose. (That's one reason why I write things down: It's a great way to learn more.)
+I [recently]({% post_url 2024-06-09-find-first-large-fetch %}) covered `FIND_FIRST_EX_LARGE_FETCH` for `FindFirstFileExW`, which instructs the function to use a larger buffer for listing (or searching) files in a directory, thus saving on expensive trips down to the I/O device. Before I could even fully articulate the thought that it ought to be possible to control the entire buffer in userspace, [Per Vognsen](https://mastodon.gamedev.place/deck/@pervognsen@mastodon.social) had already suggested using `NtQueryDirectoryFileEx` for exactly that purpose. (That's one reason why I write things down: It's a great way to learn more.)
 
 `NtQueryDirectoryFileEx` is an interesting function: It is not part of the actual Win32 API, but it is still well-documented and exposed. The reason for this is that the function is part of the Windows Driver Kit. The [NtQueryDirectoryFileEx MSDN page](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntquerydirectoryfileex) puts the function into the "Kernel" section of the documentation, but that does not matter for us.
 
