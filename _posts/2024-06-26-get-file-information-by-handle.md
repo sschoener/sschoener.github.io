@@ -5,9 +5,9 @@ excerpt:
 tags: []
 ---
 
-I somehow stumbled into the niche of "how to enumerate files on Windows." Let's take a moment to regret my life choices together, before we return to our scheduled program of "yet another API I didn't know about." Jokes aside, I mentioned last time that writing is a great way to learn, and this has again proven true: Writing about [FIND_FIRST_EX_LARGE_FETCH]({% post_url 2024-06-09-find-first-large-fetch %}) lead learning and writing about [NtQueryDirectoryFileEx]({% post_url 2024-06-24-find-files-internals %}), and this lead to [Jeremy Laumon](https://mastodon.gamedev.place/@jerem) telling me about `GetFileInformationByHandleEx` ([MSDN](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getfileinformationbyhandleex)), which combines the form factor of a proper Win32 API with explicit control over buffer sizes.
+I somehow stumbled into the niche of "how to enumerate files on Windows." Let's take a moment to regret my life choices together, before we return to our scheduled program of "yet another API I didn't know about." Jokes aside, I mentioned last time that writing is a great way to learn, and this has again proven true: Writing about [FIND_FIRST_EX_LARGE_FETCH]({% post_url 2024-06-09-find-first-large-fetch %}) lead to learning and writing about [NtQueryDirectoryFileEx]({% post_url 2024-06-24-find-files-internals %}), and this lead to [Jeremy Laumon](https://mastodon.gamedev.place/@jerem) telling me about `GetFileInformationByHandleEx` ([MSDN](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getfileinformationbyhandleex)), which combines the form factor of a proper Win32 API with explicit control over buffer sizes.
 
-Let me show me how you use it, based on the usage in [Jeremy's Asset Cooker project](https://github.com/jlaumon/AssetCooker/blob/f4f0cbfe0984175e321fe5ab9b574220b5ae92de/src/FileSystem.cpp#L365):
+Let me show me how you use it, based on the usage in [Jeremy's awesome Asset Cooker project](https://github.com/jlaumon/AssetCooker/blob/f4f0cbfe0984175e321fe5ab9b574220b5ae92de/src/FileSystem.cpp#L365):
 
 ```cpp
 #define WIN32_LEAN_AND_MEAN
