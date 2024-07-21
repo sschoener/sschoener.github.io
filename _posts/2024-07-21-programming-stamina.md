@@ -7,7 +7,7 @@ tags: []
 
 Whenever I look back at "proper" software I have created by myself (my solo-games, or some larger tools) I am in disbelief that I ever managed to build them at all. Of course, the trick to building something like that is to take one step at a time: Nobody builds an entire game at once. They build five terrible prototypes, and then add a small thing every day, and then they repeat that many times.
 
-For me, the prime reason for that is not that "taking small steps allows me to make better choices" or that "I don't know what to build until I have built it." No, when my free-time programming projects fail, it is usually because I ran out of "programming stamina." I build in small steps because there is not alternative that works for me.
+For me, the prime reason for that is not that "taking small steps allows me to make better choices" or that "I don't know what to build until I have built it." No, when my free-time programming projects fail, it is usually because I ran out of "programming stamina." I build in small steps because there is no alternative that works for me.
 
 It's a bit like what I imagine bouldering to be like: Every stone is a working version of your program, however imperfect it is. You find the first stone you can quickly reach, and then you jump upwards from stone to stone. You can only jump so far, so pick wisely what stones you can reach: Experience shows that when you miss a jump you usually fall so far down that the entire project is dead. It is a high-stakes game, and the distance you can realistically jump is what I call "programming stamina."
 
