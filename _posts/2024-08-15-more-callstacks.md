@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-My last note dealt with collecting callstacks on Windows. As so often, I learned a bunch from what everyone else had to say about it, so here is the collection of the things I have learned.
+My [last note]({% post_url 2024-08-13-callstacks %}) dealt with collecting callstacks on Windows. As so often, I learned a bunch from what everyone else had to say about it, so here is the collection of the things I have learned.
 
 First, [Josh Simmons](https://mastodon.gamedev.place/@dotstdy@mastodon.social) dug up the original rationale for the design of `std::callstack` to understand how we got here, found in [A Proposal to add stacktrace library](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p0881r7.html):
 
