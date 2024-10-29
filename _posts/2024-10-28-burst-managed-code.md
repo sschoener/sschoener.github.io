@@ -19,7 +19,7 @@ There are some subtleties here depending on whether the object you refer to is a
 
 ## Referencing arbitrary managed data
 
-More generally, you can retrieve an unmanaged handle to any managed piece of data by using the `GCHandle` type ([MSDN docs](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle.alloc?view=netstandard-2.0)). The `GCHandle` will ensure that whatever you refer to is kept alive and not Garbage collected, and it is an unmanaged struct. You can use this to pass managed data around:
+More generally, you can retrieve an unmanaged handle to any managed piece of data by using the `GCHandle` type ([MSDN docs](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle.alloc?view=netstandard-2.0)). The `GCHandle` will ensure that whatever you refer to is kept alive and not Garbage collected, and it is an unmanaged struct. You need to manually free it because otherwise you leak memory (and probably incur some overhead for whatever is managing GC handles). You can use this to pass managed data around:
 
 ```csharp
 GCHandle unmanagedHandle = GCHandle.Alloc(myObject);
@@ -33,7 +33,6 @@ MyClassType obj = (MyClassType)unmanagedHandle.Target;
 
 // free handle again so the object isn't kept alive indefinitely
 unmanagedHandle.Free();
-
 ```
 
 ## Calling managed methods
