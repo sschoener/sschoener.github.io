@@ -98,6 +98,8 @@ static class ManagedStuff
 }
 ```
 
+To use this, make sure to call `ManagedStuff.Init` and then call `ManagedStuff.YourManagedCodeFromBurst` from Burst to invoke the managed function from Burst. You can of course pass through all the arguments you need, e.g. a `GCHandle`.
+
 The aforementioned attribute in Entities is an internal mechanism to generate the above code automatically. That codegen is a little bit cleverer still: It dectects whether `YourManagedCodeFromBurst` is called from Mono, and if it is, then we just call the function directly instead of going through the function pointer. You can check whether you are running in Burst using this construct:
 
 ```csharp
