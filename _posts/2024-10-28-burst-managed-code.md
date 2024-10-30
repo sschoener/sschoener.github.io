@@ -17,6 +17,8 @@ If you need to store a reference to a `UnityEngine.Object` derived type, you can
 
 There are some subtleties here depending on whether the object you refer to is already loaded into memory, but for a lot of cases (e.g. objects you created in a scene) that does not matter. You should also make sure that something holds a regular reference to the object you use this with: The editor for example streams out assets that are not in use anymore. So either keep them visibly alive, or check that the result you get from the `InstanceIDToObject` is not null.
 
+This pattern is implemented in Unity's Entities package. You can use the `UnityObjectRef` for this ([docs](https://docs.unity3d.com/Packages/com.unity.entities@1.3/api/Unity.Entities.UnityObjectRef-1.html)). The upside of this type is that it is fully supported for serializaing subscenes and stops the editor from unloading objects.
+
 ## Referencing arbitrary managed data
 
 More generally, you can retrieve an unmanaged handle to any managed piece of data by using the `GCHandle` type ([MSDN docs](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.gchandle.alloc?view=netstandard-2.0)). The `GCHandle` will ensure that whatever you refer to is kept alive and not Garbage collected, and it is an unmanaged struct. You need to manually free it because otherwise you leak memory (and probably incur some overhead for whatever is managing GC handles). You can use this to pass managed data around:
