@@ -9,7 +9,7 @@ Unity has recently undergone some drastic management changes that affect the ent
 
 Naively, you might expect that Unity has always been a native core with a nice C-like interface that C# binds against, but that is not actually the case. For the longest time, Unity has been using a mechanism known as "internal calls" where some C# functions are "just" implemented as native code. This is an interesting inversion, where the native code suddenly pokes at managed memory instead of the other way around. As far as I can tell, Unity 6 changed that in almost all places, but not quite everywhere yet. Moving towards CoreCLR probably requires such a change in full.
 
-This is great news, because it means that Unity now behaves more like "isolated core with C# wrappers around it" -- which means we can now use the core directly without going through anything managed. What this allows you to do:
+This is great news, because it means that Unity now behaves more like "isolated core with C# wrappers around it" -- which means we can now use the core directly without going through anything managed in a lot of cases. What this allows you to do:
 
 - You can call functions that take `T[]` and instead give them a `Span<T>`, assuming `T` is blittable
 - You can call functions that return `T[]` and avoid copies and managed memory, assuming `T` is blittable
