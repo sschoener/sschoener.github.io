@@ -38,3 +38,5 @@ To satisfy my curiosity, I have enabled the segment heap for the program that ha
 </p>
 
 If you try this, please do report back on your measurements. I have some more ideas for how to improve allocation performance when you cannot control the program yourself, but this will have to wait until another time.
+
+{% include clickable-image.html %}
