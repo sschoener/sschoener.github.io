@@ -5,6 +5,8 @@ excerpt: Things you can do to improve the editor experience in your Unity projec
 tags: []
 ---
 
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+
 A common complaint among Unity users is that the Editor is slow and that common operations take a long time. This is commonly referred to as "bad iteration times" because it hinders your ability to iterate on your project. In my time with Unity I have looked at many Unity projects of all sizes. As I have just left my job, this is as good a time as any to collect some thoughts as to why projects are "slow."
 
 I'm trying to paint a broad picture. In some cases, I may trade technical accuracy for brevity -- this post is going to become too long in any case. You may want to jump around as I have probably failed to tell a linear story here. I know that this post is going to read like a long list of things that you should _not_ do if you don't want to have a "snappy" project (within reason -- there is a limit to the snappiness you can achieve at a certain size given the architectural constraints of Unity), and in many cases I might not be able to tell you what you should do instead. It's almost always easy to write code that is slow, and finding alternatives is not always that simple (within the context of Unity). I'm also going to just talk about the user-facing side. If you happen to work on Unity's native codebase or have source access, there is more to be said still.

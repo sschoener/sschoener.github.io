@@ -5,6 +5,8 @@ excerpt:
 tags: []
 ---
 
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+
 A common theme in my circles is that of complexity, and that the code that powers software shall be "simple." I share the general sentiment. This topic has recently become very personal again as I found myself debugging a failure on Windows running in Wine inside a Linux docker container virtualized through WSL on another Windows machine I was remoting into (sigh), yet on the other hand I was willingly signing up to a serverless backend provider so I can write more Javascript. Clearly, I am finding myself on both sides of the debate here. While I do not have any answers, I still want to share some thoughts about "simplicity."
 
 In a previous job, I encountered two notions of simplicity:
