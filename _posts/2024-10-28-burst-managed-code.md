@@ -5,6 +5,8 @@ excerpt:
 tags: [Unity]
 ---
 
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+
 In the context of Unity, Burst often provides huge speed-ups compared to Mono at the cost of placing more restrictions on the code you can actually write. Burst has a leg up on Mono because Burst actually makes a good effort to optimize your code whereas Mono is more about getting the code running in the first place.
 
 You can often get good runtime CPU performance wins by moving your code to Burst, assuming that you are (a) happy to eat the compilation cost in the editor and (b) you can move your code to Burst in the first place. Burst generally can't touch anything that is "managed", i.e. anything of `class` type, which unfortunately still excludes large parts of Unity's API surface. Sometimes single pieces of managed data can stop you from using Burst for entire systems, and this is the case I want to discuss here. The goal is to pipe some managed data into some managed leaf function without having to rewrite the entire system.

@@ -5,6 +5,8 @@ excerpt:
 tags: [Unity]
 ---
 
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+
 Unity has recently undergone some drastic management changes that affect the entire technology stack, and I have some ideas for how to best take advantage of that. The management in question here is of course _memory management_, and by recent changes I mean that Unity 6 included some low profile changes in how native code interacts with managed memory (for the most part).
 
 Naively, you might expect that Unity has always been a native core with a nice C-like interface that C# binds against, but that is not actually the case. For the longest time, Unity has been using a mechanism known as "internal calls" where some C# functions are "just" implemented as native code. This is an interesting inversion, where the native code suddenly pokes at managed memory instead of the other way around. As far as I can tell, Unity 6 changed that in almost all places, but not quite everywhere yet. Moving towards CoreCLR probably requires such a change in full.
