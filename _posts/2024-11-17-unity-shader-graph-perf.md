@@ -12,14 +12,14 @@ A tech artist came to me and said "whenever we touch anything in a Unity's shade
 As an example, take a modestly sized shader. I clicked to insert a "line breaker" into an edge, which doesn't change the functionality of the graph at all.
 
 <p align="middle">
-  <img src="/img/2024-11-17-unity-shader-graph-perf/0-line-breaker.png" alt="A line breaker in shader graph" />
+  <img src="/img/2024-11-17-unity-shader-graph-perf/01-line-breaker.png" alt="A line breaker in shader graph" />
 </p>
 
 
 This takes anywhere between 1s and 2s per click, depending on how many GC runs we provoke. Note in particular that there is a 200ms call into the shader compiler to preprocess the shader. Foreshadowing!
 
 <p align="middle">
-  <img src="/img/2024-11-17-unity-shader-graph-perf/1-before.png" alt="Measurement of the before state in Superluminal" />
+  <img src="/img/2024-11-17-unity-shader-graph-perf/02-before.png" alt="Measurement of the before state in Superluminal" />
 </p>
 
 
