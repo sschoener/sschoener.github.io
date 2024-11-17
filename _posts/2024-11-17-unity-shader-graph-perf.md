@@ -89,7 +89,8 @@ I have tried to look at the compiled shader code to see if this affects codegen,
   <img src="/img/2024-11-17-unity-shader-graph-perf/04-button-crash.png" alt="The compile and show code button that crashes the editor" />
 </p>
 
-I'd hope that dead-code-elimination would ensure that the unused results get purged, but this still leaves the question of shader compile times and struct fields. That's a question for another day, and not what I set out to do this time.
+I'd hope that dead-code-elimination would ensure that the unused calculations get purged, but this still leaves the question of shader compile times and struct fields. That's a question for another day, and not what I set out to do this time.
+
 <p align="middle">
   <img src="/img/2024-11-17-unity-shader-graph-perf/05-struct-fields.png" alt="Structs and field with redundant preprocessor checks" />
 </p>
