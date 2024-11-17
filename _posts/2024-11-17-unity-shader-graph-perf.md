@@ -96,7 +96,7 @@ I'd hope that dead-code-elimination would ensure that the unused calculations ge
 </p>
 
 
-Equipped with this knowledge and no intention to properly fix this for now, we can just replace that loop over all variants with a loop that just checks for active nodes in the input. It computes the same incorrect result, except faster. But why stop there? Let's detect if a node is present for all permutations (with this wrong calculation, this will always be the case), and don't emit those preprocessor checks then. The shader compiler would just have to figure out to ignore them otherwise. I'm no shader compiler myself, so my empathy here might be limited, but would you rather compile 4MB or 16MB of source? (4MB still feels like a lot!) Sure enough, this makes the shader compiler preprocessing about 4x faster.
+Equipped with this knowledge and no intention to properly fix this for now, we can just replace that loop over all variants with a loop that just checks for active nodes in the input. It computes the same incorrect result, except faster. But why stop there? Let's detect if a node is present for all permutations (with this wrong calculation, this will always be the case), and don't emit those preprocessor checks then. The shader compiler would just have to figure out to ignore them otherwise. I'm no shader compiler myself, so my empathy here might be limited, but I think I would rather compile 4MB instead of 16MB of source. (4MB still feels like a lot!) Sure enough, this makes the shader compiler preprocessing about 4x faster.
 
 <p align="middle">
   <img src="/img/2024-11-17-unity-shader-graph-perf/06-shader-sizes.png" alt="Size comparison of generated shaders" />
