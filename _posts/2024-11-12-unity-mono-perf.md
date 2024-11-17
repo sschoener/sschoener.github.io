@@ -40,3 +40,5 @@ Where does that leave us? When you write C# code for the Unity Editor, you are p
 What is the takeaway? Eliminate "char?" everywhere? I honestly don't know. Yes, I made that frequently called thing 3x faster. No, it's not fast enough globally. I would have to go through the entire program and eliminate stuff like this everywhere. And that wouldn't even be the end of the story. Those are just local changes. An optimizing compiler would likely make this code orders of magnitude faster. What would a good inliner do to this code? Probably a lot! 
 
 Locally, the solution is to re-architect. Rewrite the parser in the C99 equivalent of C# and pretend you are writing assembly. Or use Burst, if you can. Globally, that's often infeasible for existing projects. At that point it is probably a better idea to look at improving Mono. It puts into perspective why Unity wants CoreCLR, but you can either wait for CoreCLR (how long?), not use C# (totally feasible in some cases), or try and improve Unity's version of Mono today. I don't know what the cost of the latter is, but I'd find out if I had the time :)
+
+{% include clickable-image.html %}

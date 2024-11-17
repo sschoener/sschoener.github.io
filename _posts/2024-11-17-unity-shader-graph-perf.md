@@ -109,3 +109,5 @@ Where does this leave us after 2 days? We're at ~185ms now (~170ms for the graph
 <p align="middle">
   <img src="/img/2024-11-17-unity-shader-graph-perf/07-after.png" alt="Measurement of the improved state in Superluminal" />
 </p>
+
+{% include clickable-image.html %}
