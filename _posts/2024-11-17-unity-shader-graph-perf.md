@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Improving Unity's shader graph
+title: Improving Unity's shader graph performance
 excerpt:
 tags: []
 ---
