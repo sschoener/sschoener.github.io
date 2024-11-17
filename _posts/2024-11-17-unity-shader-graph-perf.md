@@ -84,7 +84,7 @@ Here is the shader that is generated for the "HDRP Lit" graph from the samples (
 
 Note that this doesn't mean that shader variants are completely broken with shader graph. In the picture above, we still check `_EMISSIVE_COLOR_MAP`. We could have just stopped wasting work on all the `KEYWORD_PERMUTATION_X` stuff.
 
-I have tried to look at the compiled shader code to see if there is runtime impact, but Unity's button for that just crashes things: Instead of 102 variants, it compiles tens of thousands of them and then runs out of memory while loading them all into memory. Sigh.
+I have tried to look at the compiled shader code to see if this affects codegen, but Unity's button for that just crashes things: Instead of 102 variants, it compiles tens of thousands of them and then runs out of memory while loading them all into memory. Sigh.
 <p align="middle">
   <img src="/img/2024-11-17-unity-shader-graph-perf/04-button-crash.png" alt="The compile and show code button that crashes the editor" />
 </p>
