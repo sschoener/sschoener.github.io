@@ -104,7 +104,7 @@ Equipped with this knowledge and no intention to properly fix this for now, we c
 
 Obviously there are more intelligent things you could do here: caches! incremental updates! timeslicing! multithreading! async updates! But it's a bad idea to reach for even a slightly clever solution when you haven't yet addressed the obviously silly. Clever solutions have a tendency to make everything more complex. Complexity is bad. Additionally, complex solutions are still going to be worse when they are held back by a lot of silly problems. For example, in the context of Mono trying to (say) multithread heavily GC-allocating code is pointless, because there's a lock around GC allocations. So it's pointless to multithread this before reducing the number of allocations.
 
-Where does this leave us after 2 days? We're at ~185ms now (~170ms for the graph update) vs. 1.3s. Still bad (it's still Mono), but noticeably faster. Other operations thatare still painfully slow (undo!) and it at least feels much better in comparison.
+Where does this leave us after 2 days? We're at ~185ms now (~170ms for the graph update) vs. 1.3s. Still bad (it's still Mono), but noticeably faster. Other operations are still painfully slow (undo! - next week?) and it at least feels much better in comparison.
 
 <p align="middle">
   <img src="/img/2024-11-17-unity-shader-graph-perf/07-after.png" alt="Measurement of the improved state in Superluminal" />
