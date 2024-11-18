@@ -2,7 +2,7 @@
 layout: post
 title: A word on using modern C# in Unity
 excerpt:
-tags: []
+tags: [unity]
 ---
 
 _Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_

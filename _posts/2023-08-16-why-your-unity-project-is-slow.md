@@ -2,7 +2,7 @@
 layout: post
 title: Why your Unity Project is slow in the Editor
 excerpt: Things you can do to improve the editor experience in your Unity project
-tags: []
+tags: [unity]
 ---
 
 _Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
