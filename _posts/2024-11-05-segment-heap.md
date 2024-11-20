@@ -22,16 +22,37 @@ If this is your application, you can enable the new segment heap via the [applic
 If you want to enable the segment heap per executable, set this registry key:
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\<YOUR EXECUTABLE NAME HERE>
-FrontEndHeapDebugOptions = 0x08
+ - FrontEndHeapDebugOptions (DWORD) = 0x08
 ```
-That's a DWORD key (so 32bit). Bit 3 is set for enabling the segment heap. The executable name is literally the name of the executable, e.g. `Profiler.exe`. There is no way to distinguish between executables with the same binary name but different paths.
+That's a DWORD key (so 32bit). Bit 3 is set for enabling the segment heap. The executable name is literally the name of the executable, e.g. `Profiler.exe`. This will apply to _all_ executables of that name.
+
+Let's talk about `FrontEndHeapDebugOptions` for a moment. This is a bit-field, and you can also explicitly disable the segment heap as an override. Possible values are here:
+```
+0x08 - enable segment heap
+0x04 - disable segment heap (override). Useful when you globally enabled the segment heap but want to selectively disable it.
+```
+
+In "newer" Windows versions (since Windows 7, I believe?) you can also be more specific in what binaries you apply overrides to. You can't just filter by name, but also by path. This requires a slightly different setup. This is probably simpler to explain with a made-up example:
+
+```
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe
+- UseFilter (DWORD) = 0x1 -- non-zero value indicates that we use filters
+- FrontEndHeapDebugOptions (DWORD) = 0x0 -- this is the default value to use for all notepad.exe, unless a filter matches
+- FilterClause1 (KEY) -- this is a subkey of an arbitrary name that represents one filter clause
+-- FilterFullPath (STRING) = "C:\Windows\notepad.exe" -- if an executable matches this precise path...
+-- FrontEndHeapDebugOptions (DWORD) = 0x8 -- ...then apply these exact options
+- FilterClause2 (KEY) -- this is another filter clause
+-- FilterFullPath (STRING) = "C:\Windows\SysWOW64\notepad.exe" -- if an executable matches this precise path...
+-- FrontEndHeapDebugOptions (DWORD) = 0x4 -- ...then apply these exact options
+```
+
+At the top-level, right below `notepad.exe`, we set up some default options for the heap and then also specify that we want to use a filter. Then there are subkeys whose names don't matter (I've called them `FilterClause1` and `FilterClause2`) that allow you to override settings for specific paths. You specify the full path of your binary in `FilterFullPath` and then put whatever options you want next to it.
 
 If you want to enable the segment heap globally, set
 ```
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Segment Heap
-Enabled = 1
+Enabled (DWORD) = 1
 ```
-That's also a DWORD key.
 
 To satisfy my curiosity, I have enabled the segment heap for the program that had the contention problem above. Note that the picture below is *not* an apples-to-apples comparison to the picture above: I don't have the source, I don't have symbols, I have imperfect knowledge about what the app is doing, I am comparing completely different timeranges. However, the scenario is similar: there are two threads that are both allocating, as before, and they _do not_ constantly contend over a lock in the heap allocator. (They both still spend a lot of their time on just allocating things.) Looking at the calltree, it is evident that we are now using a different implementation behind the scenes:
 
