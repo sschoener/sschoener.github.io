@@ -87,6 +87,6 @@ Now to address some questions I got from last time:
 
  * "What is this wondrous profiler you are using there? It looks so smooth and responsive." That's [Superluminal](https://superluminal.eu/). It has mixed-callstack support (C#/native) for Unity. It's very good.
  * "Will all of this go away once Unity is on CoreCLR?" I hope it's going to be better! CoreCLR has much better codegen, but quadratic stuff always explodes eventually. Also, I am not willing to wait for that. But I'm interested to see where it goes :)
- * "When is this going to get fixed in Unity?" I don't know, I don't work there. If you want this or something else fixed, get in touch and we can figure out the terms. That applies to Unity as well.
+ * "When is this going to get fixed in Unity?" I don't know, I don't work there. If you want this or something else improved, get in touch and we can figure out the terms. Unity are free to do that and reach out as well, if they want to.
 
 {% include clickable-image.html %}
