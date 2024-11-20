@@ -78,7 +78,7 @@ This again is not news for any Unity users: They have been pooling everything fo
 
 So what are we going to pool? The most common element in our graph is the "slot" - the connection point for an edge - and its associated view. Let's pool that. There's more we could reasonably pool, but the 3h I set as a time box is up.
 
-We're at 1s now (vs. 2.4s) and a large chunk of that is a codepath (RenderPreviews) that I have looked at last time, and those optimizations aren't included here yet.
+We're at 1s now (vs. 2.4s) and a large chunk of that is a codepath (`RenderPreviews`) that I have looked at last time, and those optimizations aren't included here yet.
 <p align="middle">
   <img src="/img/2024-11-20-unity-shader-graph-perf-2/10-final-measurement.png" alt="Final measurement" />
 </p>
