@@ -68,7 +68,7 @@ We spend some time re-creating the inspector UI for every single node in the gra
   <img src="/img/2024-11-20-unity-shader-graph-perf-2/09-refresh-inspector.png" alt="Refreshing the inspector" />
 </p>
 
-Now for the rest outside of the inspector. We first remove existing elements for nodes, then we add new ones, then we add edges, and then we again re-create some node UI.
+Now for the rest outside of the inspector: We first remove existing nodes, then we add new ones, then we add edges, and then we again re-create some node UI (to react to the changes to edges).
 
 I conceptually like that we rebuild everything from scratch: it's a simple solution. In another (non-Mono) environment, this would likely work for a long time, but here it doesn't scale. Maybe this is a place where we need to add a little bit of complexity.
 
