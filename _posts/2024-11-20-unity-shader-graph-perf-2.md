@@ -14,14 +14,14 @@ A word on methodology: I am measuring on Unity 6000.27f1 (latest as of writing),
 Second, I noticed while measuring this is that once I put Unity into the background, CPU usage goes up sharply. Something about rendering changes, which probably makes the number of GPU fences grow wildly, and we're getting slower every frame.
 
 <p align="middle">
-  <img src="/img/2024-11-20-unity-shader-graph-perf/01-background.png" alt="Unity getting slower in the background" />
+  <img src="/img/2024-11-20-unity-shader-graph-perf-2/01-background.png" alt="Unity getting slower in the background" />
 </p>
 ![alt text](image.png)
 
 I accidentally left Unity running in the background with shadergraph open, and when I tried to switch back, Unity froze: the frames had reached a duration of 31s. You can see where it went back to the foreground again and unfroze (red marker). But I digress.
 
 <p align="middle">
-  <img src="/img/2024-11-20-unity-shader-graph-perf/02-long-background.png" alt="Unity being very slow in the background" />
+  <img src="/img/2024-11-20-unity-shader-graph-perf-2/02-long-background.png" alt="Unity being very slow in the background" />
 </p>
 
 Now to the actual thing I want to measure. Here is me undoing adding an edge divider in the HDRP Lit graph. Takes 2.4s. Roughly 500ms were previously discussed (red box). And then there's ~500ms of GUI update that comes on top (right side).
@@ -80,7 +80,7 @@ So what are we going to pool? The most common element in our graph is the "slot"
 
 We're at 1s now (vs. 2.4s) and a large chunk of that is a codepath (RenderPreviews) that I have looked at last time, and those optimizations aren't included here yet.
 <p align="middle">
-  <img src="/img/2024-11-20-unity-shader-graph-perf-2/10-final.png" alt="Final measurement" />
+  <img src="/img/2024-11-20-unity-shader-graph-perf-2/10-final-measurement.png" alt="Final measurement" />
 </p>
 
 Now to address some questions I got from last time:
