@@ -9,9 +9,9 @@ _Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), 
 
 [Last time]({% post_url 2024-08-15-more-callstacks %}), I promised to look at shader graph undo next because we still see annoying stalls there. I have 3h of time today, let's see how far we get.
 
-A word on methodology: I am measuring on Unity 6000.27f1 (latest as of writing), Win11. I have imported Unity's "Production Ready" shader graph samples into a new, empty HDRP project. The machine I'm using is an expensive high-end Laptop built 3 weeks ago. I have reverted all of my previous changes to avoid any claims that I introduced any of the problems here. As a first note, importing the "Production Ready" samples in Unity generates a lot of interesting errors. Most of them are irrelevant here.
+A word on methodology: I am measuring on Unity 6000.27f1 (latest as of writing), Win11. I have imported Unity's "Production Ready" shader graph samples into a new, empty HDRP project. The machine I'm using is a high-end Laptop built 3 weeks ago. I have reverted all of my previous changes to avoid any claims that I introduced any of the problems here. As a first note, importing the "Production Ready" samples in Unity generates a lot of interesting errors. Most of them are irrelevant here.
 
-Second, I noticed while measuring this is that once I put Unity into the background, CPU usage goes up sharply. Something about rendering changes, which probably makes the number of GPU fences grow wildly, and we're getting slower every frame.
+Second, I noticed while measuring this that once I put Unity into the background, CPU usage goes up sharply. Something about rendering changes, which probably makes the number of GPU fences grow wildly, and we're getting slower every frame.
 
 <p align="middle">
   <img src="/img/2024-11-20-unity-shader-graph-perf-2/01-background.png" alt="Unity getting slower in the background" />
