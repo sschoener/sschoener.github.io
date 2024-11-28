@@ -15,7 +15,7 @@ Sometimes the change in behavior is painfully obvious ("I changed an API, your p
 
 Sometimes the change in behavior is more subtle ("I fixed a bug in this API, because it didn't do what I thought it should do, but it's impossible to write down a spec for this anyway so your mileage may vary") and the consequent breakage is slightly more cursed, but you are free to introduce those in minor versions.
 
-Finally, sometimes the change in behavior is in a dimension that people don't think about until it explodes ("I refactored a system to be 'more maintainable' and now it is 3% slower, which pushed you over your frame budget", "I made this code faster and now your race condition in your code is more likely to happen" or "I added a new internal API, so binary sizes went up, and now you cannot ship on Platform X anymore").
+Finally, sometimes the change in behavior is in a dimension that people don't think about until it explodes ("I refactored a system to be more maintainable and now it is 3% slower, which pushed you over your frame budget", "I made this code faster and now your race condition in your code is more likely to happen" or "I added a new internal API, so binary sizes went up, and now you cannot ship on Platform X anymore").
 
 All of this is to say that backwards compatibility is not really a well-defined thing but more a commitment to your community along the lines of "we do our best to not break you, and if we do, we try to make it up to you."
 
