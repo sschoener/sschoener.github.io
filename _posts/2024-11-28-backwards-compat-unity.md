@@ -5,6 +5,8 @@ excerpt: What is it, and why do people care?
 tags: [unity]
 ---
 
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+
 This note is inspired by some conversations with Unity users, who ask "why is backwards compatibility important?" I wanted to reflect on that for a bit.
 
 First, what does backwards compatibility even mean? In the broadest sense, it means that someone that depends on your code can update the version of your code that they are using without their product breaking in the process.
