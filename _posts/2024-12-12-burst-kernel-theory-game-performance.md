@@ -48,7 +48,7 @@ You can get around this by using function pointers: The function pointer is reso
 For curiosity's sake, I have put one central part of Unity's ECS behind function pointers, and compile times immediately dropped by almost 25% (from 8min to 6min) in the project I tested. Burst compilation looks like this, by the way:
 
 <p align="middle">
-  <img src="/2024-12-12-burst-kernel-theory-game-performance/burst-compilation.png" alt="" />
+  <img src="/img/2024-12-12-burst-kernel-theory-game-performance/burst-compilation.png" alt="32 thread viciously fighting over locks" />
 </p>
 
 There are two sections in the profile here: in the second section, Burst is actually busy in LLVM-land compiling code. The first section however consists of Burst figuring out what to compile and how to do it. That section is best described as "32 threads fighting over three central locks." One of these locks is the GC lock in Mono because Burst allocates _a lot_, which is not a great recipe for success on multi-threaded Mono workloads (this is better when you make a build, where Burst does not run on Mono, but that is irrelevant since we need Burst in the editor). But I digress.
@@ -56,3 +56,5 @@ There are two sections in the profile here: in the second section, Burst is actu
 For the converse experiment, I have generated 1000 systems (in one assembly) that each playback an ECB. That takes multiple minutes to compile, in an empty project. Without the ECB playback, compilation is near instant. With a single system with ECB playback the cost is still on the order of seconds. As a control group, I have also generated 1000 systems that just allocate a list instead of playing back an ECB, and that compiles in the sub-second range. (From the results it looks like Burst is recompiling the ECB code many times, even within the same assembly.)
 
 Let's zoom out again: What happened? Someone built a tool that is arguably quite good at what it was originally supposed to do. Then the requirements changed over time, and things got worse: I can imagine that Burst was originally never meant to run on Mono, so the GC allocations did not matter as much. Then the use case changed, and things got _even worse_: we are no longer just compiling small, self-contained kernels - no, we compile everything. At no point did anyone intend to make this a bad experience. And that's how you get to the present day, where running these experiments took me almost a day because I spent so much time just waiting around miserably.
+
+{% include clickable-image.html %}
