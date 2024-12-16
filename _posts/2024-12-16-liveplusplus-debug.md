@@ -25,11 +25,13 @@ Live++ has a feature for intercepting crashes in your program. This makes sense,
 
 Who writes code that is so obviously wrong and stupid? _Me_, of course! This is in fact a dramatic reenactment of a bug I recently produced all by myself, where I was first setting something to null and then used it on the next line while releasing some resources. I am very smart: s-m-r-t.
 
-If you do not have a debugger attached, or you continue execution in your debugger, you will see this popup from Live++:
+If you do not have a debugger attached, or you continue execution in your debugger, you will see this popup from Live++ (or similar - this one is from an earlier version of the crash):
 
 <p align="middle">
   <img src="/img/2024-12-16-liveplusplus-debug/exception-handler.png" alt="" />
 </p>
+
+(Sidenote: Just because Windows decided it is fine to shorten my first name to "Sebas" does not mean that it is fine for you to do it. You have been warned, I may respond in kind.)
 
 There are a couple of options here: You can disable or ignore the faulting instruction, you can just leave the function, or continue and see what happens. All of them are useful. What I however am often looking for is "please let me fix the bug and then re-execute the function." Can we do this manually with Live++?
 
