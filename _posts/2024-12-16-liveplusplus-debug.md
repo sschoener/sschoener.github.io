@@ -49,7 +49,7 @@ With this small trick (that many are surely going to tell me is not really any n
 2. Drag the instruction pointer back to the start of the function you want to fix. In this case, drag the arrow first to the end of the `Release` function, then step out, then drag it all the way to the start of the `AccessViolation` function; directly on the first instruction. You can't directly drag it to the start of `AccessViolation`, because otherwise you would break the stack.
 3. Fix the bug.
 4. Hot reload in Live++.
-5. Continue stepping and see that we are now executing the new version of the code.
+5. Continue stepping from the start of the function and see that we are now executing the new version of the code.
 
 I didn't even have to re-enter the function for this: The old version of the function (which we are currently in) gets the redirection to the new function patched in at the very start. By placing the instruction pointer to re-execute the start of the function, the very next step is going to jump to the new version of the code. Live++ is smart enough to allow code-reloading while the debugger has paused the process. The code-reload might briefly confuse the debugger for a single step, but then it's back to regular operation.
 
