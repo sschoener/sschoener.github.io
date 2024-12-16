@@ -45,7 +45,7 @@ After all these years, I finally learn that you can actually drag those damn arr
 
 It is almost embarassing, because _of course_ I knew that it is very well possible to adjust the instruction pointer however I please. But it never occurred to me to do it outside of debugging assembly directly, because it was cumbersome, and now I can just drag and drop the instruction pointer.
 
-I have quickly learned to prefer to do this in the disassembly view instead of the source code view, because then I actually see where exactly I'm going and whether I am at risk of breaking something in a subtle way (e.g. skipping over a destructor). To point out the obvious, dragging the function pointer around _does not_ undo previously executed code. So unless you know what you are doing, you could leave your program in an arbitrarily broken state.
+I have quickly learned to prefer to do this in the disassembly view instead of the source code view, because then I actually see where exactly I'm going and whether I am at risk of breaking something in a subtle way (e.g. skipping over a destructor, trampling over arguments that are passed in registers). To point out the obvious, dragging the function pointer around _does not_ undo previously executed code. So unless you know what you are doing, you could leave your program in an arbitrarily broken state.
 
 With this small trick (that many are surely going to tell me is not really any news to them), here is my workflow:
 
