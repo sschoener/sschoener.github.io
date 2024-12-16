@@ -55,6 +55,6 @@ I didn't even have to re-enter the function for this: The old version of the fun
 
 Instead of just going back to the top of the function, we could leave the function (using Live++), do the hot-reload, and then step in again. Leaving the function using Live++ has the advantage of properly calling destructors (using stack unwinding). Before you hit "Leave function", you should manually place a breakpoint _after_ the call to your function: In order to use "Leave function" you had to continue in the debugger, so if you do not place a breakpoint, execution will just continue.
 
-You can probably tell, but I am having a great time with Live++. Fixing a bug like this for the first time and _then just continuing_ has been an absolute highlight (no linking! no restarting! no going through loading screens! etc.), and you quickly start to ask yourself how you got anything done before hotreload.
+You can probably tell, but I am having a great time with Live++. Fixing a bug like this for the first time and _then just continuing_ has been an absolute highlight (no re-linking of a large executable! no restarting! no going through loading screens! etc.), and you quickly start to ask yourself how you got anything done before hotreload.
 
 {% include clickable-image.html %}
