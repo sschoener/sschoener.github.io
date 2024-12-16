@@ -23,7 +23,9 @@ Live++ has a feature for intercepting crashes in your program. This makes sense,
   <img src="/img/2024-12-16-liveplusplus-debug/bug.png" alt="" />
 </p>
 
-Who writes code that is so obviously wrong and stupid? _Me_, of course! This is in fact a dramatic reenactment of a bug I recently produced all by myself, where I was first setting something to null and then used it on the next line while releasing some resources. I am very smart: s-m-r-t. Back to the code: if you do not have a debugger attached, or you continue execution in your debugger, you will see this popup from Live++:
+Who writes code that is so obviously wrong and stupid? _Me_, of course! This is in fact a dramatic reenactment of a bug I recently produced all by myself, where I was first setting something to null and then used it on the next line while releasing some resources. I am very smart: s-m-r-t.
+
+If you do not have a debugger attached, or you continue execution in your debugger, you will see this popup from Live++:
 
 <p align="middle">
   <img src="/img/2024-12-16-liveplusplus-debug/exception-handler.png" alt="" />
