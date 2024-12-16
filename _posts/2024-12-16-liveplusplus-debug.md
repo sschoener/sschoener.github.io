@@ -11,11 +11,11 @@ _Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), 
 
 The integration is stupidly simple (quite literally ten lines of code to get started), and it doesn't require any integration into your build system beyond setting two or three compiler or linker flags. The magic sauce is that the debug info (e.g. PDB) for your program already contains enough information for how to rebuild and link single files. This means that Live++ already knows more about your build than your average developer does in a large codebase.
 
-In my work with large-ish codebases this has been a phenomenal addition to my toolbox: There is no chance that they get rewritten to support DLL-hotreload. But adding ten lines to get hotreload? Yea, absolutely.
+In my work with large-ish codebases this has been a phenomenal addition to my toolbox: There is no chance that they get rewritten to support DLL-hotreload. But adding ten lines to get hotreload? _Yes, please!_
 
 The real benefit is not just that I can skip recompilation and linking: it's that I don't have to restart the program and set my scenario up anew. I can just keep editing code and it works without kicking me out of the current program state (in my case: a running game).
 
-This post, however, is not a sales-pitch for Live++ (though I feel obligated to tell you that its asking price of 200 EUR per year for a business license is ridiculously low if you consider how many hours this is saving _every day_, and there is a free 30 day trial). No, I am writing this because I wanted to share a thing I learned while using Live++ with Visual Studio. Live++ has a feature for intercepting crashes in your program. This makes sense, because my live-iteration workflow definitely involves screwing up. Take a look here at this failure happening (in the debugger):
+This post, however, is not a sales-pitch for Live++ (though you should take a look and do the math: Live++ is a net-positive if it only saves me a few _hours_ per year (!), and it saves me hours per day). No, I am writing this because I wanted to share a thing I learned while using Live++ with Visual Studio. Live++ has a feature for intercepting crashes in your program. This makes sense, because my live-iteration workflow definitely involves screwing up. Take a look here at this failure happening (in the debugger):
 
 <p align="middle">
   <img src="/img/2024-12-16-liveplusplus-debug/bug.png" alt="" />
