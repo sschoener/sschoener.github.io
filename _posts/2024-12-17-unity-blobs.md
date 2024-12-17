@@ -57,7 +57,7 @@ This thing is a landmine that I have found the other day. Do you know what a C# 
   <img src="/img/2024-12-17-unity-blobs/debugger-view.png" alt="" />
 </p>
 
-I say that it only calls `ToString()` onl "sometimes" because I noticed that Rider's debugger in particular will make educated guesses about what to show. For example, for this example to run into problems you apparently need to have two `BlobString` members, not just one. This makes the problem even more obtuse.
+I say that it calls `ToString()` only "sometimes" because I noticed that Rider's debugger in particular will make educated guesses about what to show. For example, for this example to run into problems you apparently need to have two `BlobString` members, not just one. This makes the problem even more obtuse.
 
 Rider has a setting to disable implicit evaluation and function calls (`Settings -> Debugger -> Allow property evaluations and other implicit function calls`) so that you no longer crash automatically, but you can now crash "on-demand" when you inadvisably click on something to view its value. (To be clear, I place no blame on Rider, at all.)
 
