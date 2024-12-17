@@ -1,7 +1,6 @@
 ---
 layout: post
-title: Unity's blob assets are irreparably broken
-excerpt: Or "why does my debugger keep crashing"
+title: Unity's blob assets break your debugger
 tags: [unity]
 ---
 
