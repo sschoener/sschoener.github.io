@@ -24,7 +24,7 @@ I do not know much about the author [Taylin John Simmonds](https://x.com/TaylinS
 
 To paraphrase: Your problem is not overthinking -- it's underdoing.
 
-The framing of "underdoing instead of overthinking" resonates greatly with me. The changes I have made in my life over the last two years were not about reducing, restricting, or controlling the amount, depth, or breadth of my thoughts: I am a thinker by nature, and I have more adventures left purely in the confines of my head than I will ever have time for.
+The framing of "underdoing instead of overthinking" resonates greatly with me. After all, the changes I have made in my life over the last two years were not about reducing, restricting, or controlling the amount, depth, or breadth of my thoughts: I am more inclined to think by nature, and I have more adventures left purely in the confines of my head than I will ever have time for.
 
 No, the changes were about overcoming the fears that inhibit action. "Overcoming"  means "acknowledge the fear and then proceed anyway." Do that constantly, consistently, and over time ~~it gets better~~ you get better.
 
