@@ -30,12 +30,14 @@ No, the changes were about overcoming the fears that inhibit action. "Overcoming
 
 In the small, I observe fear mostly in programming: Is this worth building? Do I even know what I am doing? Is this good enough? Are my opinions even worth stating? Should I use X or Y? Am I right about this? etc. -- While programming is a discipline where you can get quite far with extensive thinking alone, thinking _and_ doing will get you further: Thinking can give you insight, maybe. Doing on the other hand will give you learning and experience, _even when you do the wrong things_.
 
+Fear is not rational, and a powerful tool to overcome fear is familiarity, and you get there by _doing_ and _interacting_. I first noticed this in abstract mathematics: before you can fully embrace a concept, problem, or idea you need to overcome the fear and distance you have to it. I experience this familiarity as distinctly different from practical mastery of using or applying the idea. This is similar to repairing your parents' printer: it's not that you know more about their printer, you are merely more familiar with technology and less afraid to try.
+
 Over the last two years in particular, I have become a much more fearless (or _less fearful_?) programmer, which mostly means that (I believe) I make better decisions, quicker, and focus more on what matters. One part here is just programmer self-esteem, and for that it was helpful to switch jobs and experience that in a completely different environment I am still very good at what I am doing. Another part is practicing execution; this here helped:
  * Accept more and larger reponsibilities.
  * Solve more concrete problems. Close doors if it helps. Implement plan B first.
  * Take small steps and focus on today's problems, mostly, while having a plan for the long run. I wrote about this in [Programming Stamina]({% post_url 2024-07-21-programming-stamina %}).
 
-For the next year, I hope to spend more timing painting in broad strokes: more "create a good-enough first version" and less "polish version 2.0 to be even better". More 80% solutions.
+For the next year, I hope to spend more timing painting in broad strokes: more "create a good-enough first version" and less "polish version 2.0 to be even better". More 80% solutions. More "let's just try this."
 
 In the large (outside of programming), I have also taken plenty of actions that required overcoming a good bit of inertia and fear:
  * I have started to more seriously learn to play an instrument, see [100 days of piano practice]({% post_url 2023-12-05-piano-practice %}). Yes, I am still at it and playing piano. It took me a long while to be comfortable with the idea of repeated failure as systematic success but it has become second nature by now.
@@ -44,5 +46,6 @@ In the large (outside of programming), I have also taken plenty of actions that 
 
 Finally, I have been quite active on this blog: 30 entries this year. You may not realize this, but to me every blog post is an opportunity to screw up and look like a complete idiot to everyone I know, and in the spirit of this post I have embraced that by now.
 
+---
 
-[^bias]: Regulars may recall my musings about [Getting Shit Done]({% post_url 2024-07-27-get-shit-done %}), to which my colleague Andrew Grant from Epic Games added the excellent criterion of "bias to action." Very much related, I think.
+[^bias]: Regular readers may recall my musings about [Getting Shit Done]({% post_url 2024-07-27-get-shit-done %}), to which my colleague Andrew Grant from Epic Games added the excellent criterion of "bias to action." Very much related, I think.
