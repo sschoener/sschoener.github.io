@@ -26,7 +26,7 @@ public static class Adder
 
 Let us take a look at the generated code in Release mode:
 
-```asm
+```
 000001846cde4070 48 83 ec 18                    sub rsp, 0x18
 000001846cde4074 48 89 0c 24                    mov [rsp], rcx
 000001846cde4078 48 89 54 24 08                 mov [rsp+0x8], rdx
@@ -39,7 +39,7 @@ Let us take a look at the generated code in Release mode:
 This is already not great. The arguments "spill" on the stack, which might be a consequence of compiling IL opcodes one-by-one (IL is entirely stack based). But the core of the function is at least visible: it is adding two numbers.
 
 Here is the code when compiling this same code in Debug. Warning, explicit content ahead:
-```asm
+```
 00000185f4a46b40 48 83 ec 28                    sub rsp, 0x28
 00000185f4a46b44 4c 89 3c 24                    mov [rsp], r15
 00000185f4a46b48 48 89 4c 24 18                 mov [rsp+0x18], rcx
@@ -123,21 +123,21 @@ inline typename pick_bigger<T, U>::type il2cpp_codegen_add(T left, U right)
 ```
 
 and the compiled output is the very sensible
-```ASM
+```
 lea eax, [rcx, rdx]
 retn
 ```
 
 For completeness sake, let's also look at what modern dotnet on CoreCLR does to this and what MSVC is doing without optimizations. I am using [SharpLab](https://sharplab.io) to look at the results. In Release, you get this with CoreCLR:
 
-```ASM
+```
 Adder.Add(Int32, Int32)
     L0000: lea eax, [rcx+rdx]
     L0003: ret
 ```
 
 Debug is already quite a bit worse. Note that we again seem to be checking for some global flag.
-```ASM
+```
 Adder.Add(Int32, Int32)
     L0000: push rbp
     L0001: sub rsp, 0x30
