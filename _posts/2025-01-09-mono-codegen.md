@@ -98,7 +98,7 @@ Wow, what happened here? Can you still find the actual work this function is per
 
 Here is what is happening, as far as I understand it: In contrast to a native debugger, you do not debug Mono by carefully placing `int 3` breakpoints. No, it requires a litte more cooperation. At every sequence point in the function (so basically between every IL opcode, and at function start and end), we check for whether there is a breakpoint there by checking R11 (`test r11, r11`) and then invoking special debug behavior through a function pointer. At the very start of the function, those two function pointers are set up. Then during execution the debugger would presumably patch the 4 zero bytes in the `mov r11d, 0x0` instruction preceeding the R11 check to indicate that it should break. There is an additional check for single-stepping. The labelling above and in `ASM Explorer` might be wrong: it is mixing up the singlestepping trampoline with the breakpoint trampoline. But in the big picture, this is irrelevant.
 
-Most of this debug code above will never execute, but that does not mean it is free: it takes active effort to ignore the code, there are tons of new jumps that will mess with branch prediction, etc. Clearly, even if "number of instructions" is a very bad proxy for performance, it should be agreeable that this generated code above is not great. -- Empirically, Release builds are just much faster across the board.
+Most of this debug code above will never execute, but that does not mean it is free: it takes active effort to ignore the code, there are tons of new jumps that will mess with branch prediction, etc. Clearly, even if "number of instructions" is a very bad proxy for performance, it should be agreeable that this generated code above is not great. -- Regardless, you can measure this impact. Release builds are just much faster across the board.
 
 For completeness, let's look at an optimized IL2CPP build as well. The code looks like this:
 
@@ -136,7 +136,7 @@ Adder.Add(Int32, Int32)
     L0003: ret
 ```
 
-Debug is already quite a bit worse. Note that we again seem to be checking for some global flag.
+Debug is already quite a bit more verbose. Note that we again seem to be checking for some global flag.
 ```
 Adder.Add(Int32, Int32)
     L0000: push rbp
