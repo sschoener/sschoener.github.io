@@ -161,6 +161,8 @@ Adder.Add(Int32, Int32)
     L003c: ret
 ```
 
+(Addendum: My friend Alexandre Mutel [points out](https://mastodon.social/@xoofx/113800539551817044) that in addition to the better codegen, CoreCLR is also capable of only compiling _your_ code in Debug, while all of the rest of the C# code in the application can enjoy full optimizations.)
+
 Now, finally, MSVC with `/Od`:
 
 ```
