@@ -11,7 +11,7 @@ Recently, while doing things I probably should not be doing in the first place, 
 0xC0000005: Access violation reading location 0xFFFFFFFFFFFFFFFF
 ```
 
-It happened in a call to `CloseHandle`, so I looked at the assembly listing: We are attempting to write to`[RBP+0x170]`, where `RBP` is `0xC89C3FF4E8`. Uh, what? How do we get from that to `0xFFFFFFFFFFFFFFFF`? If you know the Windows x64 calling conventions really well, you probably already have alarm clocks ringing in your head.
+It happened in a call to `CloseHandle`, so I looked at the assembly listing: We are attempting to write to `[RBP+0x170]`, where `RBP` is `0xC89C3FF4E8`. Uh, what? How do we get from that to `0xFFFFFFFFFFFFFFFF`? If you know the Windows x64 calling conventions really well, you probably already have alarm clocks ringing in your head.
 
 I had to re-read the assembly not once, not twice, but three times before I figured out what is happening:
 
