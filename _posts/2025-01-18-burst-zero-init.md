@@ -16,7 +16,7 @@ Even if you never trigger these checks, these checks have a pretty steep cost pu
 
 In the case of Burst and safety checks, the issue is more subtle. Burst does not have regular `string` support, because that is a managed type. However, the Unity Collections package has various `FixedStringX` types, where `X` could be a number like 128 or 512. Those are value types with a buffer of the indicated size. Burst supports these types for handling strings. These strings need to go somewhere, and they end up on the stack. C# demands that every local variable is zero-initialized, and now you need to very regularly zero-initialize these buffers. But wait! These buffers are only used when the safety check fails, right? Alas, the IL below the C# has no notion of block-scoped local variables (for all I can tell), so whatever happens in a branch still affects the entire function.
 
-OK, but setting things to zero can't be _that_ expensive, right? Uh. Oh. Bad news, this is from `EntityQueryImpl.GetSingleton<T>`:
+OK, but setting things to zero can't be _that_ expensive, right? Uh. Oh. Bad news, this is what [Superluminal](https://superluminal.eu/) reveals for `EntityQueryImpl.GetSingleton<T>` compiled with Burst:
 
 <p align="middle">
   <img src="/img/2025-01-18-burst-zero-init/step-1.png" alt="" />
@@ -27,6 +27,8 @@ Note that we spend a ridiculous proportion of the time before we even execute an
 <p align="middle">
   <img src="/img/2025-01-18-burst-zero-init/step-2.png" alt="" />
 </p>
+
+The `vxorps xmm0, xmm0, xmm0` zeroes out `xmm0` and its upper bits (`= ymm0`, this is on a very common piece of consumer hardware with AVX support that I shall not further specify).
 
 If you look at the IL in say `dotPeek`, you will find this near the top of the function:
 ```
