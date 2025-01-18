@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Burst and "zero cost"
+title: Burst and zero cost
 tags: []
 ---
 
