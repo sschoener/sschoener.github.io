@@ -19,7 +19,7 @@ As a first step, we took two captures in Unity's profiler: one with two job work
 
 Once you open `Profile Analyzer`, click the `Compare` tab (marked below with a red 1). You usually want to have _both_ the profiler window and the Profile Analyzer open, if only because you cannot directly load profiler captures into Profile Analyzer. The save/load buttons (near the red 2) only operate on data that has already been processed in Profile Analyzer. To get your profile capture itself into Profile Analyzer, you have to load the capture in the profiler window itself and then click the `Pull Data` button. Then repeat this for the second trace and click the `Pull Data` button of the other color. Once you have pulled data for both captures, you can use Profile Analyzer to compare the two traces in detail. You can set up some filters in the filter section (near the red 3). In this case, I selected only the job worker threads (because I already compared the main thread) and I am filtering profiler markers by the substring `VFX` (because I already know where this is going).
 
-Finally, in the table at the bottom you can sort the different markers by various criteria: "Absolute Difference" in times (near the red 4) is the most useful one for this case.
+Finally, in the table at the bottom you can sort the different markers by various criteria: "Absolute Difference in median time" (near the red 4) is the most useful one for this case.
 
 <p align="middle">
   <img src="/img/2025-01-21-unity-vfx-graph-multithread/profile-analyzer.png" alt="" />
