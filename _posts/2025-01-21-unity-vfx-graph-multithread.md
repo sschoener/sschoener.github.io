@@ -22,7 +22,7 @@ Once you open `Profile Analyzer`, click the `Compare` tab (marked below with a r
 Finally, in the table at the bottom you can sort the different markers by various criteria: "Absolute Difference" in times (near the red 4) is the most useful one for this case.
 
 <p align="middle">
-  <img src="/img/2025-01-21-unity-vfx-graph-multithread/profiler-analyzer.png" alt="" />
+  <img src="/img/2025-01-21-unity-vfx-graph-multithread/profile-analyzer.png" alt="" />
 </p>
 
 Would you believe it: 2 worker threads take 0.06ms for `VFXBatch.Update`, while 5 worker threads take 2.41ms per frame. One possible-but-unlikely explanation is that in the case with 2 worker threads the majority of that VFX batch update is happening on the main thread. I have ruled this out by also looking at the main thread: yes, there is some variation, but let's be generous and say that the 2 worker thread scenario could take 0.2ms instead of 0.06. That still leaves a factor of 10 slowdown for this particular part. This difference is still so shocking that I ended up re-checking everything with another set of two Unity captures.
