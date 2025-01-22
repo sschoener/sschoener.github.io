@@ -5,7 +5,7 @@ excerpt: What is it, and why do people care?
 tags: [unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 This note is inspired by some conversations with Unity users, who ask "why is backwards compatibility important?" I wanted to reflect on that for a bit.
 

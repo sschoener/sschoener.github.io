@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 It's the end of the year (2024), and looking back not just on the last year but probably the last two, I am pretty content with how things went. One particular theme I can recognize not just in retrospect but have also explicitly acted upon is that of intention and action: What do I want, and can I take steps towards that?
 

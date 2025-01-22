@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 [Live++](https://liveplusplus.tech/) is a fantastic product that enables hot reload for C++ code in pretty much arbitrary codebases on Windows (and XBox and Playstation). The neat part is that it doesn't require any specific setup like splitting all of your code into reloadable DLLs or similar, and it plays nicely with the subtleties of reloading code (what happens to global data defined in the reloaded compilation units? etc.).
 

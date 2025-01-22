@@ -4,7 +4,7 @@ title: A curious access violation
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 Recently, while doing things I probably should not be doing in the first place, I ran into an access validation that really threw me off: 
 ```

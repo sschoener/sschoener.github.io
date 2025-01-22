@@ -5,7 +5,7 @@ excerpt:
 tags: [Unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 In the context of Unity, Burst often provides huge speed-ups compared to Mono at the cost of placing more restrictions on the code you can actually write. Burst has a leg up on Mono because Burst actually makes a good effort to optimize your code whereas Mono is more about getting the code running in the first place.
 

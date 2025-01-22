@@ -5,7 +5,7 @@ excerpt:
 tags: [unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 A tech artist came to me and said "whenever we touch anything in a Unity shader graph, the editor stalls. It's painfully annoying." And yes, any meaningful change to the graph stalls the editor. Sometimes a bit, sometimes long. So I decided to improve this a bit. Time-boxed to two days (with some interruptions) and see how far I get. The goal is not to do clever optimizations but to stop doing silly things and see where that leads. Here is what I have found.
 

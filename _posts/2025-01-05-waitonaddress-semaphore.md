@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 In the Unity engine, the job system is a mechanism for off-loading work from the main thread to worker threads by creating work ("jobs") and pushing that over to other threads. Very similar concepts exist in almost every engine. A poorly implemented job system can make it so that your game actually gets _slower_ the more jobs you schedule, even when you are reasonably moving work out of the critical path. There are two common reasons for this slowdown: contention and scheduling cost. This post is about the latter. This was a common problm on Unity 2021.x, although the very specific problem I am describing here has been resolved in Unity 2022.x: Unity 2022.x features a new and improved job system.
 

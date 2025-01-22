@@ -4,7 +4,7 @@ title: Mono codegen - Release vs. Debug
 tags: [unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 I was convinced I had a post somewhere where I compare Mono's codegen for C# as used in Unity between Release and Debug. I was looking for it, so I could send it to a friend, but did not find it. Let's fill that gap.
 

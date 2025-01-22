@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 Burst of number four, Unity Drive, was proud to say that it was perfectly normal, thank you very much. It was the last compiler you'd expect to be involved in anything strange or mysterious, because it just didn't hold with such nonsense. But why then does it take _ages_ to compile anything in the editor when it is jitting code?
 

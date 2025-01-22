@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 For the last year and a bit I have actively been learning Swedish. Thankfully, Swedish is not a difficult language if you already know German: You take 2/3rds of the rules and you throw them away, mess with the pronounciation a bit, and start actually being friendly and treating people like humans, and then you get Swedish. It is a pragmatic language and one of the only languages I actually enjoyed learning. The other one being the famously equally pragmatic Latin, of course.
 

@@ -5,7 +5,7 @@ excerpt:
 tags: [Unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 Unity has recently undergone some drastic management changes that affect the entire technology stack, and I have some ideas for how to best take advantage of that. The management in question here is of course _memory management_, and by recent changes I mean that Unity 6 included some low profile changes in how native code interacts with managed memory (for the most part).
 

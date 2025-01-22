@@ -5,7 +5,7 @@ excerpt:
 tags: [unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 I want to talk about why Unity C# code is different. This is about editor performance, with nullable types as an example. There's some JSON parsing happening, which someone wants faster. (It has to be a JSON parser.) A significant portion here goes into peeking chars. "OK, that's where I/O is happening, duh." But no, there is a lot of work happening in this very PeekChar function. Look at the "Exclusive time" column in Superluminal.
 

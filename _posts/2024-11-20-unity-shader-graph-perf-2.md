@@ -5,7 +5,7 @@ excerpt:
 tags: [unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 [Last time]({% post_url 2024-08-15-more-callstacks %}), I promised to look at shader graph undo next because we still see annoying stalls there. I have 3h of time today, let's see how far we get.
 

@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 I recently wrote a few words about the cost of job scheduling ([The Whipping Boy Approach to Job Scheduling]({% post_url 2025-01-05-waitonaddress-semaphore %})), this is a follow-up to that post. The motivation for this excursion into job scheduling performance was a report that a Unity project I am involved with scales very poorly with an increased number of worker threads. I have since had the time to review some broader profiles from certain consumer platforms, and I have found something to blame outside of the job system (there might still be more to find). In fact, it is quite easy to find at least one of the reasons for a slowdown with the right tools. That's what we are going to talk about today.
 

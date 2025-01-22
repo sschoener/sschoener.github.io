@@ -5,7 +5,7 @@ excerpt:
 tags: [Unity]
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 For a while now, Unity has had a neat little feature: async, on-demand imports. It's not widely used or implemented, but it exists. This blog post is going to point you in the general direction of how to implement such an importer. TL;DR: [example is on Github](https://github.com/sschoener/unity-async-scripted-importer/).
 

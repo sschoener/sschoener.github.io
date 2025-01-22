@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 [CompileScore](https://github.com/Viladoman/CompileScore) is a wonderful tool for profiling compile times. I have used it a bunch in the past and wanted to document how to use this tool. I hope to draw attention to the fact that this tool exists and that you should be using it.
 

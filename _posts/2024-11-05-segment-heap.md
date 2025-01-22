@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener), [Bluesky](https://bsky.app/profile/sschoener.bsky.social), or [Twitter](https://twitter.com/s4schoener)!_
+_Hey! You can find me on [Mastodon](https://mastodon.gamedev.place/@sschoener) and [Bluesky](https://bsky.app/profile/sschoener.bsky.social)!_
 
 If you have profiled Windows applications for any length of time, you will know that multi-threaded workloads on Windows often end up contending over some lock in the default Windows allocator. In the screenshot below (from the awesome [Superluminal profiler](https://superluminal.eu/)), you can see that in the top right there are two threads actively doing work at the same time, yet their bars are not completely green as you would want them to be. Instead, there is a red lining at the top, indicating that these threads actually spend a lot of time on synchronization -- i.e. trying to acquire locks, waiting for signals. Then towards the bottom left, you can see that we spend roughly 950ms on synchronization -- and the majority of this is coming from trying to enter a Critical Section. That's the Windows version of a mutex. Looking at the callers, they all come from allocation functions that pass through `AllocatorNTHeapInternal`. Note the `NTHeap`.
 
