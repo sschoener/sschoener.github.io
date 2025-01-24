@@ -62,3 +62,5 @@ size_t Test(size_t x = 1024) {
 ```
 
 Finally, [Doug Binks](https://mastodon.gamedev.place/@dougbinks) pointed out [Fredrik Kihlander's](https://mastodon.gamedev.place/@wcduck) Github repository [dbgtools](https://github.com/wc-duck/dbgtools). It's a small cross-platform library that has logic for collecting callstacks among other things. The interfaces are nice and clean and you bring your own buffers everywhere, which is all I wanted in the first place.
+
+_UPDATE_: I have yet another follow-up post [here]({% post_url 2025-01-24-stack-walking-generated-code %}).
