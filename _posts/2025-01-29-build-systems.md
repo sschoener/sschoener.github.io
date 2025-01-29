@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Whoops, I wrote a build system
+title: How and why I wrote a build system
 excerpt:
 tags: []
 ---
