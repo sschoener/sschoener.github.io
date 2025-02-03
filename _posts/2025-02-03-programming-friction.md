@@ -25,4 +25,4 @@ And finally fifth, I have been ruthless in what I implement and what I do not im
 
 To my big surprise, the one thing that _was not_ relevant for reducing friction was the choice of language. Maybe there is a point to be made about the ecosystem. I like that C# has a broad and reasonable standard library and mature tooling, for example, but I personally vastly prefer a language that actually makes me touch the bytes myself and does not make me put everything into a class (- I still quite like C#! Just not as much as I used to). I just value being able to see the compiled code more than I do the convenience of not having to think about memory management (...until you inevitably need to but now have your hands tied behind your back). It turned out to be more fruitful to just implement the standard library myself instead of living with the constant base level of discomfort from using a tool that maybe just was not made for me.
 
-Finally, I am also happy to announce that I am now sponsoring DearImGui development.
+I am also happy to announce that I am now sponsoring DearImGui development.
