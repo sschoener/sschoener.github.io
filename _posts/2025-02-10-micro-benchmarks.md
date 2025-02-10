@@ -11,15 +11,17 @@ I was recently approached by a friend with a fun performance puzzle that sheds a
 
 With DOTS, you use an LLVM-based native compiler (Burst) to generate optimized machine code for a subset of C#. Unity's Entities package offers an implementation of the Entity-Component-System paradigm. Entities live in "chunks", which are blocks of memory that hold up to 128 entities of the same data layout. When an entity's data layout changes because a component was added or removed, the entity needs to be moved to another chunk. This is a stop-the-world operation: Nothing can run concurrently to this move. In Unity-parlance, this is called a "structural change".
 
-Structural changes create synchronization points in your frame that no Entities-related async job can pass. One way to avoid structural changes is to use "enabled-bits", which is a per-chunk and per-component-type bit field of 128 bits telling you which entities in that chunk have their component of that type enabled or disabled. To facilitate this there are at most 128 entities in a chunk. Disabled components can then be skipped during iteration. Enabled-bits bring their own sort of issues and complexities, but that is beyond the scope of this discussion.
+Structural changes create synchronization points in your frame that no Entities-related async job can pass. One way to avoid structural changes is to use "enabled-bits", which is a per-chunk and per-component-type bit field of 128 bits telling you which entities in that chunk have their component of that type enabled or disabled. Disabled components can then be skipped during iteration.
 
-Having enabled-bits is opt-in per component type. If your components do not support them, you can just ignore them. Otherwise you have to check which bits are enabled and only iterate over the entities in a chunk that have their bits sets. This requires you to compute the index of the next entity that has its bit set in the mask.
+Having enabled-bits is opt-in per component type. If your components do not support them, you can just ignore them. Otherwise you have to check which bits are enabled and only iterate over the entities in a chunk that have their bits sets.  For this you have to repeatedly compute the index of the next bit that is set in the mask.
 
-The performance puzzle then is this: My friend had rewritten the logic for getting the next bit position in the enabled bit mask to be more efficient. That logic was previously using a loop, and he implemented the same logic on the 128 bits using instructions such as `tzcnt`. In a real world scenario, this new approach is faster than the previous one. However, the real world test was followed by doubts and discussions, and as so often someone made the well-intended but ultimately problematic request of establishing a microbenchmark. So microbenchmarks were established, and the new `tzcnt` variant was unsurprisingly still faster. However, to my friend's surprise the `tzcnt` variant was _also_ faster than just ignoring the enabled bits in their entirety. How could this be?
+My friend had rewritten the logic for getting the next bit position in the enabled bit mask to be more efficient. That logic was previously using a loop. He switched it to a branchless approach that used just a few instructions (among them `tzcnt`). In a real world scenario, this new approach is faster than the previous one. However, the real world test was followed by doubts and discussions, and as so often someone made the well-intended but ultimately counterproductive request of establishing a microbenchmark. So microbenchmarks were established, and the new `tzcnt` variant was still faster.
 
-For benchmarking, there are a bunch of variants of a job that runs serially over chunks in a test scenario. The two variants we care about are called `ChunkIterTZCNT` and `ChunkIterForLoop`. The former uses `tzcnt` plus some bit fiddling to repeatedly find the indices of bits set in the mask (which in this test scenario is filled with ones). The latter just ignores the mask and goes over all entities. There is a bit of branchy code that we execute for each entity to calculate a value, which was meant to emulate real work.
+The performance puzzle then is this: to my friend's surprise the `tzcnt` variant was _also_ faster than just ignoring the enabled bits in their entirety. How could this be?
 
-In the below picture, you can see that `ChunkIterTZCNT` is faster than `ChunkIterForLoop` when testing it on 10000 chunks of 128 entities each.
+For benchmarking, there are a bunch of variants of a job that runs serially over chunks in a test scenario. The two variants we are going to look at are called `ChunkIterTZCNT` and `ChunkIterForLoop`. The former uses `tzcnt` plus some bit fiddling to repeatedly find the indices of bits set in the mask (which in this test scenario is filled with ones). The latter just ignores the mask and goes over all entities, which means we are doing strictly less work. There is a bit of branchy code that we execute for each entity to calculate a value, which is meant to emulate real work. 
+
+In the below picture, you can see that `ChunkIterTZCNT` is faster than `ChunkIterForLoop` when testing it on 10000 chunks of 128 entities each. There are more variants of the `tzcnt` approach in the pictures, but it is sufficient to just pick one of them here.
 
 <p align="middle">
   <img src="/img/2025-02-10-micro-benchmarks/image.png" alt="Profile Analyzer Timings" />
@@ -106,9 +108,10 @@ So here is what you get when you remove the branch everywhere to level the playi
   <img src="/img/2025-02-10-micro-benchmarks/image-2.png" alt="Profile Analyzer Timings with all median timings very close together" />
 </p>
 
-We could have likely achieved a similar effect using `Hint.Assume(x < 128)` in Burst, see [Assume docs](https://docs.unity3d.com/Packages/com.unity.burst@1.8/api/Unity.Burst.CompilerServices.Hint.Assume.html). For this single benchmark, this turns out to be incredibly important. In practice, this is likely going to be completely irrelevant. This is of course only one of the many, many problems a microbenchmark could have.
+We could have likely achieved a similar effect using `Hint.Assume(x < 128)` in Burst, see [Assume docs](https://docs.unity3d.com/Packages/com.unity.burst@1.8/api/Unity.Burst.CompilerServices.Hint.Assume.html). For this single benchmark, this turns out to be incredibly important. In practice, this is likely going to be completely irrelevant. This is of course only one of the many, many problems a microbenchmark could have. Maybe this one has even more!
 
-The lesson? Don't use microbrenchmarks to make your point unless you are also prepared to micro-profile.
+Even with this fixed, I would still suggest being incredibly careful about interpreting the results above, unless you really know what you are doing. My point is not that one of these variants is better or not (I do have opinions!) but that this approach went off into the wrong direction.
 
+The lesson? Don't use micro-benchmarking to make your point unless you are also prepared to micro-profile.
 
 {% include clickable-image.html %}
