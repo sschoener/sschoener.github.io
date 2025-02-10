@@ -109,3 +109,6 @@ So here is what you get when you remove the branch everywhere to level the playi
 We could have likely achieved a similar effect using `Hint.Assume(x < 128)` in Burst, see [Assume docs](https://docs.unity3d.com/Packages/com.unity.burst@1.8/api/Unity.Burst.CompilerServices.Hint.Assume.html). For this single benchmark, this turns out to be incredibly important. In practice, this is likely going to be completely irrelevant. This is of course only one of the many, many problems a microbenchmark could have.
 
 The lesson? Don't use microbrenchmarks to make your point unless you are also prepared to micro-profile.
+
+
+{% include clickable-image.html %}
