@@ -51,13 +51,15 @@ social-network-links:
   email: "mail@s-schoener.com"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
   github: sschoener
+  mastodon: mastodon.gamedev.place/@sschoener
+  bluesky: sschoener
   twitter: s4schoener
-  patreon: DeanAttali
+  linkedin: sschoener
+#  patreon: DeanAttali
 #  youtube: "@daattali"
 #  whatsapp: 15551212
 #  medium: yourname
 #  reddit: yourname or r/yoursubreddit
-  linkedin: sschoener
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -69,8 +71,6 @@ social-network-links:
 #  yelp: yourname
 #  telegram: yourname
 #  calendly: yourname
-  mastodon: mastodon.gamedev.place/@sschoener
-  bluesky: sschoener
 #  ORCID: your ORCID ID
 #  google-scholar: your google scholar
 #  discord: "invite_code" or "users/userid" or "invite/invite_code"

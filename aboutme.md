@@ -1,16 +1,29 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Details, details, details...
+image:
+show-avatar: true
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+![A picture of me. You are missing out.](/assets/img/profile.png){: .center-image}
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+<br/>
 
-What else do you need?
+My name is Sebastian Schöner and this is my rarely updated website. I currently live in Stockholm, Sweden.
+I'm currently independent. Send me an e-mail (see page footer) if you would like to talk business or have another good reason to.
 
-### My story
+I dabble in all kinds of things, including but not limited to
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+- (theoretical) computer science,
+- machine learning,
+- game programming,
+- generative art,
+- user experience and design,
+- and mathematics.
+
+<br/>
+
+I try to maintain a regular blog, but by the time you read this it will probably not be obvious anymore for what kind of regularity I was originally shooting.
+
+On a more personal note, I am a terrible guitar player (with ambitions on the keyboard and bass guitar), enjoy programming, and listen to music that doesn't take itself too serious. If you want to do me a favor, go visit [Chantal Horeis](https://www.chantalhoreis.com) :)
