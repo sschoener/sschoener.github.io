@@ -12,7 +12,7 @@ As a reader of this blog you already know [Superluminal](https://www.superlumina
 You can see the assembly instructions by using this button in the top left corner:
 
 <p align="middle">
-  <img src="/img/2025-02-06-superluminal-compute-memory/asm-button.png" alt="Superluminal interface" />
+  <img src="/img/2025-02-13-superluminal-compute-memory/asm-button.png" alt="Superluminal interface" />
 </p>
 
 Why would you want to look at the generated assembly instructions? Well, first off this helps you understand whether the compiler actually generated the code you expected it to generate.
@@ -24,11 +24,11 @@ If you want to sound smart in front of your friends when talking about performan
 Consider these two snapshots of samples:
 
 <p align="middle">
-  <img src="/img/2025-02-06-superluminal-compute-memory/compute-bound.png" alt="The cost is smeared over several instructions." />
+  <img src="/img/2025-02-13-superluminal-compute-memory/compute-bound.png" alt="The cost is smeared over several instructions." />
 </p>
 
 <p align="middle">
-  <img src="/img/2025-02-06-superluminal-compute-memory/memory-bound.png" alt="The cost spikes up on a single instruction." />
+  <img src="/img/2025-02-13-superluminal-compute-memory/memory-bound.png" alt="The cost spikes up on a single instruction." />
 </p>
 
 In the first picture, you see a bunch of samples that are "smeared" across multiple instructions. It's not perfectly uniform, but none of the instruction really stick out. This is a sign that this code is likely compute-bound (and in this specific case you would want to maybe manually vectorize it -- the only slight annoyance here is the `movzx`). From a sampling perspective, a near uniform distribution means that you are equally likely to observe any of the instructions, which suggests that they all take similar amounts of time (with some hand-waving around the complexities of CPUs).
