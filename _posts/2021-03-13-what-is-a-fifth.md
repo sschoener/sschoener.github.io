@@ -1,0 +1,22 @@
+---
+layout: post
+title: What is a fifth?
+excerpt: 
+tags: [music]
+---
+
+For years I had been trying to understand music theory, and somehow it never clicked until a 3 years ago. I had been told frequently that there is mathematical beauty to be found in music theory, yet I was never able to find it. People very quickly go from "music" to "physics of sound" (and then you are stuck talking about fundamental frequencies and overtones and and and) or to Euclidean rhythms, but exactly none of that will help you follow the typical conversations about music theory... Well, at least the music theory that the Western world is so proud of, with its history of imperialism and cultural misappropriation and its obsession with White Men Making Music.
+
+The biggest hurdle has always been that music theory doesn't get its language straight. Even central terms like "a fifth" could do with a subscript to clarify which of the different meanings it can take on is actually implied. It's my personal music theory pet peeve. A fifth describes at least three different concepts:
+ 1. It is the name of a pair of pitches whose frequencies are 3:2 (e.g. 300Hz and 200Hz).
+ 2. It is the name of an interval of the size of 7 semitones.
+ 3. It is the name of the fifth note of a scale.
+
+To me, understanding basic music theory comes down to being able to explain why these are different concepts. The last one should be pretty clear: It makes sense to call the fifth note of a scale a fifth (call this _scale-fifth_). The second reflects that the fifth note of all the scales that we commonly use corresponds to 7 semitones (call this _semitone-fifth_). The first describes that the fifth note of our favorite scales should have this one pitch-relationship to the root of the scale because it sounds harmonoius when we play it to the root (call this _harmonic-fifth_).
+Then it gets messy: _Actually_ a scale could have a scale-fifth that is neither a harmonic-fifth nor a semitone-fifth, and by the way a semitone-fifth is not _really_ a harmonic-fifth on most instruments anyway but nobody cares because it's close enough (except [sometimes](https://en.wikipedia.org/wiki/Wolf_interval)), and similarly semitone-fifths appear largely irrelevant except when you play an instrument that really trains you to count the number of frets between tones or when you at some point look at music that tries to be fancy because just playing in one key gets stale after a few hundred years. Really, semitones are just a compromise we settled for but then started to develop feelings for.
+
+I'm not sure how I was ever able to tell these meanings apart when I was in high-school. I particularly remember that we went through some Bach piece and had to name the intervals between different notes. I pity the teacher that has to explain that "this is a third" is a wrong statement but "this is a minor third" is correct, except only about half of the time because a "minor third" is only sometimes a scale-third.
+
+So what gives? Personally, I only started to untangle this mess once I realized that the fundamental concept of Western music theory is that of a scale (or rather key), which then made it rather simple to understand the rest through a historical perspective. So go learn about scales. Then learn about how you might go about constructing a scale on, say, a lute and how you might want to have notes in specific frequencies. Then figure out what happens when you try to build a lute that can play different scales with the correct frequencies in them. Then study why semi-tones are a decent compromise and how different tunings of a piano help with playing different scales without having to retune the instrument. Once you got all that, look at how chords are built in a scale and learn functional harmony, that will basically allow you to follow 90% of non-academic music theory discussions well enough.
+
+I'm not sure why it took until my mid-twenties before I learned this: I used to see music as happening in the space of semitones. I grew up playing the recorder and the piano (badly), then learned to play the guitar, the bass-guitar, and the ukulele (all similarly badly). All of these instruments expose an interface that is semitone centric (keys, frets, and holes). I guess there were signs that I could have seen: Why are there black and white keys? Why is staff-notation so weird? What's the deal with enharmonics? - Maybe in a parallel universe I grew up playing the violin (badly, presumably) and all of this just came natural to me.
