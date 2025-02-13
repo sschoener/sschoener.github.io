@@ -1,0 +1,23 @@
+---
+layout: page
+title: blog
+subtitle: where I keep track of all the stupid things I say so you can quote me on them later
+use-site-title: true
+---
+
+<div class="posts-list">
+  <table class="posts-table">
+    {% for post in site.posts %}
+    <tr style="background: transparent; border: 0">
+      <td style="background: transparent; border: 0; text-align: right; margin-left: -100px">
+        <time style="font-family: monospace" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      </td>
+      <td style="background: transparent; border: 0">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+          {{ post.title }}
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
