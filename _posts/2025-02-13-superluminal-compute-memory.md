@@ -21,6 +21,8 @@ Second, it can be used as a heuristic for _why_ your code is slow. Note that thi
 
 If you want to sound smart in front of your friends when talking about performance, you can always just let out a long "hmmmmm, it's probably memory bound." On average, you are probably right! If you want to get even better accuracy, read on.
 
+As a first word of caution, please note that as usual you should ensure that you have sufficient samples in your function to even make any sense of them. Looking at single samples is not meaningful. Looking at their distribution is.
+
 Consider these two snapshots of samples:
 
 <p align="middle">
