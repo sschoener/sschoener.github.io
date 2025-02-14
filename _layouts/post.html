@@ -43,7 +43,7 @@ layout: base
       </div>
 
       <div class="blog-post">
-        {{ content }}
+        {{ content | wrap_images }}
       </div>
 
       {% if page.tags.size > 0 %}
