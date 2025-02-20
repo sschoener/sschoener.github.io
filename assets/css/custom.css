@@ -33,6 +33,13 @@ p {
     display: block;
 }
 
+div.blog-post > p > img
+{
+    margin: 0 auto;
+    display: block;
+}
+
+
 .image-caption {
   text-align: center;
   font-size: .8rem;
