@@ -1,0 +1,35 @@
+---
+layout: post
+title: Performance theories
+excerpt:
+tags: []
+---
+
+Last time, I wrote about data and decision making, and some frustrations when people pretend like "data" is always the solution. Now let's look at a place where data very often _is_ (part of) the answer: Profiling and performance is a comparatively forgiving space data-wise, because at least the hypothesis is usually simple and everyone is aligned on what they want. Number go down, small number good! The question you usually ask is "did this help, and by how much?" Experiments are often cheap and measuring regularly is very affordable.
+
+But even here I do not think it helps to tell everyone to "just measure a lot." Yes, please measure a lot, but don't "just" measure and collect data. Instead: Run experiments! Ask questions! Be curious! Make predictions! Build theories! Understand _why_ something helped, not just _that_ it helped. Sure, maybe there are some unexplained phenomena, but at least try to sort them into a coherent picture. Having an understanding in the form of theories that make testable predictions is much more helpful than just a long series of disconnected one-off data points.
+
+Here are some "performance theories" that are well-tested in modern settings:
+ * Not executing code is faster than executing it.
+ * Quadratic (or worse) algorithms don't scale.
+ * Not allocating is better than allocating.
+
+A measurement always happens after the fact, when you have already spent a lot of time building something. A theory on the other hand gives you direction for how to build something in the first place and what questions you should even be asking.
+
+Optimizing a system usually comes with some understanding of what things are even worth trying: "We could cache this" or "we could manually vectorize this loop." Those things are informed by theories. Sure, sometimes you just experiment and try to learn what you can by throwing stuff at the wall and seeing what sticks, but the majority of time is not spent making random changes and then seeing whether they made the program faster. They are informed guesses, and making informed guesses is much much more efficient than making random guesses. (This all comes with the caveat that making random changes and measuring their impact can of course be a way to learn things, if you reason about what you did.)
+
+When measuring you still have to be very careful about interpreting the results when you try to measure small differences or need to control for external factors: I recently wrote about [a small microbenchmark]({% post_url 2025-02-10-micro-benchmarks %}) and concluded that you should only micro-benchmark if you are prepared to micro-profile, and many people are not: you need to actually try and understand _why_ something is better, and that takes time and energy. If you do not build up a theory on the why, then you may end up with the wrong conclusions. The talk "Performance Matters" by Emery Berger ([YouTube](https://youtu.be/r-TLSBdHe1A?si=Iwu8235ZR05DvUhb&t=435)) contains more examples of subtleties that you might hit when profiling.
+
+Let's put one of these theories into action by revisiting a recent topic: [the cost of zeroing out memory in Burst]({% post_url 2025-01-18-burst-zero-init %}). In that post, I discussed how using `FixedString` (an in-place allocated string) to report errors in exceptional circumstances causes the Burst compiler to emit code to zero-initialize the `FixedString` instances in the function, and that code executes unconditionally at the beginning of the function. This suggests that you should defer the error reporting to a separate function that is never inlined, so that the error case does not impact the common case where no error condition is present.
+
+I do not know how Unity chose to resolve this, but I have some thoughts about how I would handle it. Or rather, how I would _not_ handle it.
+
+Here is what I would not do: 
+
+1. Start by looking for a repro case and refuse to fix it without it. Reproducing the issue is generally a good idea, but in this case an understanding of the situation should convince you that "not initializing lots of memory unnecessarily" is _always_ going to be better than doing it, no matter whether you can reproduce the numbers I reported or not. We're talking about moving initialization of memory to the place where that memory is actually used instead of doing it unconditionally. It is just a waste to always initialize it, and when you provide a performance oriented API such as Unity Entities, your job is to minimize waste. It does not require "data" to make this decision.
+
+2. Ask "but is this even measurable?" Well, in this case I have shown you that I can measure it, and we can both see the instructions generated. This is generally not a sustainable attitude because when applied broadly you will end up with bits of waste _everywhere_. Every single piece of waste is going to be very hard to measure and quantify. But the entire system is going to suffer, and it is going to be really hard to dig yourself out of that hole again.
+
+3. Try to improve the compiler to remove this unnecessary code automatically. Again, I applaud your initiative: In the long run this is an important step to take: Go file that Jira for the compiler team. It is going to be much, much harder to solve this generically but it is going to be a good win for your users when that ships in two years. However, _you are not your users_. To you, different rules apply. There are a single digit number of people that actually regularly touch the relevant API surface, and that surface is pretty static. Those people should do better and not wait for the compiler to magically turn their bad code into good code. Creating easily avoidable waste and then waiting for tooling that automatically cleans up the waste that should never have been there is not the right approach for this kind of API. Cleaning up the waste is still going to cost you somewhere, probably in compile time.
+
+Instead, here is what I would suggest: we know that executing that zero initialization code is in the overwhelming majority of cases not going to be free, and even if it _was_ free, there'd be an opportunity cost or what other code could run in that time (and knock-on effects, like "does this affect inlining decisions?"). That's an instance of the first theory: executing code is always going to have _some_ cost. Removing this waste by systematically revisiting the API and moving the error handling into separate non-inlinable functions takes an afternoon (I know this because we did that elsewhere), so you just do that. Then profile your existing test-cases to make sure you did not accidentally make things worse. Then you file a ticket for the compiler team to look into fixing that. And then you add a note to your docs about this issue, because your users are fighting for microseconds and will appreciate a mechanical improvement they can just apply everywhere in their own codebase.
