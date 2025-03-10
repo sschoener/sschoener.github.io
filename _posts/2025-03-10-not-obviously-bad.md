@@ -17,7 +17,7 @@ Another way to look at performance is to ask "why are we doing this in the first
 
 Maybe then the goal should be that all of your systems are good enough and can be replaced, so every customer can build just the bespoke stuff they need for _their_ unique game. That's certainly a good approach, but again doesn't answer the original question of what your performance target should be.
 
-The best mental model that I have for making these decisions unfortunately does not give you a concrete number of milliseconds to engineer for either. Here is my suggested guideline: Make something that is "Not Obviously Bad", and then where possible spend time making it "Obviously Not Bad." _Gee, thank you Sebastian, a play on words, how helpful._ This blog post is about that first part.
+The best mental model that I have for making these decisions unfortunately does not give you a concrete number of milliseconds to engineer for either. Here is my suggested guideline: Make something that is "Not Obviously Bad", and then where possible spend time making it "Obviously Not Bad." _Gee, thank you Sebastian, a play on words, how helpful._ This blog post is about the first of the two.
 
 ## Not Obviously Bad
 
