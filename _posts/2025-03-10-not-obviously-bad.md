@@ -21,7 +21,7 @@ The best mental model that I have for making these decisions unfortunately does 
 
 ## Not Obviously Bad
 
-Not Obviously Bad means that if one of your users randomly profiles their game on a system that you claim is supported, their chances of finding something that makes them go "how could they have missed that" are low, and if they find it, you fix it immediately because you realized you screwed up. This depends on who your users are and who you market to: someone making their first game is a very different user from someone who has been programming for 40 years. For example, Unity's DOTS targets different users than Unity "classic", and Unreal Engine 5 targets different users than UEFN.
+Not Obviously Bad means that if one of your users randomly profiles their game on a machine that you claim is supported, their chances of finding something that makes them go "how could they have missed that" are low, and if they find it, you fix it immediately because you realized you screwed up. This depends on who your users are and who you market to: someone making their first game is a very different user from someone who has been programming for 40 years. For example, Unity's DOTS targets different users than Unity "classic", and Unreal Engine 5 targets different users than UEFN.
 
 Here is an example of what I mean. I have recently profiled a Unity game on a console. It is using Unity's UI stack. The developers are aiming to get to 60hz, and every fraction of a millisecond is valuable. Here is what happens at the start of every single frame:
 
@@ -70,7 +70,7 @@ This is not something you do in a performance push or an optimization sprint: no
 
 This does not mean to put performance above everything: you can still choose an architecture that puts other aspects of the user experience above performance. Not Obviously Bad is mostly a question of execution.
 
-In other words, for your performance targets: Your goal is to clean up the waste, continuously, not just as it is found, but also proactively, and to leave no low hanging fruit unpicked. That's the minimum bar you have to strive for as a general purpose engine.
+In other words, for your performance targets: Your goal is to clean up the waste, continuously, not just as it is found, but also proactively, and to leave no low hanging fruit unpicked. That's the minimum bar you have to strive for as a general purpose engine. Build something that does not make your users feel let down when they open the lid.
 
 ## Obviously Not Bad
 
