@@ -17,7 +17,7 @@ That's 1.89ms per frame. Here is another game, again on PS5:
 
 That's just about 2ms on average. Another game on PC reports speed-ups in the range of 10%-15%. I am sure that not all games are going to see the same amount of speed-up, and `cpp2better` can only help you if you are CPU-bound of course, but all of this is very encouraging.
 
-The technical term for getting 2ms per frame by adding a tool to your build process is ~~this is nuts~~ "optimization at the speed of 1.6 Kilo-Fredriksson." One Fredriksson is 0.1ms per week (yes, you can cancel those units, and no, I won't). Adding a tool to your build process takes 30min. At five working days of 8h, this puts one Fredriksson at 0.1ms per 40h, or 0.0025ms / h. We are moving at 2ms per half hour, or 4ms/h, which then makes this 1600 Fredrikssons[^fredriksson].
+The technical term for getting 2ms per frame by adding a tool to your build process is ~~this is nuts~~ "optimization at the speed of 1.6 Kilo-Fredriksson." One Fredriksson is 0.1ms per week (yes, you can cancel those units, and no, I won't). Adding a tool to your build process takes 30min. At five working days of 8h, this puts one Fredriksson at 0.1ms per 40h, or 0.0025ms / h. We are moving at 2ms per half hour, or 4ms/h, which then makes this 4 / 0.0025 = 1600 Fredrikssons[^fredriksson].
 
 Thank you for bearing with me while I write about in-jokes, but the point is that you can make (some?) IL2CPP games run faster with very little work on your end.
 
