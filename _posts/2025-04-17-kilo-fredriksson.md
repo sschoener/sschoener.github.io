@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-I have already introduced my latest project `cpp2better` in a [previous post]({% post_url 2025-03-25-vectorization %}). I have made good progress and wanted to share some results.
+I have already introduced my latest project `cpp2better` in a [previous post]({% post_url 2025-04-07-cpp2better %}). I have made good progress and wanted to share some results.
 
 I have had the chance to test my tool on more projects now and can report some more results. Here is a proof of the speed-up in one game on PS5:
 
