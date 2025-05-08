@@ -31,7 +31,7 @@ void DoThing(X* that) {
 }
 ```
 
-It looks like we are accessing a local variable, but we are actually telling the compiler to reload `this->Size` in every loop iteration. When I say this the common replies are:
+It looks like we are accessing a local variable `Size`, but we are actually telling the compiler to reload `this->Size` in every loop iteration. When I say this the common replies are:
  * "Why don't you just use a prefix for members? `m_Size`?" - That helps, but it still does not insert the friction of having to type `this->m_Size`. Friction is a tool to discourage people from doing stuff they should not do without thinking about it (see [this post]({% post_url 2024-09-16-get-people-to-do-the-right-thing %})).
  * "Should people really think about this?" - In some software domains, they absolutely should. I don't know your context, but your answer will obviously depend on that. I am saying "I don't like this", not "this is a universal truth."
  * "Does the compiler not automatically get rid of the load?" - Well, sometimes. Maybe. Unless you call a function and the compiler can't rule out that it changes this field. Or maybe your function gets big and someone hardcoded a limit into the compiler for it to just give up on large functions.
