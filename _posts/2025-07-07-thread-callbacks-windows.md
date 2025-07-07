@@ -20,7 +20,7 @@ So, what we need to do:
 
 
 Full example below:
-```c++
+```cpp
 #include <cstdio>
 #include <windows.h>
 
