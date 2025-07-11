@@ -8,7 +8,7 @@ tags: [unity, programming, c#]
 Last year I briefly worked on a prototypical implementation of a quick search for Unity 2018.3 because I felt that with every update of Unity I had trouble finding tools like the profiler. I have now [uploaded the sources](https://github.com/sschoener/unity-commander) to GitHub because I do not have the time to work on it anymore and maybe, just maybe, it will be helpful for someone. Also, Unity have now released their [own version](https://docs.unity3d.com/Packages/com.unity.quicksearch@1.0/manual/index.html) of such a tool and that one looks to be just fine.
 Please note that the tool is not compatible with Unity 2019.1 because the UI Elements API changed from the experimental preview included in 2018.3.
 
-![Commander in action](/img/2019-04-22-unity-finder-post-mortem/commander.gif){: .center-image}
+![Commander in action](/assets/img/2019-04-22-unity-finder-post-mortem/commander.gif){: .center-image}
 
 The Commander supports three different kinds of searches (and is easily extendable):
  * searching for assets,

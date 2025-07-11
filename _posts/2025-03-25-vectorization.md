@@ -11,7 +11,7 @@ So the answer to the original question then is "users will not care." Why do the
 
 How would you ever use the `Loop.ExpectVectorized` intrinsic and who is the ideal user? The ideal user for this intrinsic knows about vectorization (otherwise they would not bother using that intrinsic), they are unable or unwilling to write the vectorized code themselves, and they are still somehow capable of actually formulating a reasonable expectations about what code a compiler should be able to auto-vectorize. Then finally if some random change in your project breaks auto-vectorization, manifesting as a compile error, which breaks your build and leaves your entire team blocked for an entire day, then that user will also have to have a better answer than "I guess I'll just delete the `Loop.ExpectVectorized` then."
 
-![Meme "Is this user in the room with us right now?"](../assets/img/2025-03-25-vectorization/user-in-the-room.png)
+![Meme "Is this user in the room with us right now?"](/assets/img/2025-03-25-vectorization/user-in-the-room.png)
 
 Joking aside, if you do use this intrinsic as a user (not a compiler developer!), please do reach out. I would love to understand how it fits into your workflows, because I lack the imagination to see how that would work.
 

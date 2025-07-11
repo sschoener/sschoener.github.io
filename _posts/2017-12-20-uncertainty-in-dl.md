@@ -17,7 +17,7 @@ This perspective has already been explored and usually comes with a different na
 ### Model Calibration
 A network is *calibrated* if the scores output by its softmax-layer are probabilities in the above sense, i.e. that a class predicted with weight \\(p\\) is correct \\(p\\) percent of the time. If you haven't taken any measures to ensure that you network is calibrated, you will most likely find that it is somewhat *overconfident*, meaning that it will overestimate its own accuracy. Usually, calibration is shown with a calibration plot where accuracy is plotted against the softmax-output (note that all classes are considered here, not just the one with the highest activation). Perfect calibration manifests itself as a diagonal in the plots.
 
-![Calibration plots](/img/2017-12-17-uncertainty-in-dl/calibration.png){: .center-image}
+![Calibration plots](/assets/img/2017-12-17-uncertainty-in-dl/calibration.png){: .center-image}
 
 *Image taken from [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599).*{:.image-caption}
 

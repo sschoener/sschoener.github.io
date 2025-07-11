@@ -17,7 +17,7 @@ The starting point of the game was the idea to use a fan as an input device, whi
 
 All of this eventually worked out; you can visit the [game page](https://globalgamejam.org/2018/games/firefighter) to find out more. Below, I'd like to give a short overview over the process of creating *FireFighter*.
 
-![Game Setup](/img/2018-01-28-firefighter-ggj/full_game.jpg){: .center-image}
+![Game Setup](/assets/img/2018-01-28-firefighter-ggj/full_game.jpg){: .center-image}
 
 ## The Execution
 
@@ -40,7 +40,7 @@ I spend the next three hours figuring it out:
 ### Sunday
 We have time until 3pm to finish the game; I arrive at around 10am. We decide to connect three LED strips, and for the next three hours, we fail to get anything to work *at all*. I use the time to finish most of the programming part. At some point we short-circuit something by accident, it smells of burned wire. We decide to switch out my Arduino for Robin's, and all of a sudden everything works as planned. Except that after 30 minutes of tweaking, we fail to connect to the Arduino. In desparation, we switch back to my Arduino -- and for some magic reason, this again fixes all of our problems at once. It is only at around 2:50pm that we have the game running for the first time. I usually find that the last hour of the GameJam is reserved for bug fixing, but this time around it is all about getting it to work *at all*. In the last ten minutes, I find pleasantly few bugs in my code and we can focus on adjusting the blowing strength required to blow out fires. We had already anticipated that the different fans will produce different voltages when blown and had the code setup to let us vary the sensitivity per fan; it pays off.
 
-![Game Setup](/img/2018-01-28-firefighter-ggj/bottle_fan.jpg){: .center-image}
+![Game Setup](/assets/img/2018-01-28-firefighter-ggj/bottle_fan.jpg){: .center-image}
 
 In the end, we finally have a working game:
 

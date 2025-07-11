@@ -14,7 +14,7 @@ public class Example : MonoBehaviour {
 ```
 In the Unity editor, you get a very neat inspector for the animation curve:
 
-![Animation curve inspector](/img/2018-05-05-animation-curves/inspector.gif){: .center-image}
+![Animation curve inspector](/assets/img/2018-05-05-animation-curves/inspector.gif){: .center-image}
 
 You can then use the `Evaluate` method to get the function value corresponding to the given input value. The editing may seem magical, but ultimately it is just a very nicely made tool to create a function from splines. Even though it is called an *animation* curve, there is no saying that you actually need to use it for animations -- quite the opposite: Most of my uses for animation curves are not, in fact, related to animations!
 
@@ -23,7 +23,7 @@ Today, I'd like to highlight my favorite use of animation curves yet: Sampling.
 ### Animation Curves as Probability Densities
 My Unity projects often involve a degree of randomness. Many people automatically take *random values* to mean *uniformly distributed random values*, if only because they only know how to sample uniformly at random (in Unity, that means just using `Random.value`). There are various ways to sample from other well-known distributions, but in general I find it very hard to communicate to a designer what exactly they should expect when they are using an exponential distribution or $beta$-distribution. Animation curves give us an easy way to specify the (unnormalized) density functions for arbitrary distributions (on a finite-length interval, at least). As an example, this is a distribution on $[0, 1)$ in which extreme are very likely and there is a fair chance for values around 0.4, but other values are pretty unlikely:
 
-![Density function](/img/2018-05-05-animation-curves/density.gif){: .center-image}
+![Density function](/assets/img/2018-05-05-animation-curves/density.gif){: .center-image}
 
 Such probability density functions are very easy to interpret: Large $y$ values mean that the corresponding $x$ values are very likely.
 

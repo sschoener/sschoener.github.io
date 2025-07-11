@@ -11,7 +11,7 @@ Curiously, this freeze has appeared more or less spontaneously after I opened a 
 
 Here is what we're waiting for. For a moment I considered turning one of my monitors by 90° to capture the entire callstack, but I opted for some screenshot surgery instead:
 
-![Deep callstack](../assets/img/2025-03-13-yet-another-vs-freeze/image.png)
+![Deep callstack](/assets/img/2025-03-13-yet-another-vs-freeze/image.png)
 
 I would love to tell you that this is the deepest callstack I have ever had to deal with, but truthfully, this doesn't even make the top 10000. In the age of async and callbacks, this sort of stack is just another Thursday, really.
 

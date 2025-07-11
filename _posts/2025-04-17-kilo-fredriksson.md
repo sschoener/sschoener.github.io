@@ -9,11 +9,11 @@ I have already introduced my latest project `cpp2better` in a [previous post]({%
 
 I have had the chance to test my tool on more projects now and can report some more results. Here is a proof of the speed-up in one game on PS5:
 
-![1.89ms speedup across the entire frame](../assets/img/2025-04-17-kilo-fredriksson/profile-analyzer.png)
+![1.89ms speedup across the entire frame](/assets/img/2025-04-17-kilo-fredriksson/profile-analyzer.png)
 
 That's 1.89ms per frame. Here is another game, again on PS5:
 
-![more than 2ms speed-up across the entire frame](../assets/img/2025-04-17-kilo-fredriksson/superluminal.png)
+![more than 2ms speed-up across the entire frame](/assets/img/2025-04-17-kilo-fredriksson/superluminal.png)
 
 That's just about 2ms on average. Another game on PC reports speed-ups in the range of 10%-15%. I am sure that not all games are going to see the same amount of speed-up, and `cpp2better` can only help you if you are CPU-bound of course, but all of this is very encouraging.
 

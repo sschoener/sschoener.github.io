@@ -25,7 +25,7 @@ That is already somewhat better: We usually want to see how likely a certain mod
 
 When I read this, I'm drawn towards this mental model that is essentially about joint probabilities:
 
-![Diagram](/img/2019-10-23-bayes-theorem/venn.png){: .center-image}
+![Diagram](/assets/img/2019-10-23-bayes-theorem/venn.png){: .center-image}
 
  * I imagine a diagram where \\(M\\) and \\(D\\) are regions, and
  * the term \\(P(D\|M)\\) is computed as a ratio of areas, \\(\frac{P(M \cap D)}{P(M)}\\).

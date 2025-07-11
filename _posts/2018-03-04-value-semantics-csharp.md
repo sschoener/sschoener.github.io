@@ -53,7 +53,7 @@ This means that when you then write `int y;` you would rightfully expect to get 
 
 In C#, it is not wrong to think of the innocent looking `=` as a copy-instruction. In a picture:
 
-![Assigning ints](/img/2018-03-04-value-semantics/1_copying_ints.jpg){: .center-image}
+![Assigning ints](/assets/img/2018-03-04-value-semantics/1_copying_ints.jpg){: .center-image}
 
 Similarly then, `x++` simply increases the value stored in `x` by one, which of course does not change `y` in any way. You could do the same thing with, say, `long` instead of `int` and get the same behavior (with the difference that you are now talking about 8 byte storage locations).
 
@@ -61,7 +61,7 @@ How is this different from the second case with Lists? Well, it is not actually 
 
 It is here where references help: The declaration `List<int> x;` does not *actually* reserve local storage for a list, but only for a *reference* to a list. A reference can be thought of as the address of a point in memory where an object lives. This is not quite the full-story for C#, but good enough[^references]. Luckily, such references have a fixed size (usually either 4 or 8 bytes, depending on the machine). So `List<int> x;` does *not* reserve storage space for the value of a list, but for a reference to it: Hence the term *reference semantics*. An assignment such as `List<int> y = x;` then does just the same as `int y = x;` -- it copies the contents of the storage location denoted by `x` to the storage location denoted by `y`. The only difference is that in this case, the content that is being copied is a reference. In a picture:
 
-![Assigning Lists](/img/2018-03-04-value-semantics/2_assigning_lists.jpg){: .center-image}
+![Assigning Lists](/assets/img/2018-03-04-value-semantics/2_assigning_lists.jpg){: .center-image}
 
 In short:
  * if a type `T` has *value semantics* then a declaration `T t;` reserves a storage location to store an actual *value* of type `T`,
@@ -195,7 +195,7 @@ struct S3 { S2 t2; int z; }
 ```
 In memory, a variable `m` of type `S2` and a variable `n` of type `S3` look like this:
 
-![Struct Memory Layout](/img/2018-03-04-value-semantics/3_struct_memory_layout.jpg){: .center-image}
+![Struct Memory Layout](/assets/img/2018-03-04-value-semantics/3_struct_memory_layout.jpg){: .center-image}
 
 Note how `n` of type `S3` directly contains a value of type `S2`:
 
@@ -216,7 +216,7 @@ class C2 { C1 d1; int y; }
 class C3 { C2 d2; int z; }
 ```
 
-![Class Memory Layout](/img/2018-03-04-value-semantics/4_class_memory_layout.jpg){: .center-image}
+![Class Memory Layout](/assets/img/2018-03-04-value-semantics/4_class_memory_layout.jpg){: .center-image}
 
 Classes and structs can of course be mixed freely, as in:
 ```csharp
@@ -227,7 +227,7 @@ class C {
 ```
 Which then looks like this when used:
 
-![Struct in Class Memory Layout](/img/2018-03-04-value-semantics/5_struct_in_class_layout.jpg){: .center-image}
+![Struct in Class Memory Layout](/assets/img/2018-03-04-value-semantics/5_struct_in_class_layout.jpg){: .center-image}
 
 ---
 
@@ -303,7 +303,7 @@ Such an assigment of a value type object to a storage location with reference se
 
 This problem is solved through *boxing*: A *box* is allocated somewhere (usually in long-lived memory[^heap]), and the sole purpose of the box is to store the value and its meta data so it can be accessed by a reference. Whenever `T` is a reference type or interface and `y`'s type has value semantics, each assignment of the form `T x = y;` should be expected to cause boxing.
 
-![Boxing](/img/2018-03-04-value-semantics/6_boxing.jpg){: .center-image}
+![Boxing](/assets/img/2018-03-04-value-semantics/6_boxing.jpg){: .center-image}
 
 This example should make this clear:
 ```csharp
@@ -344,7 +344,7 @@ struct Vector2 {
 ```
 In memory, this will look something like this (`object[]` on the left, `Vector2[]` on the right):
 
-![Boxing](/img/2018-03-04-value-semantics/7_arrays.jpg){: .center-image}
+![Boxing](/assets/img/2018-03-04-value-semantics/7_arrays.jpg){: .center-image}
 
 This shows why there can be no default constructor: The runtime does not want to initialize each value of the array. Setting the whole memory of the array to zero sets the bits of the structs to zero; this *is* the initialization you get. If you were allowed to define a default constructor that does something else, it would be forced to run for each value of the array.
 

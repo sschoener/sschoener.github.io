@@ -21,7 +21,7 @@ When someone says stuff like "this company is their baby", I struggle to see how
 
 Happy birthday, Milla. Thank you for four years, and too many many more. I hope you enjoy the cake I made for you.
 
-![Birthday cake with berries and chocolate](../assets/img/2025-05-05-parenting/image.png)
+![Birthday cake with berries and chocolate](/assets/img/2025-05-05-parenting/image.png)
 
 [^call]: As a millenial I am required by law to remind everyone that calling people is generally reserved for emergencies, stick to text otherwise.
 

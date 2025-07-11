@@ -111,7 +111,7 @@ Tensor("Add:0", shape=(), dtype=int32)
 ```
 
 
-![Computation Graph](/img/2017-12-12-tensorflow-intro/add_graph.png){: .center-image}
+![Computation Graph](/assets/img/2017-12-12-tensorflow-intro/add_graph.png){: .center-image}
 As you can see, each tensor has a unique name (which is comprised of the name of
 the name of the node that they come from and the output index at that node, like
 this: `node_name:index`), a shape, and a data type. In the example above, the
@@ -178,7 +178,7 @@ Tensor("y:0", dtype=float32)
 Tensor("add:0", dtype=float32)
 ```
 
-![Computation Graph](/img/2017-12-12-tensorflow-intro/add_variables_graph.png){: .center-image}
+![Computation Graph](/assets/img/2017-12-12-tensorflow-intro/add_variables_graph.png){: .center-image}
 
 The actual values of the placeholders are filled in at runtime like so:
 
@@ -234,7 +234,7 @@ new_accumulator = accumulator + a
 update_accumulator = tf.assign(accumulator, new_accumulator)
 ```
 
-![Computation Graph](/img/2017-12-12-tensorflow-intro/accumulator_graph.png){: .center-image}
+![Computation Graph](/assets/img/2017-12-12-tensorflow-intro/accumulator_graph.png){: .center-image}
 
 Note that the yellow edge specifies that the `assign` operation *references* the
 accumulator `acc`. The edges in the graph (that is, the *tensors*) are annotated
@@ -244,7 +244,7 @@ Under the hood, TensorFlow created a bunch of operations and grouped them with
 our given name `acc`. This is typical: TensorFlow provides many primitive
 operations, but you will usually use them through abstractions:
 
-![Under The Hood](/img/2017-12-12-tensorflow-intro/accumulator_graph_under_the_hood.png){: .center-image}
+![Under The Hood](/assets/img/2017-12-12-tensorflow-intro/accumulator_graph_under_the_hood.png){: .center-image}
 
 We can now run a few steps of the computation:
 
@@ -314,7 +314,7 @@ optimizer = tf.train.GradientDescentOptimizer(name="SGD", learning_rate=0.001)
 optimization_step = optimizer.minimize(loss)
 ```
 
-![Computation Graph](/img/2017-12-12-tensorflow-intro/optimizer_1.png){: .center-image}
+![Computation Graph](/assets/img/2017-12-12-tensorflow-intro/optimizer_1.png){: .center-image}
 
 As you can see,
 * TensorFlow automatically added operations to compute the gradients for the
@@ -693,7 +693,7 @@ def perform_training(steps, batch_size):
         print("Final Loss: %f" % loss_value)
 ```
 
-![Training Graph](/img/2017-12-12-tensorflow-intro/training_graph.png){: .center-image}
+![Training Graph](/assets/img/2017-12-12-tensorflow-intro/training_graph.png){: .center-image}
 
 We can now train the model for a few steps and watch the loss go down. I have
 added a bit of visualization code to the `perform_training` function from above,

@@ -30,12 +30,12 @@ where each \\(x_{i,j}\\) is either a variable or a negated variable. The problem
 
 We will turn any such 3CNF formula into a Patterna board: For each variable \\(A\\), we introduce three nodes to the board, two unknown nodes corresponding to \\(A\\) and \\(\lnot A\\), and a non-pattern node; like this:
 
-![Variable Encoding](/img/2016-10-10-computational-complexity-patterna/variable-input.png){: .center-image}
+![Variable Encoding](/assets/img/2016-10-10-computational-complexity-patterna/variable-input.png){: .center-image}
 
 This ensures that each variable is either *true* or *false*, where *pattern* is interpreted to mean *true*.
 A clause \\((X \vee Y \vee Z)\\) is then translated by creating three more nodes like this:
 
-![Or Consistency](/img/2016-10-10-computational-complexity-patterna/or-consistency.png){: .center-image}
+![Or Consistency](/assets/img/2016-10-10-computational-complexity-patterna/or-consistency.png){: .center-image}
 
 Here, the nodes \\(X, Y, Z\\) refer to the nodes created for these literals in the first step. 
 This setup ensures that at least one of the literals is set to true. (We could also do it with one additional node by using the fact that Patterna technically supports inequalities.)
@@ -81,13 +81,13 @@ As a first step in the reduction, check that \\(\varphi\\) is no tautology and r
 
 Otherwise, if the formula is not a tautology, proceed with the translation of the formula into a level: Each variable \\(A\\) from the formula is converted to two nodes with a third node to ensure consistency:
 
-![Variable Encoding](/img/2016-10-10-computational-complexity-patterna/variable-input.png){: .center-image}
+![Variable Encoding](/assets/img/2016-10-10-computational-complexity-patterna/variable-input.png){: .center-image}
 
 Note that no matter whether \\(A\\) is true or false, exactly one of the nodes will be in the pattern.
 
 Next, we turn to translating clauses \\(X \vee Y \vee Z\\), where \\(X, Y, Z\\) are literals. We can use the following gadget to emulate an OR:
 
-![Or Gadget](/img/2016-10-10-computational-complexity-patterna/or-gadget.png){: .center-image}
+![Or Gadget](/assets/img/2016-10-10-computational-complexity-patterna/or-gadget.png){: .center-image}
 
 The nodes marked \\(X, Y, Z\\) correspond to the nodes that were created in the first step (so if \\(X = \lnot x_{1,1}\\), we use the corresponding node for the node marked \\(X\\)). The node with the label OR is a pattern node if and only if one of \\(X, Y, Z\\) is a pattern node. NOR is pattern node if and only if OR is a non-pattern node. This can easily be seen by considering the two cases: Suppose that at least one of \\(X, Y, Z\\) is a pattern node. Since these nodes have no outgoing edges, and we know that there must be exactly 4 connected nodes, the OR node must be a pattern node. Conversely, if OR is a pattern node, then NOR is a non-pattern node. Which means that we can only use the nodes 1, 2, and \\(X, Y, Z\\) to make a connected group of 4 pattern nodes. Thus at least one of \\(X, Y, Z\\) is a pattern node. The nodes 1, 2, 3 ensure that it is possible to have the OR-gadget evaluate to false.
 

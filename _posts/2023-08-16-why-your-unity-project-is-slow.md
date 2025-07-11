@@ -180,15 +180,15 @@ I'm not sure how helpful this is going to be, but to encourage you to use a prof
 
 When you perform a script compilation, you are going to see two spikes: One for kicking off the compilation, then another one for the domain reload. The time in between is the time it takes to actually compile the code. This is usually async and in the background. Also note that the profiler is set "Editor" in the top right. Yes, the profiler drawing will affect our timings, but that's not relevant when you are looking for one-off events that take seconds:
 
-![Overview](/img/2023-08-16-why-your-unity-project-is-slow/01-compilation-and-domain-reload.png){: .center-image}
+![Overview](/assets/img/2023-08-16-why-your-unity-project-is-slow/01-compilation-and-domain-reload.png){: .center-image}
 
 The compilation kick-off looks like this and I don't think there are any callbacks that you are responsible for. It's mostly a matter of project size (and all the different ways to quantify that, e.g. number of assemblies and scripts is particularly relevant here):
 
-![Compilation](/img/2023-08-16-why-your-unity-project-is-slow/02-compilation.png){: .center-image}
+![Compilation](/assets/img/2023-08-16-why-your-unity-project-is-slow/02-compilation.png){: .center-image}
 
 The domain reload part is more complicated and looks like this in the project I have open (Boss Room):
 
-![Domain reload](/img/2023-08-16-why-your-unity-project-is-slow/03-domain-reload.png){: .center-image}
+![Domain reload](/assets/img/2023-08-16-why-your-unity-project-is-slow/03-domain-reload.png){: .center-image}
 
 1. The first marker of note is `BeginReloadAssembly`. Below that you can find `DisableScriptableObjects`, followed by `BackupScriptedObjects` (that's the serialization part). Then there is `CreateAndSetChildDomain` which is essentially just deallocating memory; Mono is particularly slow about this. This takes longer the more memory your managed code used in all its ways.
 2. The rest of `ReloadAssembly` loads the new code and does a first round of initialization.
@@ -201,7 +201,7 @@ The domain reload part is more complicated and looks like this in the project I 
 ### A profiler capture of entering playmode
 For entering playmode, this is a possible picture:
 
-![Enter playmode](/img/2023-08-16-why-your-unity-project-is-slow/04-enter-playmode.png){: .center-image}
+![Enter playmode](/assets/img/2023-08-16-why-your-unity-project-is-slow/04-enter-playmode.png){: .center-image}
 
 1. This particular sample reacts to some event on changing playmode and decided to do some additional scene loading. It's just an example of how anything in the project can cost you seconds.
 2. The second step is the scene backup and reload before the domain reload.

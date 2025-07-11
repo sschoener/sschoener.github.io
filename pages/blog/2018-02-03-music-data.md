@@ -294,7 +294,7 @@ ggplot(releases, aes(year)) +
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-01" button-text="Show Code" toggle-text=code-capture %}
 
-![Number of release by year](/img/2018-02-03-music-data/01-releases-per-year.png){: .center-image}
+![Number of release by year](/assets/img/2018-02-03-music-data/01-releases-per-year.png){: .center-image}
 
 Note that the y-axis is log-scaled. It seems that the database consists mostly of releases from 1960 and later. Also, there is a slight dip in the end. There might be various reasons for the shape of the distribution:
 
@@ -349,7 +349,7 @@ ggplot(data = by_year, aes(x = year)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-02" button-text="Show Code" toggle-text=code-capture %}
-![Fraction of releases with a given format per year](/img/2018-02-03-music-data/02-release-formats-per-year-percent.png){: .center-image}
+![Fraction of releases with a given format per year](/assets/img/2018-02-03-music-data/02-release-formats-per-year-percent.png){: .center-image}
 
 It is amazing to see how clearly this graph tells the story of the reign and eventual decline of the vinyl. The most surprising part, I think, is that less than half of the releases of the last few years are available on CD. Most of them are entirely digital, and I willingly assume that all of the recent releases available on CD are also available digitally, but not listed as such. This graph makes one wonder what the future will hold: Will digital releases see a decline in a favor of some new format? What might that be?
 
@@ -376,7 +376,7 @@ ggplot(data = by_year, aes(x = year)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-03" button-text="Show Code" toggle-text=code-capture %}
-![Total releases with a given format per year](/img/2018-02-03-music-data/03-release-formats-per-year-total.png){: .center-image}
+![Total releases with a given format per year](/assets/img/2018-02-03-music-data/03-release-formats-per-year-total.png){: .center-image}
 
 While the relative-view makes it seem that there are hardly any cassette releases left, there *are* people still pumping these out (same for vinyl). Tracking these down might be a fun exercise.
 
@@ -447,7 +447,7 @@ ggplot(data = releases_per_year_and_genre, aes(x = year)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-04" button-text="Show Code" toggle-text=code-capture %}
-![Fraction of release with a given genre per year](/img/2018-02-03-music-data/04-genre-releases-per-year.png){: .center-image}
+![Fraction of release with a given genre per year](/assets/img/2018-02-03-music-data/04-genre-releases-per-year.png){: .center-image}
 
 
 It seems that there is not really a lot of data available prior to 1955, so let’s drop that part (there are only 37 datapoints available for that timeframe). Furthermore, it seems to me that we should restrict ourselves to a subset of genres; the first 7 in our list seem like a good choice:
@@ -465,7 +465,7 @@ ggplot(data = releases_per_year_and_genre, aes(x = year)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-05" button-text="Show Code" toggle-text=code-capture %}
-![Fraction of release with a given genre per year](/img/2018-02-03-music-data/05-genre-releases-per-year-proper.png){: .center-image}
+![Fraction of release with a given genre per year](/assets/img/2018-02-03-music-data/05-genre-releases-per-year-proper.png){: .center-image}
 
 In the plot of the remaining data, we can clearly see that Rock music enjoys continued popularity, though there was a short surge of Electronic music durng the nineties and early 2000s. The decline of Jazz in the late 50s is also well visible. Actually, almost all other genres seem to have become less relevant with the rise of modern Rock music (more on that in a second!). Personally, I find the low percentage of Pop releases a bit surprising.
 
@@ -487,7 +487,7 @@ ggplot(data = releases_per_year_and_genre, aes(x = year)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-06" button-text="Show Code" toggle-text=code-capture %}
-![Releases by genre over the years](/img/2018-02-03-music-data/06-total-genre-releases-per-year.png){: .center-image}
+![Releases by genre over the years](/assets/img/2018-02-03-music-data/06-total-genre-releases-per-year.png){: .center-image}
 
 (Note that we took our earlier lesson to heart and removed all releases after 2015.) This graph shows that Rock music mostly caused more releases to come out, without greatly reducing the number of Pop releases. The log-scale is a bit misleading when it comes to slopes: Looking at the range from 1962 to 1970, it looks like the number of Rock releases grew more than the total number of releases (which may mean that releases from that area were often tagged with multiple genres), denoted in the graph by count. That, however, is not really the case as a linear plot shows:
 {% capture code-capture %}
@@ -505,7 +505,7 @@ ggplot(data = releases_per_year_and_genre, aes(x = year)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-07" button-text="Show Code" toggle-text=code-capture %}
-![Releases by genre over the years](/img/2018-02-03-music-data/07-total-genre-releases-per-year-60-70.png){: .center-image}
+![Releases by genre over the years](/assets/img/2018-02-03-music-data/07-total-genre-releases-per-year-60-70.png){: .center-image}
 
 
 ## Genre Popularity
@@ -540,7 +540,7 @@ releases_per_year_and_genre %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-08" button-text="Show Code" toggle-text=code-capture %}
-![Relative frequency of genres by year](/img/2018-02-03-music-data/08-genre-popularity-per-year.png){: .center-image}
+![Relative frequency of genres by year](/assets/img/2018-02-03-music-data/08-genre-popularity-per-year.png){: .center-image}
 
 Something that I did not notice before is that with our data we can actually witness the genesis of Hip-Hop pretty clearly: The late 70s/early 80s are pretty accurate. According to Wikipedia, “Prior to 1979, recorded hip hop music consisted mainly of PA system recordings of parties and early hip hop mixtapes by DJs. […] The first hip hop record is widely regarded to be The Sugarhill Gang’s”Rapper’s Delight“, from 1979.” Since we began by filtering out any unofficial releases, these early pre-1979 recordings were most likely purged from our dataset.
 
@@ -568,7 +568,7 @@ releases %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-09" button-text="Show Code" toggle-text=code-capture %}
-![Number of releases per genre, split by whether the release date is missing](/img/2018-02-03-music-data/09-releases-without-release-date.png){: .center-image}
+![Number of releases per genre, split by whether the release date is missing](/assets/img/2018-02-03-music-data/09-releases-without-release-date.png){: .center-image}
 One might say that it is ironic that I have chosen a linear scale instead of a logarithmic scale here, but the former a) really shows how irrelevant the missing data is for any analysis of genres and b) shows the dominance of Electronic and Rock music.
 
 
@@ -631,7 +631,7 @@ top_styles[1:50,] %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-10" button-text="Show Code" toggle-text=code-capture %}
-![Absolute frequencies of the 50 most common styles](/img/2018-02-03-music-data/10-most-common-styles.png){: .center-image}
+![Absolute frequencies of the 50 most common styles](/assets/img/2018-02-03-music-data/10-most-common-styles.png){: .center-image}
 
 This plot looked totally dull before I added the color. It is much better now. Maybe that could be a useful tool actually! Wait a second, I have an idea…
 {% capture code-capture %}
@@ -664,7 +664,7 @@ top_styles %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-11" button-text="Show Code" toggle-text=code-capture %}
-![Frequencies of all styles, sorted](/img/2018-02-03-music-data/11-styles-sorted.png){: .center-image}
+![Frequencies of all styles, sorted](/assets/img/2018-02-03-music-data/11-styles-sorted.png){: .center-image}
 
 There we go. This gives a better idea of the total distribution of styles. Apparently, there are some styles that are hardly used at all in the dataset. Is this a failure on Discogs side?
 ```R
@@ -739,7 +739,7 @@ make_style_year_plot(50, top_styles %>% select(style)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-12" button-text="Show Code" toggle-text=code-capture %}
-![Lifetimes for the 50 most common styles](/img/2018-02-03-music-data/12-common-style-lifetimes.png){: .center-image}
+![Lifetimes for the 50 most common styles](/assets/img/2018-02-03-music-data/12-common-style-lifetimes.png){: .center-image}
 
 (That plot is missing some color, but I am not quite sure how to add it in a meaningful way.) While I think that this is an interesting way to look at the times in which styles emerged, there are some flaws with this approach: If you know anything about the history of Black Metal, you will be surprised to hear that there are 1970s Black Metal releases (which is what this plot claims). This genre only emerged in the 1980s; the album *Black Metal* by Venom that actually coined the term was not released until 1982. Of course, in retrospect it is easier to go back in time and label earlier albums with a similar sound as Black Metal. ‘Maybe’, you argue, ‘you are confusing a musical style with a term used to describe that style.’ Yes, maybe. (With Black Metal, this is a difficult discussion anyway: Our modern notion of Black Metal mostly refers to Norwegian Black Metal, which wasn’t a thing until the 1990s second wave of Black Metal.) In related matters, *Why is Black Metal even in the top 50 of most common styles?*
 
@@ -748,7 +748,7 @@ It might also be fun to see the styles that have the longest time ranges:
 make_style_year_plot(50, arrange(top_styles, desc(range)) %>% select(style)) +
   labs(title = 'Ranges for the 50 styles with the longest time in use')
 ```
-![Lifetimes for the 50 oldest styles](/img/2018-02-03-music-data/13-oldest-styles-lifetimes.png){: .center-image}
+![Lifetimes for the 50 oldest styles](/assets/img/2018-02-03-music-data/13-oldest-styles-lifetimes.png){: .center-image}
 Amusingly, the oldest of the styles is called *Novelty*.
 
 Many of these grandpa styles sounds like they are hardly popular anymore. One could use a violin plot to see when the bulk of releases in these styles happened, but having 50+ violin plots is probably not all that helpful. One thing I really like about this dataset is that the questions are really just jumping out at you: We could investigate periods of apparent musical creativity (in which years did the most genres arise), or we could try to summarise the popularity of a style in a single point and plot that as a point cloud. That, however, would only make sense if the graphs were interactive in some way, so you could hover a point to see what style that is.
@@ -830,7 +830,7 @@ ggplot(data = top_styles, aes(x = min_year)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-14" button-text="Show Code" toggle-text=code-capture %}
-![Genesis of new styles over time](/img/2018-02-03-music-data/14-genre-genesis-per-year.png){: .center-image}
+![Genesis of new styles over time](/assets/img/2018-02-03-music-data/14-genre-genesis-per-year.png){: .center-image}
 
 As so often with this data set, the 50s are where it all starts (remember the LP vinyl release 1949?). From there on, the number of new styles slowly declines until almost hitting 0 in recent years. There are a couple of reasons for this: First, Discogs is very selective when it comes to new styles (since there are already so many). Secondly, a style may only be recognized as such after a few years of activity. Third, maybe all of the obvious low-hanging fruits have been claimed.
 Let’s look at some of the more recent new styles:
@@ -906,7 +906,7 @@ make_style_violin_plot_by_regex('Metal', FALSE) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-15" button-text="Show Code" toggle-text=code-capture %}
-![Distribution of Metal releases by subgenre (relative)](/img/2018-02-03-music-data/15-metal-violin-relative.png){: .center-image}
+![Distribution of Metal releases by subgenre (relative)](/assets/img/2018-02-03-music-data/15-metal-violin-relative.png){: .center-image}
 
 If you were sitting next to me right now, you’d hear me giggle because I like this plot so much. In case you are wondering: the colors do not actually convey any additional information, no, but I find the plot more pleasing to look at with some color. So, what do we see? For each genre, we see a violin plot (with marked quartiles) that shows the (relative) distribution, i.e., all of the violin plots have the same maximum height, regardless of the number of releases in that subgenre. The total number of releases for that genre is on the right, just for reference.
 
@@ -921,23 +921,23 @@ make_style_violin_plot_by_regex('Metal', TRUE) +
        x = 'Metal subgenre',
        fill = 'Metal subgenre')
 ```
-![Distribution of Metal releases by subgenre (absolute)](/img/2018-02-03-music-data/16-metal-violin-absolute.png){: .center-image}
+![Distribution of Metal releases by subgenre (absolute)](/assets/img/2018-02-03-music-data/16-metal-violin-absolute.png){: .center-image}
 
 Since that turned out to be so much fun, let’s try that again with some other sets of styles (always with relative scaling). A common way to beef up your genre is by prefixing it with Post, so here we go:
 
-![Distribution of Post-* releases (relative)](/img/2018-02-03-music-data/17-post-violin.png){: .center-image}
+![Distribution of Post-* releases (relative)](/assets/img/2018-02-03-music-data/17-post-violin.png){: .center-image}
 
-![Distribution of Rock-* releases (relative)](/img/2018-02-03-music-data/18-rock-violin.png){: .center-image}
+![Distribution of Rock-* releases (relative)](/assets/img/2018-02-03-music-data/18-rock-violin.png){: .center-image}
 
-![Distribution of Pop-* releases (relative)](/img/2018-02-03-music-data/19-pop-violin.png){: .center-image}
+![Distribution of Pop-* releases (relative)](/assets/img/2018-02-03-music-data/19-pop-violin.png){: .center-image}
 
-![Distribution of Jazz-* releases (relative)](/img/2018-02-03-music-data/20-jazz-violin.png){: .center-image}
+![Distribution of Jazz-* releases (relative)](/assets/img/2018-02-03-music-data/20-jazz-violin.png){: .center-image}
 
 (Note how *Contemporary Jazz* is almost always a thing. Why might that be? ;) )
 
-![Distribution of House-* releases (relative)](/img/2018-02-03-music-data/21-house-violin.png){: .center-image}
+![Distribution of House-* releases (relative)](/assets/img/2018-02-03-music-data/21-house-violin.png){: .center-image}
 
-![Distribution of Blues-* releases (relative)](/img/2018-02-03-music-data/22-blues-violin.png){: .center-image}
+![Distribution of Blues-* releases (relative)](/assets/img/2018-02-03-music-data/22-blues-violin.png){: .center-image}
 
 
 # Song Lengths
@@ -1000,7 +1000,7 @@ ggplot(song_length_by_year, aes(x = length)) +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-23" button-text="Show Code" toggle-text=code-capture %}
-![Histogram of song lengths](/img/2018-02-03-music-data/23-song-length-histogram.png){: .center-image}
+![Histogram of song lengths](/assets/img/2018-02-03-music-data/23-song-length-histogram.png){: .center-image}
 
 Unsurprisingly, the peak of the histogram is at about 3:30-4:00 (a common length for radio versions of songs). There are noticeable peaks at 20, 30 and 60 minutes. One might think that these are due to rounding, but I do not believe that, since the song lengths in the databases mostly come from the CD data themselves (and they are usually accurate to the second).
 
@@ -1041,7 +1041,7 @@ song_length_by_year %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-24" button-text="Show Code" toggle-text=code-capture %}
-![Distribution of song lengths over time](/img/2018-02-03-music-data/24-song-lenghts-over-time.png){: .center-image}
+![Distribution of song lengths over time](/assets/img/2018-02-03-music-data/24-song-lenghts-over-time.png){: .center-image}
 
 There you have it: Music never really freed itself from the 5-minutes-shackles installed by pre-LP vinyls. The distribution of song lengths does not seem to have changed all that much over the years. Sure, there are more extreme values, but the overall picture hasn't changed. If you squint, you may see a slight drop from 1955 to 1965. The black line marks the median song length per year, and this seems to confirm this suspicion.
 Maybe it is worth taking a closer look at that, focusing on ‘short’ songs (less than 5 minutes, purely visually though) on a linear scale (instead of logarithmic):
@@ -1082,7 +1082,7 @@ song_length_by_year %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-25" button-text="Show Code" toggle-text=code-capture %}
-![Distribution of song lengths over time](/img/2018-02-03-music-data/25-song-lenghts-over-time.png){: .center-image}
+![Distribution of song lengths over time](/assets/img/2018-02-03-music-data/25-song-lenghts-over-time.png){: .center-image}
 
 Aha! Now it really looks like something interesting happened to song lengths since the 1950s. Over the course of 50 years, the median song has become almost a minute longer! I did not expect to find this *at all*. If you take a look at the second-to-last plot, you will notice that recent years have seen releases with longer and longer songs. A first thought might be that this is what is causing the increase in observed song length – but this is just why we are using the median ;) Even when excluding anything beyond 10 minutes, the effect is still well visible:
 
@@ -1111,7 +1111,7 @@ song_length_by_year %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-26" button-text="Show Code" toggle-text=code-capture %}
-![Median song length over time for songs of at most 10 minutes](/img/2018-02-03-music-data/26-median-song-length.png){: .center-image}
+![Median song length over time for songs of at most 10 minutes](/assets/img/2018-02-03-music-data/26-median-song-length.png){: .center-image}
 
 (Please mind that this is still not a rigorous statistical analysis of this apparent effect.)
 
@@ -1184,7 +1184,7 @@ num_tracks_by_year %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-27" button-text="Show Code" toggle-text=code-capture %}
-![Distribution of the number of tracks over time](/img/2018-02-03-music-data/27-track-count.png){: .center-image}
+![Distribution of the number of tracks over time](/assets/img/2018-02-03-music-data/27-track-count.png){: .center-image}
 
 Clearly visible in the plot above is a jump in the number of tracks in about 1955 (this can be clearly seen by the yellow line marking the median by year). This *may* also be due to the fact that LPs became more prominent. The release of the CD in 1982 could be the reason for the second prominent feature of this plot, namely that there have been plenty of releases with absurd track counts from the 1980s on.
 
@@ -1221,7 +1221,7 @@ releases %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-28" button-text="Show Code" toggle-text=code-capture %}
-![Track lengths by relative position on release](/img/2018-02-03-music-data/28-track-length-by-position.png){: .center-image}
+![Track lengths by relative position on release](/assets/img/2018-02-03-music-data/28-track-length-by-position.png){: .center-image}
 
 As you can see, I decided to only run this on a random sample of 5000 releases. Furthermore, there is no visible effect, except for slight declines at the ends (hard to see here) – but these are artifacts, due to the fact that the relative position of a song can never be 0 or 1 (and will, in fact, most likely be far from that, c.f. the statistics on tracks per release from above).
 
@@ -1259,7 +1259,7 @@ releases %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-29" button-text="Show Code" toggle-text=code-capture %}
-![Track lengths by relative position on release](/img/2018-02-03-music-data/29-track-length-by-relative-position.png){: .center-image}
+![Track lengths by relative position on release](/assets/img/2018-02-03-music-data/29-track-length-by-relative-position.png){: .center-image}
 
 Hmh, the track lengths are still all over the place. You may see a few clusters of points in the plot; these are also artifacts of the way we display the data. For example, they occur prominently at 0.25 and 0.75 – which are just the positions you’d expect for a two-piece release. I’ll leave the rest of the calculation why they show up to you. One thing that I maybe dismissed as irrelevant a bit too early is the drop in track length at the beginning of an album. The effect is also clearly visible in this plot, also when just focusing on the points.
 
@@ -1293,7 +1293,7 @@ releases %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-30" button-text="Show Code" toggle-text=code-capture %}
-![Track lengths by position on release](/img/2018-02-03-music-data/30-10-track-lengths-by-position.png){: .center-image}
+![Track lengths by position on release](/assets/img/2018-02-03-music-data/30-10-track-lengths-by-position.png){: .center-image}
 
 *One of these things is not like the others*, as they say. This is quite a surprise to me, to be honest. Why would the second song on a 10-track release be longer than the rest (on average)? I actually doubt the existence of this effect, it just seems so weird. Also, note how the z-values are all at most 3. This is actually true for arbitrary numbers of tracks: For \\(n\\) tracks, you get \\(\sqrt{n−1}\\) as an upper bound on the z-value. Thus we may just as well normalize by that.
 
@@ -1329,13 +1329,13 @@ plot_track_lengths(5:8)
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-31" button-text="Show Code" toggle-text=code-capture %}
-![Track lengths by position on release](/img/2018-02-03-music-data/31-track-lengths-by-position-and-count.png){: .center-image}
+![Track lengths by position on release](/assets/img/2018-02-03-music-data/31-track-lengths-by-position-and-count.png){: .center-image}
 
-![Track lengths by position on release](/img/2018-02-03-music-data/32-track-lengths-by-position-and-count.png){: .center-image}
+![Track lengths by position on release](/assets/img/2018-02-03-music-data/32-track-lengths-by-position-and-count.png){: .center-image}
 
-![Track lengths by position on release](/img/2018-02-03-music-data/33-track-lengths-by-position-and-count.png){: .center-image}
+![Track lengths by position on release](/assets/img/2018-02-03-music-data/33-track-lengths-by-position-and-count.png){: .center-image}
 
-![Track lengths by position on release](/img/2018-02-03-music-data/34-track-lengths-by-position-and-count.png){: .center-image}
+![Track lengths by position on release](/assets/img/2018-02-03-music-data/34-track-lengths-by-position-and-count.png){: .center-image}
 
 For 5 through 9 tracks, it seems that the last track is mostly the longest. This abruptly changes when going to 10+ track releases: Here, the longest track is mostly found somewhere at the start of the release. To make matters more absurd, this position is shifted by one whenever the number of tracks on the release is incremented. Furthermore, the more songs there are on the release, the less extreme is the effect.
 
@@ -1360,7 +1360,7 @@ releases %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-35" button-text="Show Code" toggle-text=code-capture %}
-![Distribution of the position of the longest track on a release](/img/2018-02-03-music-data/35-position-of-longest-track.png){: .center-image}
+![Distribution of the position of the longest track on a release](/assets/img/2018-02-03-music-data/35-position-of-longest-track.png){: .center-image}
 
 …but the effect remains. Maybe there is some deep reason as to why releases with 10 to 19 releases tend to have their longest track in the 8th-to-last position. (If you look closely, it seems very unlikely that the position immediately following that contains the longest song.) The jump from releases of length 9 to releases of length 10 is something I fail to come up with an explanation for.
 
@@ -1448,7 +1448,7 @@ active_artists_by_year_and_gender %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-36" button-text="Show Code" toggle-text=code-capture %}
-![Relative proportions of alive artists by year and gender](/img/2018-02-03-music-data/36-gender-proportions.png){: .center-image}
+![Relative proportions of alive artists by year and gender](/assets/img/2018-02-03-music-data/36-gender-proportions.png){: .center-image}
 
 We have to be very careful with what this plot is actually showing: We count the number of births in a year minus the number of deaths in a year, then take a cummulative sum of that. First, someone who is born in 1900 is probably not making music until 20 years later. Also, we do not have birth data for artists before 1900, but I’d assume that most of them were men. Therefore, the graph should probably be read with a 20 year offset and a smaller number of women in the first years. Finally, it should be noted that we simply do not have any birth data for artists who identify as neither male nor female available (represented by the non-existent blue area).
 
@@ -1468,7 +1468,7 @@ active_artists_by_year_and_gender %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-37" button-text="Show Code" toggle-text=code-capture %}
-![Number of active artists by year](/img/2018-02-03-music-data/37-active-artists-by-year.png){: .center-image}
+![Number of active artists by year](/assets/img/2018-02-03-music-data/37-active-artists-by-year.png){: .center-image}
 
 The number of active artists that we have data on now is simply much, much greater than in, say, the 1950s. The dip in active artists over the last few years is a bit of a surprise to me. There surely is a clever explanation for that; especially since the total number of active artists (including bands) has never been as high as today: 
 
@@ -1516,7 +1516,7 @@ active_artists_by_year %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-38" button-text="Show Code" toggle-text=code-capture %}
-![Number of active artists by year](/img/2018-02-03-music-data/38-active-artists-by-year.png){: .center-image}
+![Number of active artists by year](/assets/img/2018-02-03-music-data/38-active-artists-by-year.png){: .center-image}
 
 Maybe people are just more likely to make (and release) music together than alone?
 
@@ -1549,7 +1549,7 @@ artists_lifetimes %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-39" button-text="Show Code" toggle-text=code-capture %}
-![Distribution of band lifetimes](/img/2018-02-03-music-data/39-band-lifetimes.png){: .center-image}
+![Distribution of band lifetimes](/assets/img/2018-02-03-music-data/39-band-lifetimes.png){: .center-image}
 
 Now we can similarly look at the average number of years between releases (for bands founded after 1950 with at least 2 releases).
 
@@ -1579,7 +1579,7 @@ artists_lifetime_vs_releases %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-40" button-text="Show Code" toggle-text=code-capture %}
-![Distribution of years between releases for bands](/img/2018-02-03-music-data/40-inter-release-times.png){: .center-image}
+![Distribution of years between releases for bands](/assets/img/2018-02-03-music-data/40-inter-release-times.png){: .center-image}
 
 From this plot, I can only conclude that you (and I) should stop complaining that your favorite band hasn't released asn album for almost 2 years now.
 
@@ -1608,7 +1608,7 @@ artists_per_country %>%
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-41" button-text="Show Code" toggle-text=code-capture %}
-![Artists by country (top 30)](/img/2018-02-03-music-data/41-artists-by-country.png){: .center-image}
+![Artists by country (top 30)](/assets/img/2018-02-03-music-data/41-artists-by-country.png){: .center-image}
 
 The data (unsurprisingly) contains primarily US artists, followed by other developed countries. So if a map is to be of any help, it should allow the enduser to read off the data for smaller countries.
 
@@ -1636,7 +1636,7 @@ ggplot() +
 ```
 {% endcapture %}
 {% include widgets/toggle-field.html toggle-name="toggle-code-42" button-text="Show Code" toggle-text=code-capture %}
-![Artists by country](/img/2018-02-03-music-data/42-world-map.png){: .center-image}
+![Artists by country](/assets/img/2018-02-03-music-data/42-world-map.png){: .center-image}
 
 On the one hand, this map is pleasant to look at and easy to render. We do not need to join the data we want to visualize with the world map itself. But I feel that this map is suboptimal: There are many small regions that are hard to see and it is almost impossible to use this map to make any but the broadest statements. For example, can you tell from the map whether there are no artists in, say, Chad? (There are none.) Does China or India have more artists in the database? (China.) What about Luxembourg, can you even see that? (No, you cannot.) This is, I think, where interactivity really makes sense. Here is a way to do this, combining ggplot2 and plotly:
 
@@ -1690,17 +1690,17 @@ This is somewhat better, but it bugs me that this plot (along with the other int
 
 # Final Plots
 If I had to pick just a single plot from this analysis, it would have to be this here:
-![Distribution of Metal releases by subgenre (relative)](/img/2018-02-03-music-data/43-distribution-by-subgenre.png){: .center-image}
+![Distribution of Metal releases by subgenre (relative)](/assets/img/2018-02-03-music-data/43-distribution-by-subgenre.png){: .center-image}
 
 This plot summarises the development of a whole genre of music over the whole of its existence and it is oh-so-pretty to look at. Specifically (as outlined before), this plot shows the distribution of releases for each style within the Metal genre (and the total releases in that style on the right). I think it is a very effective plot, because it tells a story. We can track the popularity of styles over the years, seeing how Speed Metal rose to fame in the 1980s and then slowly died off, or how recent years saw an explosion in Sludge Metal releases. Of course, this kind of plot also works well for other styles, but this is the one I can relate to the most. One could add some of the pivotal releases of the styles to the plot, make it higher resolution and print some pretty cool posters from that.
 
 As a second plot, I am taking this one:
-![Distribution of the position of the longest track on a release](/img/2018-02-03-music-data/44-distribution-of-longest-track.png){: .center-image}
+![Distribution of the position of the longest track on a release](/assets/img/2018-02-03-music-data/44-distribution-of-longest-track.png){: .center-image}
 
 This plot is (basically) a slightly beefed-up version of a plot we saw earlier (the colors really do help!). I chose it because it highlights a very surprising result – namely that there is a non-trivial relationship between song-length and track position on a release. I thought a lot about whether there is anything that should be added to this plot, but ultimately I think it is fine the way it is; adding (for example) the average playing times per position and number of tracks would not add much to the plot.
 
 My third plot is this:
-![Proportion of exclusive releases for a single format by year](/img/2018-02-03-music-data/45-formats-by-year.png){: .center-image}
+![Proportion of exclusive releases for a single format by year](/assets/img/2018-02-03-music-data/45-formats-by-year.png){: .center-image}
 
 I am going to be up-front: I like colorful area plots. If you did not look at the legend, you may have mistakenly thought that you have already seen this plot. But no, this one is about *release formats*, not about genres. My choice of plots was primarily guided by the question *If I was to publish this and had to choose three plots to highlight the results, which would I take*? Having three plots that show different aspects in different ways seems like the best way to do this. Including color is also a great idea, since that will draw attention to it.
 
