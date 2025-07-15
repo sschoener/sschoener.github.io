@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-[Last time]({% post_url 2024-07-07-thread-callbacks-windows %}), we looked at callbacks you can directly embed into your binaries on Windows that are then called for every thread on start/end. The runtime is using this to initialize thread-locals that require more than just memcpy. Today, we are going to look at a mechanism that can be used to initialize global variables. It's *almost* useful.
+[Last time]({% post_url 2025-07-07-thread-callbacks-windows %}), we looked at callbacks you can directly embed into your binaries on Windows that are then called for every thread on start/end. The runtime is using this to initialize thread-locals that require more than just memcpy. Today, we are going to look at a mechanism that can be used to initialize global variables. It's *almost* useful.
 
 On Windows, the initialization of globals is handled by the C runtime library (CRT): it places a small wrapper around your `main` function that runs those initializers. But how does it know what initializers to run? The variables you have to initialize are all over your program.
 
