@@ -42,7 +42,7 @@ static void MyInitializer2() {}
 ADD_TO_SECTION(MyInitializer1, init, "MyInit")
 ADD_TO_SECTION(MyInitializer2, init, "MyInit")
 ```
-Note how on Windows, we actually say `__declspec(allocate("MyInit$B"))`. The linker interprets this as a section name (`MyInit`) followed by a string that is used for sorting the symbols. Also note that section usually start with `.`, which I've disregarded here.
+Note how on Windows, we actually say `__declspec(allocate("MyInit$B"))`. The linker interprets this as a section name (`MyInit`) followed by a string that is used for sorting the symbols. Also note that sections usually start with `.`, which I've disregarded here.
 
 Finally, we need to put in some more work to get symbols that represent the start or end of the section:
 ```cpp
