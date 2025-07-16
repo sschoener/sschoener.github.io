@@ -42,7 +42,7 @@ static void MyInitializer2() {}
 ADD_TO_SECTION(MyInitializer1, init, "MyInit")
 ADD_TO_SECTION(MyInitializer2, init, "MyInit")
 ```
-Note how on Windows, we actually say `__declspec(allocate("MyInit$B"))`. The linker interprets this as a section name (`MyInit`) followed by a string that is used for sorting the symbols. Also note that sections usually start with `.`, which I've disregarded here.
+Note how on Windows, we actually say `__declspec(allocate("MyInit$B"))`. The linker interprets this as a section name (`MyInit`) followed by a string that is used for sorting the symbols in memory. Also note that sections usually start with `.`, which I've disregarded here.
 
 Finally, we need to put in some more work to get symbols that represent the start or end of the section:
 ```cpp
@@ -96,7 +96,7 @@ I've tested this code with Clang/lld-link. It's possible that MSVC requires a li
 
 I should also point out that there are some pitfalls around padding: the linker might add zeros to the end of the section to insert padding, and it may even insert padding between symbols in the section. Raymond Chen has [three](https://devblogs.microsoft.com/oldnewthing/20181107-00/?p=100155) [small](https://devblogs.microsoft.com/oldnewthing/20181108-00/?p=100165) [pieces](https://devblogs.microsoft.com/oldnewthing/20181109-00/?p=100175) on this as well.
 
-Finally, why did I say that this is *almost* useful for initializing globals? Well, it doesn't play nicely with static linking. You may have noticed that we applied `__attribute__((used))` to the initializer. This tells Clang to not drop them during compilation. Unfortunately, linkers exist. (Honestly: linkers! Compilers, are bad, yes, but if you really want to ruin your day, you need a linker.) When the linker sees your static library, it will make an attempt to pull in exactly what is needed, and our section data doesn't make the list: nobody is referencing any symbols in it. So initializers specified like this in a static library are just dropped.
+Finally, why did I say that this is *almost* useful for initializing globals? Well, it doesn't play nicely with static linking. You may have noticed that we applied `__attribute__((used))` to the initializer. This tells Clang to not drop them during compilation. Unfortunately, linkers exist. (Honestly: linkers! Compilers are bad, yes, but if you really want to ruin your day, you need a linker.) When the linker sees your static library, it will make an attempt to pull in exactly what is needed, and our section data doesn't make the list: nobody is referencing any symbols in it. So initializers specified like this in a static library are just dropped.
 
 On Windows, it seems like the linker will actually keep the section. That, or I got lucky. But Linux and Mac? No, the section is just silently dropped. I have tried various mechanisms around this, but without success. The closest is maybe Clang's [retain attribute](https://clang.llvm.org/docs/AttributeReference.html#retain), which has this blurb in the docs:
 
