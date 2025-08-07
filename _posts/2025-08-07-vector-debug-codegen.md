@@ -187,7 +187,7 @@ delta = f * delta / distance;
 163E  lea          rax, [rsp+158h]
 1646  mov          qword ptr [rsp+E0h], rax
 ```
-To be clear, it is neither surprising nor bad that these values exist. That is likely what you want from an unoptimized build. It just goes to show that the culprit here really is passing structs around by value.
+To be clear, it is neither surprising nor bad that these values exist. That is likely what you want from an unoptimized build. It just goes to show that the culprit here really is passing (or mostly returning) structs by value.
 
 I also want to show the unoptimized codegen for the builtin vector types for that line:
 ```cpp
