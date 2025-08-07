@@ -72,24 +72,24 @@ static_assert(sizeof(float3) == 4 * sizeof(float), "Unexpected vector size");
  * `vectorcall` is a custom calling convention on Windows for functions that take many vector register arguments. That is *clearly* not the case here, but I wanted to see whether anything happens anyway: The docs ([MSDN](https://learn.microsoft.com/en-us/cpp/cpp/vectorcall?view=msvc-170)) mention _homogeneous vector aggregate_ (HVA) values as something that might benefit, and our `float3` should qualify.
  * I added member vs. non-member function because I had no idea whether `vectorcall` on a member-function was even valid in the first place.
 
-Let me lead with the results. We have four scenarios to compare: `-O0`, `-O1`, `-O2`, and `-O1` but we no longer force inlining of all the operators involved. I explicitly pass those to Clang via `-Xclang -O1`, since Visual Studio uses the `clang-cl` frontend. The reported value is the mean time taken for one loop of my benchmark, in microseconds. **This is a microbenchmark. Don't read too much into the specific numbers.** Also note that this is of course measuring a whole bunch of things that are NOT about vector code (like the scalar code we always have, loops, etc.).
+Let me lead with the results. We have five scenarios to compare: `-O0`, `-O1`, `-O2`, `-O0` but we no longer force inlining of all the operators involved, and then also `-Og`. `-Og` is "optimize but keep debuggable", and it used to be an alias for `-O1`, but apparently that is no longer the case. I explicitly pass those to Clang via `-Xclang -O1`, since Visual Studio uses the `clang-cl` frontend. The reported value is the mean time taken for one loop of my benchmark, in microseconds. **This is a microbenchmark. Don't read too much into the specific numbers.** Also note that this is of course measuring a whole bunch of things that are NOT about vector code (like the scalar code we always have, loops, etc.).
 
-|Setup   |O0|O1|O2|O0, no inlining|O0/O1 speedup
-|--------|-:|-:|-:|-:|-:|
-|VEC_SCALAR|4077|3001|2973|4159|1.33
-|VEC_OP|8315|2979|3014|8669|2.79
-|VEC_OP_MEMBER|8571|3003|2985|8476|2.85
-|VEC_SSE_RAW|5575|1527|1535|5564|3.65
-|VEC_SSE|6415|1553|1540|6459|4.13
-|VEC_SSE_OP|19694|1541|1532|26292|12.82
-|VEC_SSE_OP_VEC|19801|1536|1536|21269|12.89
-|VEC_SSE_OP_VEC_MEM|20226|1547|1547|21336|13.07
-|VEC_BUILTIN_OCL|2932|1534|1536|2892|1.91
-|VEC_BUILTIN_GCC|2910|1512|1521|2914|1.92
-|VEC_BUILTIN_OCL_WRAP|16477|1463|1485|19328|11.26
+|Setup   |O0|O1|O2|O0, no inlining|Og|O0/O1 speedup
+|--------|-:|-:|-:|-:|-:|-:|
+|VEC_SCALAR|4077|3001|2973|4159|3094|1.33
+|VEC_OP|8315|2979|3014|8669|3061|2.79
+|VEC_OP_MEMBER|8571|3003|2985|8476|3076|2.85
+|VEC_SSE_RAW|5575|1527|1535|5564|1585|3.65
+|VEC_SSE|6415|1553|1540|6459|1597|4.13
+|VEC_SSE_OP|19694|1541|1532|26292|1609|12.82
+|VEC_SSE_OP_VEC|19801|1536|1536|21269|1573|12.89
+|VEC_SSE_OP_VEC_MEM|20226|1547|1547|21336|1564|13.07
+|VEC_BUILTIN_OCL|2932|1534|1536|2892|1570|1.91
+|VEC_BUILTIN_GCC|2910|1512|1521|2914|1594|1.92
+|VEC_BUILTIN_OCL_WRAP|16477|1463|1485|19328|1570|11.26
 
 What can we learn from this?
- * There is no real difference between `-O1` and `-O2` for this code.
+ * There is no real difference between `-Og`, `-O1` and `-O2` for this code.
  * There *is* a way of writing vector code where the debug version is just as fast as an optimized scalar version: builtin vector types.
  * While using SSE intrinsics is not free, just using raw intrinsics is not the worst choice for debug performance. It's nowhere near their intended speed, unfortunately. Combining them with operators however is a guarantee for pain in Debug builds. The middle ground of putting the SSE type into a struct also comes at a cost.
  * However, the real cost comes from using operators: As soon as we wrap the otherwise really decent builtin types in a struct and use operators, we hit a performance cliff.
