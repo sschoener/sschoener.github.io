@@ -61,10 +61,10 @@ I have experimented with ten different setups:
  10. using Clang's built in vector types, GCC flavored (`VEC_BUILTIN_GCC`)
  11. using Clang's built in vector types, OpenCL flavored, in a struct (`VEC_BUILTIN_OCL_WRAP`)
 
-You can find the test code [here](https://github.com/sschoener/vector-math-codegen/).
+In all cases, all the operators are marked as always-inline. You can find the test code [here](https://github.com/sschoener/vector-math-codegen/).
 
 Some words about the unexpected entries:
- * Clang has a various different inbuilt vector types which offer a slightly different interface. For example, OpenCL-like vectors are defined like this:
+ * Clang has a various different inbuilt vector types which all offer a slightly different interface, but they come with operators already. For example, OpenCL-like vectors are defined like this:
 ```cpp
 typedef float float3 __attribute__((ext_vector_type(3), __aligned__(16)));
 static_assert(sizeof(float3) == 4 * sizeof(float), "Unexpected vector size");
@@ -74,7 +74,7 @@ static_assert(sizeof(float3) == 4 * sizeof(float), "Unexpected vector size");
 
 Let me lead with the results. We have four scenarios to compare: `-O0`, `-O1`, `-O2`, and `-O1` but we no longer force inlining of all the operators involved. I explicitly pass those to Clang via `-Xclang -O1`, since Visual Studio uses the `clang-cl` frontend. The reported value is the mean time taken for one loop of my benchmark, in microseconds. **This is a microbenchmark. Don't read too much into the specific numbers.** Also note that this is of course measuring a whole bunch of things that are NOT about vector code (like the scalar code we always have, loops, etc.).
 
-|SETUP   |O0|O1|O2|O0, no inlining|O0/O1 speedup
+|Setup   |O0|O1|O2|O0, no inlining|O0/O1 speedup
 |--------|-:|-:|-:|-:|-:|
 |VEC_SCALAR|4077|3001|2973|4159|1.33
 |VEC_OP|8315|2979|3014|8669|2.79
