@@ -53,7 +53,7 @@ I have experimented with ten different setups:
  2. purely scalar code with operators on `float3`, and the operators are free functions (`VEC_OP`)
  3. purely scalar code with operators on `float3`, and the operators are member functions (`VEC_OP_MEMBER`)
  4. raw SSE, where `float3` is defined to be `__m128` (`VEC_SSE_RAW`)
- 5. SSE where `float3` is a struct that contains a union of `__m128` and `x, y, z, pad` (`VEC_SSE`)
+ 5. SSE where `float3` is a struct that contains a union of `__m128` and `x, y, z, pad` (`VEC_SSE`), and we directly operate on the `__m128` with intrinsics
  6. as in the previous scenario, but with operators (`VEC_SEE_OP`)
  7. as in the previous scenario, but the operators use the `vectorcall` calling convention (`VEC_SEE_OP_VEC`)
  8. as in the previous scenario, but are also member functions (`VEC_SEE_OP_VEC_MEM`)
@@ -90,8 +90,9 @@ Let me lead with the results. We have four scenarios to compare: `-O0`, `-O1`, `
 
 What can we learn from this?
  * There is no real difference between `-O1` and `-O2` for this code.
- * There IS a version of doing vector code where the debug version is just as fast as an optimized scalar version: builtin vector types.
+ * There *is* a way of writing vector code where the debug version is just as fast as an optimized scalar version: builtin vector types.
  * While using SSE intrinsics is not free, just using raw intrinsics is not the worst choice for debug performance. It's nowhere near their intended speed, unfortunately. Combining them with operators however is a guarantee for pain in Debug builds. The middle ground of putting the SSE type into a struct also comes at a cost.
+ * However, the real cost comes from using operators: As soon as we wrap the otherwise really decent builtin types in a struct and use operators, we hit a performance cliff.
  * `vectorcall` does help, but only if you don't inline. That's expected. It has no practical value here, since in reality we will always want to inline these functions. It also works on member functions, and using member functions makes no difference here in any scenario.
 
 The builtin vector types are an interesting option. I have learned a couple of things about them:
@@ -230,5 +231,52 @@ delta = _mm_div_ps(_mm_mul_ps(_mm_set1_ps(f), delta), _mm_set1_ps(distance));
 138B  divps        xmm0, xmm1
 138E  movaps       xmmword ptr [rsp+60h], xmm0
 ```
+
+One final question I'd like to answer is this: why is `VEC_SSE` so much faster than `VEC_BUILTIN_OCL_WRAP`? In both cases, we are essentially putting a vector type into a struct and keep copying 4 floats. The main difference is that `VEC_SSE` directly operates on the contents of the struct (and copies that content), whereas `VEC_BUILTIN_OCL_WRAP` copies the struct itself.
+
+Here is a sample from `VEC_BUILTIN_OCL_WRAP`:
+```cpp
+vel += delta / 60;
+1461  mov          qword ptr [rsp+F8h], rcx
+1469  mov          dword ptr [rsp+F0h], __avx10_version (42700000h)
+1474  mov          qword ptr [rsp+E8h], rax
+147C  mov          rax, qword ptr [rsp+E8h]
+1484  movaps       xmm0, xmmword ptr [rax]
+1487  movaps       xmm1, xmmword ptr [rsp+F0h]
+148F  shufps       xmm1, xmm1, 0h
+1493  divps        xmm0, xmm1
+1496  movaps       xmmword ptr [rsp+130h], xmm0
+149E  lea          rax, [rsp+130h]
+14A6  mov          qword ptr [rsp+C8h], rax
+14AE  lea          rax, [rsp+190h]
+14B6  mov          qword ptr [rsp+C0h], rax
+14BE  mov          rax, qword ptr [rsp+C8h]
+14C6  movaps       xmm0, xmmword ptr [rax]
+14C9  mov          rax, qword ptr [rsp+C0h]
+14D1  addps        xmm0, xmmword ptr [rax]
+14D4  movaps       xmmword ptr [rax], xmm0
+```
+Compare this to the same in `VEC_SSE`:
+```cpp
+vel.vec = _mm_add_ps(vel.vec, _mm_div_ps(delta.vec, _mm_set1_ps(60)));
+13A5  mov          dword ptr [rsp+170h], __avx10_version (42700000h)
+13B0  movaps       xmm0, xmmword ptr [rsp+170h]
+13B8  shufps       xmm0, xmm0, 0h
+13BC  movaps       xmmword ptr [rsp+160h], xmm0
+13C4  movaps       xmm1, xmmword ptr [rsp+160h]
+13CC  movaps       xmm0, xmmword ptr [rsp+60h]
+13D1  movaps       xmmword ptr [rsp+130h], xmm1
+13D9  movaps       xmmword ptr [rsp+120h], xmm0
+13E1  movaps       xmm1, xmmword ptr [rsp+120h]
+13E9  divps        xmm1, xmmword ptr [rsp+130h]
+13F1  movaps       xmm0, xmmword ptr [rsp+220h]
+13F9  movaps       xmmword ptr [rsp+1F0h], xmm1
+1401  movaps       xmmword ptr [rsp+1E0h], xmm0
+1409  movaps       xmm0, xmmword ptr [rsp+1E0h]
+1411  addps        xmm0, xmmword ptr [rsp+1F0h]
+1419  movaps       xmmword ptr [rsp+220h], xmm0
+```
+Note how `VEC_SSE` consistently uses the XMM registers, whereas `VEC_BUILTIN_OCL_WRAP` constantly bounces back and forth: copy using general purpose registers, math via XMM registers. That's where the slow down comes from.
+
 
 For the particular use-case I needed, I ended up going with wrapping Clang's vector types in a struct. Yes, the debug performance is terrible. Yes, that means that debug builds need to run with `-O1`. But if you want to retain control over the interface of your `float3` type, then that's the best option I have found. I hope I can one day write a note about how `-O1` is actually great for debuggability, but as it stands I have not run those experiments yet.
