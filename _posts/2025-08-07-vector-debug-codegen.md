@@ -97,7 +97,7 @@ What can we learn from this?
 
 The builtin vector types are an interesting option. I have learned a couple of things about them:
  * If you use intrinsics, odds are you are already using builtin vectors. This is how `_mm_add_ps` is defined for me (`DEFAULT_FN_ATTRS` includes `__always_inline__`). This is *already* using builtin vector types of the GCC variety.
- 
+
 ```cpp
 typedef float __v4sf __attribute__((__vector_size__(16)));
 typedef float __m128 __attribute__((__vector_size__(16), __aligned__(16)));
@@ -109,6 +109,7 @@ static __inline__ __m128 __DEFAULT_FN_ATTRS _mm_add_ps(__m128 __a, __m128 __b)
 ```
  * The main reason not to use builtin vector types is that you have now completely given up control of the interface of your vector types. This might be OK in your scenario.
  * A secondary reason not to use builtin vector types is that none of the IDEs I have tried (VS2022, CLion) actually supported them fully. VS2022 did a bit better than CLion. The latter just does not know about the operators that the inbuilt vector types support. The former doesn't recognize `v.x` as a valid way to access the first component of an OpenCL vector. You can sort-of work around this by stubbing out an implementation like this, but it's not great:
+
 ```cpp
 #if defined(__INTELLISENSE__) || defined(__clang_analyzer__) || defined(__JETBRAINS_IDE__)
 struct float4 {
