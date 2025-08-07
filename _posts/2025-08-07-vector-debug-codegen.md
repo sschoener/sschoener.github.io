@@ -97,12 +97,12 @@ What can we learn from this?
 
 The builtin vector types are an interesting option. I have learned a couple of things about them:
  * If you use intrinsics, odds are you are already using builtin vectors. This is how `_mm_add_ps` is defined for me (`DEFAULT_FN_ATTRS` includes `__always_inline__`). This is *already* using builtin vector types of the GCC variety.
+ 
 ```cpp
 typedef float __v4sf __attribute__((__vector_size__(16)));
 typedef float __m128 __attribute__((__vector_size__(16), __aligned__(16)));
 
-static __inline__ __m128 __DEFAULT_FN_ATTRS
-_mm_add_ps(__m128 __a, __m128 __b)
+static __inline__ __m128 __DEFAULT_FN_ATTRS _mm_add_ps(__m128 __a, __m128 __b)
 {
   return (__m128)((__v4sf)__a + (__v4sf)__b);
 }
@@ -276,7 +276,7 @@ vel.vec = _mm_add_ps(vel.vec, _mm_div_ps(delta.vec, _mm_set1_ps(60)));
 1411  addps        xmm0, xmmword ptr [rsp+1F0h]
 1419  movaps       xmmword ptr [rsp+220h], xmm0
 ```
-Note how `VEC_SSE` consistently uses the XMM registers, whereas `VEC_BUILTIN_OCL_WRAP` constantly bounces back and forth: copy using general purpose registers, math via XMM registers. That's where the slow down comes from.
+Note how `VEC_SSE` consistently uses the XMM registers, whereas `VEC_BUILTIN_OCL_WRAP` constantly bounces back and forth: copy using general purpose registers, math via XMM registers. That's likely where the slowdown comes from. I have not managed to avoid this (I have tried removing the union, for example, and that doesn't help at all).
 
 
 For the particular use-case I needed, I ended up going with wrapping Clang's vector types in a struct. Yes, the debug performance is terrible. Yes, that means that debug builds need to run with `-O1`. But if you want to retain control over the interface of your `float3` type, then that's the best option I have found. I hope I can one day write a note about how `-O1` is actually great for debuggability, but as it stands I have not run those experiments yet.
