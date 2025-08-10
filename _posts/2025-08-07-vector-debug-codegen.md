@@ -13,7 +13,7 @@ I only care about Clang, or more specifically Clang 19, which you can get via Vi
 
 I ended up doing this investigation because I had written a little sample particle simulation and decided to improve it by adding a vector math library. The particle simulation just used scalar code, no `float3` struct in sight. Adding the vector math library did improve performance of optimized builds, but completely fell off a cliff in non-optimized debug builds.
 
-This was unexpected. Did I not avoid all of the obviously bad things? My code, for example, does not contain templates. Vector math isn't going to change, ever, and I need just `(float|int)(2|3|4)`. It's way more important to have readable, sensible code and duplicate that 6 times than to have a single template. But alas, that was not enough to save me from performance woes.
+This was unexpected. Did I not avoid all of the obviously bad things? My code, for example, does not contain templates (which among other compile time magic is one of the factors that makes the performance unpredictable in the case that Aras discusses). Vector math isn't going to change, ever, and I need just `(float|int)(2|3|4)`. It's way more important to have readable, sensible code and duplicate that 6 times than to have a single template. But alas, that was not enough to save me from performance woes.
 
 When I say `float3`, I mean struct like this:
 ```cpp
