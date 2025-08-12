@@ -9,13 +9,14 @@ I recently found myself wondering whether it is faster to compile C than C++. On
 
 But my question is a little bit more naive. What if I take code that is valid in both C and C++ and compile it as C once and then once as C++? Clearly, this isn't possible _in general_, but we can at least come up with some toy scenarios where it *is* possible. What difference is that going to make? C is still a "simpler" language, does that buy us anything? Or asked differently: If I already avoid most of C++, but still rely on some C++ features, what kind of tax am I paying for that? In cases where I have options between using a C++ feature and not using it, how much does it cost to use it? -- I should also point out that there are plenty of people spending a lot of time working on languages and toolchains that are much faster than anything I am measuring here. I am not interested in establishing some benchmarks for the maximum possible speed you can compile C as; I am merely curious and like to poke around.
 
-For this purpose, I have written a small C# script that supports a handful of code generation scenarios and then compiles them with both MSVC (from VS17.14.7) and Clang 19. The generated code is not representative of a "real" code base, so take the results with a good grain of salt. There is usually a parameter `N` that controls the size of the generated code (`N = 1000, 2000, 4000, 8000, 16000`). For each scenario, I have compiled the code 30 times as C and C++, with `/Od` and `/O2`. The idea of comparing two different optimization levels is that as a compiler noob, I would expect the difference between C and C++ to mostly manifest in the frontend, and higher optimization levels should lead to more time spent in the backend... maybe. I'm not an expert on this.
+For this purpose, I have written a small C# script that supports a handful of code generation scenarios and then compiles them with both MSVC (from VS17.14.7) and Clang 19. The generated code is not representative of a "real" code base, so take the results with a good grain of salt. There is usually a parameter `N` that controls the size of the generated code (`N = 1000, 2000, 4000, 8000, 16000`). For each scenario, I have compiled the code 30 times as C and C++, with `/Od` and `/O2`. The idea of comparing two different optimization levels is that as a compiler noob, I would expect the difference between C and C++ to mostly manifest in the frontend, and higher optimization levels should lead to more time spent in the backend... so maybe differences would be smaller. Or maybe not! I'm not an expert on this.
 
 You can find the script [here](https://github.com/sschoener/c-vs-cpp-compile-times). Note that a part of it is Windows specific: we have to setup a compilation environment to invoke the compiler, and doing this for every run is expensive. So I ended up taking the measurements inside a bash script.
 
 The different scenarios:
  * `Empty`: We compile an empty file.
  * `Funcs`: Generating lots of functions: We generate code like this:
+
 ```cpp
 int f0(int x){ return x; }
 int f1(int x){ return f0(x); }
@@ -26,7 +27,9 @@ int main() {
     return 0;
 }
 ```
+
  * `FreeFunc`: We generate lots of calls to a function that takes a struct by pointer:
+
 ```cpp
 typedef struct S { int v; } S;
 int call(S* s, int x) { return x; }
@@ -42,6 +45,7 @@ int main() {
     return 0;
 }
 ```
+
  * `CppMemberFunc`: Like the previous, but that free function is now a member function. This obviously doesn't work in C, but I wanted to see how it fares against a free standing function.
  * `NoOverload`: Declare `N` types and a corresponding free function that takes the type by pointer.
  * `CppOverload`: Like the previous, except that all of the functions now have the same name.
