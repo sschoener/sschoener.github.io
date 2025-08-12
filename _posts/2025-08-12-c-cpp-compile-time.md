@@ -52,6 +52,8 @@ int main() {
  * `ReturnByPointer`: Returns a trivial struct (containing just an `int`) by pointer.
  * `ReturnByValue`: Returns a trivial struct by value.
 
+The details of the code for the different scenarios are [here](https://github.com/sschoener/c-vs-cpp-compile-times/blob/9ba361a484695438504ed0ac8199104dc910849b/Program.cs#L307).
+
 # Findings
 All times are given in seconds. I don't aim to perform any sort of deep statistics besides applying an interocular trauma test.
 
@@ -64,7 +66,7 @@ Some general findings: First, when compiling with `/Od`, Clang is marginally fas
 |Clang |23.26s | 51.20s |
 |MSVC  |24.54s | 35.39s |
 
-Second, adding a few thousand functions to the same overload set in C++ is a bad idea, regardless of compiler. Who could have guessed! I've stopped beyond `N=4000`. With 4000 overloads, Clang-O2 already takes 6.3s to compile this. Interestingly, MSVC fares slightly better seems to be faster about handling unrealistically large overload sets. (I doubt this has any effect in reality, to be honest.)
+Second, adding a few thousand functions to the same overload set in C++ is a bad idea, regardless of compiler. Who could have guessed! I've stopped beyond `N=4000`. With 4000 overloads, Clang-O2 already takes 6.3s to compile this. Interestingly, MSVC fares slightly better when handling unrealistically large overload sets. (I doubt this has any effect in reality, to be honest.)
 
 Third, there is virtually no difference between `CppMemberFunc` and `FreeFunc`, on either compiler. I thought this was an interesting case to include because in C the name of the function is already sufficient to figure out what to call, whereas in C++ you have to know what type you are invoking it on.
 
@@ -78,4 +80,4 @@ Compiling the same code as C is almost always faster than compiling it as C++, a
 
 For MSVC, a large driver of the difference between C and C++ compile times is the `ReturnByValue` scenario, which is compiled ca. two times faster as C than as C++ for some values of `N`. This is not entirely surprising, because value copies are just much simpler in C. For Clang, there are small differences everywhere. I do not think that they are just noise, because they almost always skew towards C. But it's not exactly clear cut.
 
-I would have loved to end this exploration by looking at a more "real world" example, but as you can imagine it is not exactly simple to find a C project that just happens to also compile as C++. As it stands, this set of experiments has satisfied my curiosity already sufficiently.
+I would have loved to end this exploration by looking at a more "real world" example, but as you can imagine it is not exactly simple to find a C project that just happens to also compile as C++. As it stands, this set of experiments has already sufficiently satisfied my curiosity.
