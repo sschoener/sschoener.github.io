@@ -19,7 +19,7 @@ The different scenarios:
  * `FreeFunc`: We generate lots of calls to a function that takes a struct by pointer.
  * `CppMember`: Like the previous, but that free function is now a member function. This obviously doesn't work in C, but I wanted to see how it fares against a free standing function.
  * `NoOverload`: Declare `N` types and a corresponding free function that takes the type by pointer.
- * `CppOverload`: Like the previous, except that all of the functions now have the same name.
+ * `CppOverload`: Like the previous, except that all of the functions now have the same name. This produces unrealistically large overload sets and I mostly just wanted to see how bad this is.
  * `ReturnByPointer`: Returns a trivial struct (containing just an `int`) by pointer.
  * `ReturnByValue`: Returns a trivial struct by value.
 
@@ -39,9 +39,17 @@ Some general findings: First, when compiling with `/Od`, Clang is marginally fas
 |MSVC  |24.54s | 35.39s |
 {: .center-table}
 
-Second, adding a few thousand functions to the same overload set in C++ is a bad idea, regardless of compiler. Who could have guessed! I've stopped beyond `N=4000`. With 4000 overloads, Clang-O2 already takes 6.3s to compile this. Interestingly, MSVC fares slightly better when handling unrealistically large overload sets. I doubt this has any effect in reality, to be honest. 
+Second, adding a few thousand functions to the same overload set in C++ is a bad idea, regardless of compiler. Who could have guessed! I've stopped beyond `N=4000`. With 4000 overloads, Clang-O2 already takes 6.3s to compile this. Interestingly, MSVC fares slightly better when handling unrealistically large overload sets. I doubt this has any effect in reality, to be honest. But it's still interesting to see the non-linear growth (table shows median of 30 runs):
 
-Third, there is virtually no difference between `CppMember` and `FreeFunc`, on either compiler. I thought this was an interesting case to include because in C the name of the function is already sufficient to figure out what to call, whereas in C++ you have to know what type you are invoking it on.
+|         | N=1000| N=2000 | N=4000 |
+|---------|------:|-------:|-------:|
+|Clang Od |0.38s  | 1.52s  | 5.93s  |
+|Clang O2 |0.45s  | 1.67s  | 6.33s  |
+|MSVC  Od |0.24s  | 0.87s  | 5.26s  |
+|MSVC  O2 |0.26s  | 0.91s  | 5.35s  |
+{: .center-table}
+
+Third, there is no big difference between `CppMember` and `FreeFunc`, on either compiler. If anything, `CppMember` seems to be ever so slightly faster than `FreeFunc`, but not by much. I thought this was an interesting case to include because in C the name of the function is already sufficient to figure out what to call, whereas in C++ you have to know what type you are invoking it on.
 
 ## C vs C++
 Compiling the same code as C is almost always faster than compiling it as C++, and the few cases where it is slower the slowdown is indistinguishable from noise. The difference between C and C++ is much smaller on Clang than on MSVC. The times in the table below are the summed medians across all scenarios (excluding those that only work with C++, of course).
@@ -54,4 +62,4 @@ Compiling the same code as C is almost always faster than compiling it as C++, a
 
 For MSVC, a large driver of the difference between C and C++ compile times is the `ReturnByValue` scenario, which is compiled ca. two times faster as C than as C++ for some values of `N`. This is not entirely surprising, because value copies are just much simpler in C. For Clang, there are small differences everywhere. I do not think that they are just noise, because they almost always skew towards C. But it's not exactly clear cut.
 
-I would have loved to end this exploration by looking at a more "real world" example, but as you can imagine it is not exactly simple to find a C project that just happens to also compile as C++. As it stands, this set of experiments has already sufficiently satisfied my curiosity.
+I would have loved to end this exploration by looking at a more "real world" example, but as you can imagine it is not exactly simple to find a C project that just happens to also compile as C++. As it stands, this set of experiments has already sufficiently satisfied my curiosity. If you find something else interesting in [the data](https://github.com/sschoener/c-vs-cpp-compile-times/blob/main/complete.csv) (or something I'm wrong about!) let me know.
