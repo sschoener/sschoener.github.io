@@ -87,6 +87,7 @@ Let me lead with the results. We have five scenarios to compare: `-O0`, `-O1`, `
 |VEC_BUILTIN_OCL|2932|1534|1536|2892|1570|1.91
 |VEC_BUILTIN_GCC|2910|1512|1521|2914|1594|1.92
 |VEC_BUILTIN_OCL_WRAP|16477|1463|1485|19328|1570|11.26
+{: .center-table}
 
 What can we learn from this?
  * There is no real difference between `-Og`, `-O1` and `-O2` for this code.
