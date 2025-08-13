@@ -44,7 +44,7 @@ Second, adding a few thousand functions to the same overload set in C++ is a bad
 Third, there is virtually no difference between `CppMemberFunc` and `FreeFunc`, on either compiler. I thought this was an interesting case to include because in C the name of the function is already sufficient to figure out what to call, whereas in C++ you have to know what type you are invoking it on.
 
 ## C vs C++
-Compiling the same code as C is almost always faster than compiling it as C++, and the few cases where it is slower I can't tell that from noise. The difference between C and C++ is much smaller on Clang than on MSVC. The times in the table below are the summed medians across all scenarios.
+Compiling the same code as C is almost always faster than compiling it as C++, and the few cases where it is slower the slowdown is indistinguishable from noise. The difference between C and C++ is much smaller on Clang than on MSVC. The times in the table below are the summed medians across all scenarios.
 
 |      | C, Od  | C++, Od | C, O2   | C++, O2 |
 |------|-------:|--------:|--------:|--------:|
