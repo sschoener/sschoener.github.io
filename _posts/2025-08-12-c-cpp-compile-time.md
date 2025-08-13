@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-I recently found myself wondering whether it is faster to compile C than C++. On some level, the answer to this is an obvious "yes": You can't accidentally summon ~~cthulhu~~ a SFINAE monster in your C code, for example.
+I recently found myself wondering whether it is faster to compile C than C++. On some level, the answer to this is an obvious "yes": You can't accidentally summon ~~cthulhu~~ SFINAE-thulhu in your C code, for example.
 
 But my question is a little bit more naive. What if I take code that is valid in both C and C++ and compile it as C once and then once as C++? Clearly, this isn't possible _in general_, but we can at least come up with some toy scenarios where it *is* possible. What difference is that going to make? C is still a "simpler" language, does that buy us anything? Or asked differently: If I already avoid most of C++, but still rely on some C++ features that force all of my code to be C++, what kind of tax am I paying for that? -- I should also point out that there are plenty of people spending a lot of time working on languages and toolchains that are much faster than anything I am measuring here. I am not interested in establishing some benchmarks for the maximum possible speed you can compile C as; I am merely curious and like to poke around.
 
