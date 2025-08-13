@@ -46,10 +46,10 @@ Third, there is virtually no difference between `CppMemberFunc` and `FreeFunc`, 
 ## C vs C++
 Compiling the same code as C is almost always faster than compiling it as C++, and the few cases where it is slower I can't tell that from noise. The difference between C and C++ is much smaller on Clang than on MSVC.
 
-|      | C,Od  | C++,Od | C,O2   | C++,O2 |
-|------|------:|-------:|-------:|-------:|
-|Clang |6.54s  |  7.24s | 19.15s | 19.80s |
-|MSVC  |6.98s  |  9.62s | 12.11s | 15.40s |
+|      | C, Od  | C++, Od | C, O2   | C++, O2 |
+|------|-------:|--------:|--------:|--------:|
+|Clang |6.54s   |  7.24s  | 19.15s  | 19.80s  |
+|MSVC  |6.98s   |  9.62s  | 12.11s  | 15.40s  |
 {: .center-table}
 
 For MSVC, a large driver of the difference between C and C++ compile times is the `ReturnByValue` scenario, which is compiled ca. two times faster as C than as C++ for some values of `N`. This is not entirely surprising, because value copies are just much simpler in C. For Clang, there are small differences everywhere. I do not think that they are just noise, because they almost always skew towards C. But it's not exactly clear cut.
