@@ -17,7 +17,7 @@ The different scenarios:
  * `Empty`: We compile an empty file.
  * `Funcs`: Generating lots of functions that take an integer and just return it immediately, then call them all.
  * `FreeFunc`: We generate lots of calls to a function that takes a struct by pointer.
- * `CppMemberFunc`: Like the previous, but that free function is now a member function. This obviously doesn't work in C, but I wanted to see how it fares against a free standing function.
+ * `CppMember`: Like the previous, but that free function is now a member function. This obviously doesn't work in C, but I wanted to see how it fares against a free standing function.
  * `NoOverload`: Declare `N` types and a corresponding free function that takes the type by pointer.
  * `CppOverload`: Like the previous, except that all of the functions now have the same name.
  * `ReturnByPointer`: Returns a trivial struct (containing just an `int`) by pointer.
@@ -39,12 +39,12 @@ Some general findings: First, when compiling with `/Od`, Clang is marginally fas
 |MSVC  |24.54s | 35.39s |
 {: .center-table}
 
-Second, adding a few thousand functions to the same overload set in C++ is a bad idea, regardless of compiler. Who could have guessed! I've stopped beyond `N=4000`. With 4000 overloads, Clang-O2 already takes 6.3s to compile this. Interestingly, MSVC fares slightly better when handling unrealistically large overload sets. (I doubt this has any effect in reality, to be honest.)
+Second, adding a few thousand functions to the same overload set in C++ is a bad idea, regardless of compiler. Who could have guessed! I've stopped beyond `N=4000`. With 4000 overloads, Clang-O2 already takes 6.3s to compile this. Interestingly, MSVC fares slightly better when handling unrealistically large overload sets. I doubt this has any effect in reality, to be honest. 
 
-Third, there is virtually no difference between `CppMemberFunc` and `FreeFunc`, on either compiler. I thought this was an interesting case to include because in C the name of the function is already sufficient to figure out what to call, whereas in C++ you have to know what type you are invoking it on.
+Third, there is virtually no difference between `CppMember` and `FreeFunc`, on either compiler. I thought this was an interesting case to include because in C the name of the function is already sufficient to figure out what to call, whereas in C++ you have to know what type you are invoking it on.
 
 ## C vs C++
-Compiling the same code as C is almost always faster than compiling it as C++, and the few cases where it is slower the slowdown is indistinguishable from noise. The difference between C and C++ is much smaller on Clang than on MSVC. The times in the table below are the summed medians across all scenarios.
+Compiling the same code as C is almost always faster than compiling it as C++, and the few cases where it is slower the slowdown is indistinguishable from noise. The difference between C and C++ is much smaller on Clang than on MSVC. The times in the table below are the summed medians across all scenarios (excluding those that only work with C++, of course).
 
 |      | C, Od  | C++, Od | C, O2   | C++, O2 |
 |------|-------:|--------:|--------:|--------:|
