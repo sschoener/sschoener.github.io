@@ -1376,6 +1376,7 @@ Alas, I will only have time to look at a selected few of these questions, since 
 To get a better overview over the data, let us take a look at a few general statistics first:
 
 Distribution of artists' types:
+
 | Type          | Count        |
 | ------------- |-------------:|
 | group         |161027        |
@@ -1384,6 +1385,7 @@ Distribution of artists' types:
 {: .center-table}
 
 Distribution of artists' gender:
+
 | Gender        | Count        |
 | ------------- |-------------:|
 | f             |18097         |
