@@ -65,3 +65,17 @@ Compiling the same code as C is almost always faster than compiling it as C++, a
 For MSVC, a large driver of the difference between C and C++ compile times is the `ReturnByValue` scenario, which is compiled ca. two times faster as C than as C++ for some values of `N`. This is not entirely surprising, because value copies are just much simpler in C. For Clang, there are small differences everywhere. I do not think that they are just noise, because they almost always skew towards C. But it's not exactly clear cut.
 
 I would have loved to end this exploration by looking at a more "real world" example, but as you can imagine it is not exactly simple to find a C project that just happens to also compile as C++. As it stands, this set of experiments has already sufficiently satisfied my curiosity. If you find something else interesting in [the data](https://github.com/sschoener/c-vs-cpp-compile-times/blob/main/complete.csv) (or something I'm wrong about!) let me know.
+
+# Edit!
+Some more data points that came up in discussions about this post:
+ * [raddbg](https://github.com/EpicGamesExt/raddebugger) move from C-like-C++ to pure C some time ago. Mārtiņš Možeiko shared the numbers below with me. The C++ build times are based on [this commit](https://github.com/EpicGamesExt/raddebugger/commit/c1764cee0707b7fb9a5aea44eedc6b75ae0ad6e7) and the C build times are basd on [this commit](https://github.com/EpicGamesExt/raddebugger/commit/d3f7bef2b7eb13fa450abf67a3e928fd0ef74cb9). Thank you, Mārtiņš!
+
+|      | C, Od  | C++, Od | C, O2   | C++, O2 |
+|------|-------:|--------:|--------:|--------:|
+|Clang |2.60s   |  3.29s  | 20.09s  | 26.13s  |
+|MSVC  |1.28s   |  2.11s  | 6.83s   |  7.85s  |
+{: .center-table}
+
+ * Arseny Kapoulkine experimented with moving meshoptimizer from C++ to C a few years ago and wrote about the experience [on his blog](https://zeux.io/2019/01/17/is-c-fast/). The post has lots of timings and insight. It's worth reading outside of interest in compile times, as Arseny also shares a neat trick for "almost" sorting floats that is actually quite a bit cheaper than doing the full work.
+
+Arseny's post *also* calls out that including the same header (say `math.h`) actually includes different code when compiled as C++ and as C, and may hence pull in arbitrary C++ standard library headers. The worst example of this in my experience is `stdatomic.h`, where C++ defines `atomic_int` to actually be the non-copyable (!) `std::atomic<int>` ([see here](https://en.cppreference.com/w/cpp/header/stdatomic.h.html)).
