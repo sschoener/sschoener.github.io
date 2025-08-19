@@ -9,7 +9,7 @@ I had two interactions recently that surprised me in light of how I think about 
 
 In the first interaction, someone referred to me as a "performance expert." Thank you, that's very kind of you. I actually don't think of myself as a performance expert. Maybe one can argue that from some perspective, I have more expertise than some other people. But in the grand scheme of things? No, definitely not. Most of the performance-related things I do happen squarely in the "well this is stupid" realm, and not in the "oh, I know something clever" realm.
 
-In the other interaction, someone mentioned that my observations were "not exactly novel." Oh, I know, and no offense taken. Writing my actions or writing by novelty would be terribly depressing. Honestly, most things I write here you could probably get out of ChatGPT, if you provided the right inputs. If you casually ask ChatGPT about all the things I write here, we should probably be friends! Maybe what I write is still novel to someone, but even that is not something I specifically aim for.
+In the other interaction, someone mentioned that my observations were "not exactly novel." Oh, I know, and no offense taken. Writing my actions or writing by novelty would be terribly depressing. Honestly, most things I write here you could probably get out of ChatGPT, if you provided the right inputs. If you casually ask ChatGPT about all the things I write here, we should probably be friends! Maybe what I write is still novel to someone, but even that is not something I specifically aim for. Mandatory XKCD ([1053](https://xkcd.com/1053/)):
 
 ![https://xkcd.com/1053/](https://imgs.xkcd.com/comics/ten_thousand.png){: .center-image}
 
