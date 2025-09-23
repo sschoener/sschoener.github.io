@@ -62,7 +62,7 @@ And let me also expand some of the details in that above view for you:
 
 Am I holding this wrong? Did I miss a step? Is this tool actually aware of the async machinery? Does this not work on .NET10? Or is this an education problem on my end? All of these are possible answers, but I am coming to this tool with the intention of understanding the performance of a program, not with the intention of finding an edge-case that I can use to prove a point.
 
-I want to give a honoray mention to dotTrace, which at least sometimes recognizes `async` calls and also sometimes folds those 7 to 9 C# system calls into a single node. But that's far from universally true (is this a .NET10 problem?) and I am still struggling to make sense of the profiling output.
+I want to give a honorary mention to dotTrace, which at least sometimes recognizes `async` calls and also sometimes folds those 7 to 9 C# system calls into a single node. But that's far from universally true (is this a .NET10 problem?) and I am still struggling to make sense of the profiling output.
 ![dotTrace is somewhat better but not good](../assets/img/2025-09-22-async-linq/dottrace.png)
 
 The same issues come up during debugging when you look at callstacks. Calling async usage "free" is _very optimistic_. Maybe it's "free" if you never try debug or profile your program. I do, all of the time. Someone working in server-space might tell me that all of this is better served with telemetry from live-services. I can't speak to what makes sense in that space, but locally? No, we have better tools.
