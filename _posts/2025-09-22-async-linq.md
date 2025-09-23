@@ -16,9 +16,7 @@ public async Task SimpleWriteAsync()
 }
 ```
 
-Isn't that great? Yes, it isn't. In my experience, it is not universally a good idea to remove friction. Sometimes, the right answer is to *add* friction, so people *don't* do something (and people hate intentional friction, as I recall from the responses [to this piece]({% post_url 2024-09-16-get-people-to-do-the-right-thing %}) I wrote a while ago).
-
-I have observed this: I am much more likely to write async code in C# than anywhere else. I likewise see that in much of the C# code written by others that I encounter nowadays.
+Isn't that great? Yes, it isn't. I have observed this: I am much more likely to write async code in C# than anywhere else. I likewise see that in much of the C# code written by others that I encounter nowadays.
 
 ![Bilbo: "After all, why not? Why shouldn't I make this async?"](../assets/img/2025-09-22-async-linq/bilbo.png)
 
@@ -75,5 +73,5 @@ I wonder how many problems are actually hidden by copious usage of `async` and f
 To wrap things up, let me clarify that I am not saying "nobody needs async programming." Of course we do. I am also not saying "if they had let me design `async`, it would have been so much better." No, I am saying:
  * `async` has a very low barrier to entry (because someone made highly effective design choices) and it has this shine of "everything gets faster with async, always prefer async" (including yellow shame squiggles in IDEs for calling synchronous methods),
  * yet `async` is not free as it makes it much harder to reason about your program (both because of how it is implemented and because highly asynchronous programs are just harder to understand in general),
- * using `async` everywhere can hence be counter-productive, and if the cost of running asynchronous programs had been reflected in the day-to-day practice of writing `async` functions, people would have been more likely to weight the benefit of making something async against its cost instead of going all-in,
+ * using `async` everywhere can hence be counter-productive, and if the cost of running asynchronous programs had been reflected in the day-to-day practice of writing `async` functions, people would have been more likely to weight the benefit of making something async against its cost instead of going all-in (hey, did I [write about this](({% post_url 2024-09-16-get-people-to-do-the-right-thing %})) last year?),
  * and if there are great tools for debugging and profiling `async`-heavy C# programs, I haven't found them yet. Pointers appreciated.
