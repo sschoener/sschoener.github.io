@@ -52,7 +52,7 @@ There's an off-chance that `Spectre.Console` is partially to blame for _these ex
 
 ![Callstacks that still suck but don't have Spectre.Console](../assets/img/2025-09-22-async-linq/no-spectre.png)
 
-OK, but surely Visual Studio is doing better. They have a specific Async Task mode in their profiler, and I have tried that as well. I am using the fresh-off-the-shelf VS 2026 Insider preview, which by the way really does startup super quickly (nice work!). The installation is still dreadfully slow. My 7s profiling session was followed by 4minutes of "Loading data". I almost killed it because I thought it was just stuck. Then I looked at all tasks to try and find the work I know is taking the time. I sorted by maximum duration, discarded a few tasks, but after a good ten minutes of looking I gave up because the vast majority of the data in the table looks like this:
+OK, but surely Visual Studio is doing better. They have a specific Async Task mode in their profiler, and I have tried that as well. I am using the fresh-off-the-shelf VS 2026 Insider preview, which by the way really does startup super quickly (nice work!). The installation is still dreadfully slow. So is profiling: My 7s profiling session was followed by 4minutes of "Loading data". I almost killed it because I thought it was just stuck. Then I looked at all tasks to try and find the work I know is taking the time. I sorted by maximum duration, discarded a few tasks, but after a good ten minutes of looking I gave up because the vast majority of the data in the table looks like this:
 
 ![Visual Studio's profiler is unhelpful](../assets/img/2025-09-22-async-linq/visual-studio.png)
 
