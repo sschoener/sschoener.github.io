@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-I have been unfortunate enough to embark on a journey of C++ cross-compilation, by choice nonetheless. In my case, I use clang to compile _on_ a Linux machine to get binaries _for_ a Windows machine. This is surprisingly approachable nowadays. I do not want to bore you with the details of how to set this up but rather bore you with the details of what can go wrong once you have it all set up.
+I have been unfortunate enough to embark on a journey of C++ cross-compilation, by choice nonetheless. In my case, I use clang to compile _on_ a Linux machine to get binaries _for_ a Windows machine. This is surprisingly approachable nowadays. I do not want to bore you with the details of how to set this up but will rather bore you with the details of what can go wrong once you have it all set up.
 
 I want to specifically highlight three different things that I have found while unsuccessfully trying to cross-compile [OpenUSD](https://github.com/PixarAnimationStudios/OpenUSD). OpenUSD is my guinea pig for cross-compilation, because it is non-trivial, useful software with some platform abstractions in place. It also has a bunch of dependencies, and I had a brief high when I realized that OpenSubdiv just cleanly cross-compiles without any issues. While I am using OpenUSD as an example, I don't mean this as "oh, look, it's broken." I'd rather say that it shows the subtleties of cross-compilation and that at some point, unless you explicitly test for it, it is unlikely to "just work." (And I put zero blame on the awesome people that support and maintain OpenUSD.)
 
