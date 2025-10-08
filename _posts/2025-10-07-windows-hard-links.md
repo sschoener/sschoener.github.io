@@ -11,7 +11,7 @@ I have found two ways around this limitation: First, you can use hardlinks. Wind
 
 The second approach is to not use `DeleteFile` but to manually implement file deletion. Then you get more options, among them "POSIX file deletion." Here are the steps for this:
  * Open a handle with `CreateFileW(path, DELETE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, NULL, OPEN_EXISTING, 0, NULL)`.
- * Use `SetFileInformationByHandle` with `FILE_DISPOSITION_INFO_EX` ([MSDN](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/ns-ntddk-_file_disposition_information_ex)). The `FileInformationClass` value for that struct type is `23`. (This is not secret, see [here](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-zwsetinformationfile).) On the struct, we need to set flags `FILE_DISPOSITION_DELETE` and `FILE_DISPOSITION_POSIX_SEMANTICS`.
+ * Use `SetFileInformationByHandle` with `FILE_DISPOSITION_INFO_EX` ([MSDN](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/ns-ntddk-_file_disposition_information_ex)). The `FileInformationClass` value for that struct type is `21`. That value seems to be undocumented, but you can find it in `WinBase.h`. On the struct, we need to set flags `FILE_DISPOSITION_DELETE` and `FILE_DISPOSITION_POSIX_SEMANTICS`.
  * Close the handle.
 
 For the cache I'm concerned about, hardlinking seemed like a good solution: We often have many instances of the same file, and just having one version that we hardlink to makes sense. (Files on Windows can only have 1023 hardlinks, so we may have to deal with multiple copies at some point.) It also saves us from the time cost of copying the file around. The downside is that someone can now corrupt their cache (it is content-hashed) by writing to the file in the cache, because they have a hardlink to it.
@@ -235,6 +235,93 @@ public static class WindowsFileSystemHelpers
             CloseHandle(handle);
         }
 
+        return true;
+    }
+}
+```
+
+
+**EDIT**:
+[Chris Denton](https://mastodon.gamedev.place/@chrisdenton@hachyderm.io) points out that there is also `FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE` on new versions of Windows (Windows 10, service pack 5, I think?). This makes the entire code much simpler:
+
+```csharp
+public static class WindowsFileSystemHelpers
+{
+    [Flags]
+    enum FileDispositionFlags : uint {
+        DELETE = 0x00000001,
+        POSIX_SEMANTICS = 0x00000002,
+        IGNORE_READONLY_ATTRIBUTE = 0x00000010,
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    struct FILE_DISPOSITION_INFO_EX {
+        public FileDispositionFlags Flags;
+    }
+
+    enum FILE_INFO_BY_HANDLE_CLASS : int {
+        // This is not obviously 21. You need to actually look at the windows headers. In WinBase, you will find
+        //  FileDispositionInfoEx
+        // with value 21 in FILE_INFO_BY_HANDLE_CLASS.
+        FileDispositionInfoEx = 21
+    }
+
+
+    [DllImport("kernel32.dll", EntryPoint = "SetFileInformationByHandle", SetLastError = true)]
+    static extern bool SetFileInformationByHandle_FileDispositionInfoEx(
+        IntPtr hFile,
+        FILE_INFO_BY_HANDLE_CLASS fileInfoClass,
+        ref FILE_DISPOSITION_INFO_EX fileInfo,
+        uint dwBufferSize
+    );
+
+    [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    static extern IntPtr CreateFileW(
+        string lpFileName,
+        uint dwDesiredAccess,
+        uint dwShareMode,
+        IntPtr lpSecurityAttributes,
+        uint dwCreationDisposition,
+        uint dwFlagsAndAttributes,
+        IntPtr hTemplateFile
+    );
+
+    [DllImport("kernel32.dll")]
+    static extern bool CloseHandle(IntPtr hObject);
+
+    const uint DELETE = 0x00010000;
+    const uint OPEN_EXISTING = 3;
+    const uint FILE_SHARE_READ = 1;
+    const uint FILE_SHARE_WRITE = 2;
+    const uint FILE_SHARE_DELETE = 4;
+    const int ERROR_FILE_NOT_FOUND = 2;
+    const int ERROR_PATH_NOT_FOUND = 3;
+
+    public static bool PosixDeleteReadOnlyFile(string inputPath)
+    {
+        string longPath = @"\\?\" + Path.GetFullPath(inputPath);
+        var handle = CreateFileW(longPath, DELETE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
+            IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
+        if (handle == IntPtr.Zero || handle.ToInt64() == -1)
+        {
+            int error = Marshal.GetLastWin32Error();
+            if (error == ERROR_FILE_NOT_FOUND || error == ERROR_PATH_NOT_FOUND)
+                return false;
+            throw new Win32Exception(Marshal.GetLastWin32Error(), $"Failed to delete file {inputPath}: failed to open file for deletion");
+        }
+        var info = new FILE_DISPOSITION_INFO_EX {
+            Flags = FileDispositionFlags.DELETE | FileDispositionFlags.POSIX_SEMANTICS | FileDispositionFlags.IGNORE_READONLY_ATTRIBUTE
+        };
+        
+        bool deletionWorked = SetFileInformationByHandle_FileDispositionInfoEx(handle, FILE_INFO_BY_HANDLE_CLASS.FileDispositionInfoEx, ref info, (uint)Marshal.SizeOf<FILE_DISPOSITION_INFO_EX>());
+        {
+            int error = 0;
+            if (!deletionWorked)
+                error = Marshal.GetLastWin32Error();
+            CloseHandle(handle);
+            if (error != 0)
+                throw new Win32Exception(Marshal.GetLastWin32Error(), $"Failed to delete file {inputPath}: failed to setup deletion");
+        }
         return true;
     }
 }
