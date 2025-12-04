@@ -24,6 +24,8 @@ Yes! Get in touch: mail@s-schoener.com
 ## What performance gains can I expect from using `cpp2better`?
 The performance gains depend highly on the platform and your specific project. I have seen everything from "`cpp2better` makes the game 2ms per frame faster" (from 16ms down to 14ms) to "no impact". The projects that tend to benefit the most from `cpp2better` are projects with large codebases that try to do everything right (e.g. using DOTS and Burst where it makes sense), usually built by experienced teams that have already rooted out their algorithmic inefficencies. Games that actively try to minimize their binary sizes are usually also a good fit. Before we get to any licensing agreement, you will have a chance to test `cpp2better` in your specific project on the platforms you care about and see whether it makes sense for you. 
 
+I have also writtena few more words about the situations in which cpp2better helps [here]({% post_url 2025-12-04-when-does-cpp2better-help %}).
+
 ## What do I need to do to apply `cpp2better` to a project?
 `cpp2better` comes with documentation that explains how to set it up, in general. The integration into a project itself is minimal: you just create a configuration file in your project root to opt-in to `cpp2better`.
 
