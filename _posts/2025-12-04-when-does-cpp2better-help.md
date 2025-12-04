@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-I want to write a few words about what sorts of games benefit from my build postprocessor for Unity il2cpp builds, [cpp2better]({% post_url 2025-12-03-cpp2better-release %}). It's not the case that every game unconditionally benefits from it to the same extent. cpp2better essentially takes on the role of a compiler: given some program, it produces a (mostly) equivalent program that just happens to be leaner and generally better.
+I want to write a few words about what sorts of games benefit from my build postprocessor for Unity il2cpp builds, [cpp2better]({% post_url 2025-11-04-cpp2better-release %}). It's not the case that every game unconditionally benefits from it to the same extent. cpp2better essentially takes on the role of a compiler: given some program, it produces a (mostly) equivalent program that just happens to be leaner and generally better.
 
 When does a better compiler not help? Imagine that your compiler is very bad at emitting (say) efficient sequences of math instructions. Is that going to impact the performance of your program? It is certainly going to affect the performance of *some* programs, but for a particular program, like yours, that is not necessarily true. In the case of cpp2better, here are some common factors:
  
