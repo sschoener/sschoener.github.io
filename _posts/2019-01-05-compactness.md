@@ -3,6 +3,7 @@ layout: post
 title: Compactness as Completeness via Ultrafilters
 excerpt: In which I complain about how compactness is introduced in topology classes
 tags: [mathematics]
+mathjax: true
 ---
 
 In the typical undergrad curriculum for mathematics, you will find at least these two concepts that often lack motivation and proper intuition: Determinants and compactness. Here is my take on the latter.

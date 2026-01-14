@@ -4,6 +4,7 @@ title: Value Semantics and C# structs
 subtitle: To struct or not to struct
 excerpt: In which I talk about guidelines on when to use structs vs. classes in C#.
 tags: [computer science, programming, c#]
+mathjax: true
 ---
 
 If you are familiar with C++, value semantics really *should* be second nature for you (or at least I hope so). If you are however mainly programming in C#, you may never even have thought about value semantics. Which is a pity. In this post, I'd like to first give a brief overview of value semantics and its implementation in C# and then discuss some guidelines that I have on when to use value semantics in C#. If you want to try any of the examples for yourself, you could use [try.dot.net](https://try.dot.net/) (to run them) or [SharpLab](https://sharplab.io/) (to see what it compiles to).

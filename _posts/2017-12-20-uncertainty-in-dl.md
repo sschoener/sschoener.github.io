@@ -3,6 +3,7 @@ layout: post
 title: A few thoughts on uncertainty in Deep Learning
 excerpt: In which I talk about why I think uncertainty measures for Deep Learning systems just aren't there yet.
 tags: [computer science, machine learning]
+mathjax: true
 ---
 
 * TOC

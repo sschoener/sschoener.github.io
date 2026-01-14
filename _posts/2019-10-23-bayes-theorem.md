@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Bayes' Theorem, massaged
-excerpt: 
+excerpt:
 tags: [mathematics, programming]
+mathjax: true
 ---
 
 Here is something that always bugged me about the way Bayes' Theorem is taught (esp. from the perspective of inferential statistics).

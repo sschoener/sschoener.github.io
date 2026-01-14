@@ -2,6 +2,7 @@
 layout: post
 title: The Computational Complexity of Patterna
 tags: [computer science]
+mathjax: true
 ---
 \\(\newcommand{\NP}{\mathsf{NP}}\\)
 \\(\newcommand{\coNP}{\mathsf{coNP}}\\)

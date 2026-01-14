@@ -2,6 +2,7 @@
 layout: post
 title: A Short Introduction to Computational Complexity Theory
 tags: [computer science]
+mathjax: true
 ---
 \\(\newcommand{\NP}{\mathsf{NP}}\\)
 \\(\newcommand{\P}{\mathsf{P}}\\)
