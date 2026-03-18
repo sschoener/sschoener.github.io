@@ -14,7 +14,7 @@ My friend Stefan Reinalter [is asking](https://x.com/molecularmusing/status/2034
 
 I am definitely in the camp of "the amount of code I still write myself has gone down massively" and want to provide some answers.
 
-I started programming because it was the only way to poke at video games. I continued programming because all of the interactiosn that come with programming (debugging, profiling, reading, understanding, being-puzzled-when-you-go-to-bed) allow me to feed my inner introvert, indulge in a world that is ultimately very understandable (computers), and have a constant source of weird problems to engage my mind. And yes, ultimately I also really care about the outcome of creating software that I can give to other people so they can do awesome things with them.
+I started programming because it was the only way to poke at video games. I continued programming because all of the interactions that come with programming (debugging, profiling, reading, understanding, being-puzzled-when-you-go-to-bed) allow me to feed my inner introvert, indulge in a world that is ultimately very understandable (computers), and have a constant source of weird problems to engage my mind. And yes, ultimately I also really care about the outcome of creating software that I can give to other people so they can do awesome things with them.
 
 Programming as the act of typing letters on a keyboard has never been what I aspired to do with my life. I enjoy programming as in "thinking about and interacting with abstract systems." This could also happen purely in mathematics, I think, except without job security... if that's still a thing for programmers.
 
