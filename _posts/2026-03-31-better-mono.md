@@ -30,7 +30,7 @@ In the editor, there are a couple of upsides:
  * you get performance in the editor that is closer to what you'd see in an il2cpp build,
  * you can avoid or delay porting code to Burst because the baseline behavior is better, which means less waiting on Burst,
 
-If improved Mono performance for your game or Unity editor sounds like something you are interested in, get in touch.
+If you are a game studio and improved Mono performance for your game or Unity editor sounds like something you are interested in, get in touch. (Full transparency: the goal is to make money with this.)
 
 ### Some codegen comparison
 Here is a function from Unity's Entities graphics package. It's just one from the vast corpus of functions that I have looked at to evaluate codegen. The function is not really all that special and Mono struggles with this no more than it does with a Unity function that just uses, say, Unity's Vector3. The improved version with my modified Mono is an order of magnitude faster. Here is the source code for this function:
