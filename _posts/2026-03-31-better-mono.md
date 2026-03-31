@@ -11,7 +11,7 @@ Unity has for a very long time relied on the Mono runtime for C# to run its edit
 
 Some folks however need to ship their game on Mono. The main reason for doing that is mod support: Mono makes it very easy to load new code at runtime and even patch, hook, and redirect existing parts of the code. (Read about it [here]({% post_url 2019-06-23-best-worst-code %}).) In the Unity editor, there is no way around Mono anyway.
 
-Unfortunately, Unity has never invested into Mono, and with CoreCLR on the horizon, that seems less likely than ever. I have been complaininig about Mono's codegen for close to ten years now, so it's not like this has been an unknown.
+Unfortunately, Unity has never invested into Mono, and with CoreCLR on the horizon that seems less likely than ever. I have been complaininig about Mono's codegen for close to ten years now, so it's not like this has been an unknown.
 
 That was finally reason enough for me to try and improve the codegen for Mono (on Windows x64 specifically), and there is quite a bit I was able to do. If like so many you can't just directly upgrade to Unity 6.8 the moment it will ship because you already have a working product, then this is for you.
 
@@ -22,6 +22,13 @@ One caveat: As with [cpp2better]({% post_url 2025-11-04-cpp2better-release %}) (
 Excellent targets usually are simulation games or games that make heavy use of DOTS/Entities. Mono's codegen is especially bad for struct-heavy code, so if your code uses `Vector3`, you are affected :)
 
 As with cpp2better, all of this has the nice property that you don't need to change *anything* about your game for this to work. You just need to drop in a new Mono runtime into your game's build, and you're done! Then you may still want to tweak what optimizations you enable specifically. For "Debug" builds, all optimizations are disabled anyway. But for "Release" mode, you can still check which optimizations make the most sense for you. (Adding optimizations costs a little bit of time during JIT compilation, so there is a balance to strike.)
+
+In games, the upside of better performance is obvious.
+
+In the editor, there are a couple of upsides:
+ * you still have to run your game and possibly also a client *and* a server, so performance is still very relevant,
+ * you get performance in the editor that is closer to what you'd see in an il2cpp build,
+ * you can avoid or delay porting code to Burst because the baseline behavior is better, which means less waiting on Burst,
 
 If improved Mono performance for your game or Unity editor sounds like something you are interested in, get in touch.
 
