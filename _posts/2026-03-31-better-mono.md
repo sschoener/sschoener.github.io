@@ -17,7 +17,7 @@ That was finally reason enough for me to try and improve the codegen for Mono (o
 
 The improvements are significant. It's not quite on the level of Burst or CoreCLR's compiler of course, but it is much better than what Mono does by itself. You can find some code comparison at the end of the post.
 
-One caveat: As with [cpp2better]({% 2025-11-04-cpp2better-release %}) (my tool that improves codegen for il2cpp) the improvements you observe in any specific project are hard to predict. Improved codegen only leads to improved performance if your game is CPU compute-bound in some places (and doesn't just wait for memory all of its time). I have more thoughts about this [here]({% 2025-12-04-when-does-cpp2better-help %}). The good (???) news is that Mono's codegen by default is so bad that you are likely CPU compute-bound somewhere if you try to write performant code.
+One caveat: As with [cpp2better]({% post_url 2025-11-04-cpp2better-release %}) (my tool that improves codegen for il2cpp) the improvements you observe in any specific project are hard to predict. Improved codegen only leads to improved performance if your game is CPU compute-bound in some places (and doesn't just wait for memory all of its time). I have more thoughts about this [here]({% post_url 2025-12-04-when-does-cpp2better-help %}). The good (???) news is that Mono's codegen by default is so bad that you are likely CPU compute-bound somewhere if you try to write performant code.
 
 Excellent targets usually are simulation games or games that make heavy use of DOTS/Entities. Mono's codegen is especially bad for struct-heavy code, so if your code uses `Vector3`, you are affected :)
 
