@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-tl;dr: I am tinkering with improved codegen for Mono to get better performance in the Unity Editor and in Unity games that ship with Mono as their runtime. Not done yet, but please do get in touch if you are interested in this (mail@s-schoener.com).
+tl;dr: I am tinkering with improved codegen for Mono to get better performance in the Unity Editor and in Unity games that ship with Mono as their runtime. Not done yet, but please do get in touch if your studio is interested in this (mail@s-schoener.com).
 
 Unity has for a very long time relied on the Mono runtime for C# to run its editor (and sometimes its games). Mono was not made for games and its codegen is often not competitive with either native code or more modern jit-compilers. The official dotnet runtime CoreCLR frequently runs circles around Mono in terms of performance. Unity's IL2CPP runtime generally also outperforms Mono, since IL2CPP can just rely on the C++ compilers for its target platform.
 
