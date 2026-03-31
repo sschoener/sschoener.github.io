@@ -37,7 +37,7 @@ private static float4 dot4(float4 xs, float4 ys, float4 zs, float4 mx, float4 my
 
 Here is the original codegen. It suffers from float-to-double conversions and lots of temporaries that Mono can't eliminate. Warning, it's LONG.
 
-```asm
+```
 push rbp
 mov rbp, rsp
 sub rsp, 0x170
