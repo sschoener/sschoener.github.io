@@ -5,7 +5,7 @@ excerpt:
 tags: []
 ---
 
-My [current sidequest]({% post_url 2026-03-31-better-mono %}) is to improve the codegen for Unity games (and the editor) running on Mono. This post is a continuation of [last week's post]({% post_url 2026-04-07-mono-codegen-1.md %}) about this journey.
+My [current sidequest]({% post_url 2026-03-31-better-mono %}) is to improve the codegen for Unity games (and the editor) running on Mono. This post is a continuation of [last week's post]({% post_url 2026-04-07-mono-codegen-1 %}) about this journey.
 
 ## To LLVM or not to LLVM?
 The first decision I had to make was what to actually do about any of this. Unity's Mono has a very much WIP path for routing codegen through LLVM. This would likely provide much more comprehensive optimizations and better codegen than I can build manually. Then again, that is what Unity's Burst already doing by routing IL through LLVM's IR and generate code that way. For Burst, this is slow and heavy-handed.
