@@ -8,9 +8,9 @@ tags: []
 My [current sidequest]({% post_url 2026-03-31-better-mono %}) is to improve the codegen for Unity games (and the editor) running on Mono. This post is a continuation of [last week's post]({% post_url 2026-04-07-mono-codegen-1 %}) about this journey.
 
 ## To LLVM or not to LLVM?
-The first decision I had to make was what to actually do about any of this. Unity's Mono has a very much WIP path for routing codegen through LLVM. This would likely provide much more comprehensive optimizations and better codegen than I can build manually. Then again, that is what Unity's Burst already doing by routing IL through LLVM's IR and generate code that way. For Burst, this is slow and heavy-handed.
+As demonstrated last time, Mono's codegen is often lackluster. The first decision I had to make was what to actually do about any of this. Unity's Mono has a very much WIP path for routing codegen through LLVM. This would likely provide much more comprehensive optimizations and better codegen than I can build manually. Then again, that is what Unity's Burst already doing by routing IL through LLVM's IR and generate code that way. For Burst, this is slow and heavy-handed.
 
-The alternative is to write the optimization passes themselves. In retrospect, this was a choice between "pick up the janitorial duties of hooking up LLVM" or "do the actually interesting bits myself." I am not sure why I ever hesitated. I am quite happy with this choice, as I would rather learn more about writing an optimizing compiler in general rather than getting intimately familiar with whatever build and plumbing problems an LLVM migration would throw at me.
+The alternative is to write the optimization passes myself. In retrospect, this was a choice between "pick up the janitorial duties of hooking up LLVM" or "do the actually interesting bits myself." I am not sure why I ever hesitated. I am quite happy with this choice, as I would rather learn more about writing an optimizing compiler in general rather than getting intimately familiar with whatever build and plumbing problems an LLVM migration would throw at me.
 
 That's a common theme in my work: not having dependencies is not just simpler, but also more fun. You replace a dreadful problem (dependency management) with a joyful one (the cool thing you actually want to do).
 
