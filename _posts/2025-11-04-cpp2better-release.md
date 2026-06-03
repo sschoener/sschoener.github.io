@@ -5,6 +5,8 @@ excerpt:
 tags: []
 ---
 
+*Edit*: There's [a website for cpp2better](https://kerntief.net/cpp2better.html) now!
+
 It's been a while since I last talked about cpp2better. Time for an official "here it is" post.
 
 ## What is `cpp2better`?
