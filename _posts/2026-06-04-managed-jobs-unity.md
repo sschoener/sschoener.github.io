@@ -15,9 +15,9 @@ struct MyJob : IJob {
 }
 ```
 
-One of the restrictions of Unity's job system is that these job structs must be entirely unmanaged, meaning that you many not put any managed data on such structs (e.g. no fields of class type). This is unfortunate, because sometimes you really want to have access to manageed data in a job.
+One of the restrictions of Unity's job system is that these job structs must be entirely unmanaged, meaning that you many not put any managed data on such structs (e.g. no fields of class type). This is unfortunate, because sometimes you really want to have access to managed data in a job.
 
-There are good reasons *not* to have access to managed data in jobs: Unity's job debugger cannot reason about what data you might access when you go through a managed object. It is hence entirely on you to ensure that there are no data races.
+There are good reasons *not* to access managed data in jobs: Unity's job debugger cannot reason about what data you might access when you go through a managed object. It is hence entirely on you to ensure that there are no data races.
 
 There is an escape hatch to get managed data into a job: `GCHandle`. A `GCHandle` is an unmanaged struct that contains a reference to arbitrary managed data (in a way that the garbage collector is aware of it). You can use it like this:
 
