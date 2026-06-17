@@ -13,7 +13,15 @@ I'm trying to paint a broad picture. In some cases, I may trade technical accura
 
 As few final words before we get into the actual meat of this: "All fast Unity projects are alike; each slow project is slow in its own way." ([here](https://en.wikipedia.org/wiki/Anna_Karenina_principle)) -- The advice here may or may not be applicable to what you are doing, and you may get away with doing many of the things I list here while something else will completely blow up. That's the sad truth: One bad mistake can turn a sluggish project into a catastrophically slow one. And even if you do all the things right, you may still end up with "sluggish" at a certain scale.
 
-Oh, and as of writing this should apply to everything up until Unity 2023.x.
+Oh, and as of writing this should apply to everything up until Unity 6.X.
+
+# A shortcut
+This post is originally from 2023, but now in *the future*, there are better tools available. By far the most productive way to diagnose why something is slow in the editor is this:
+1. Get Claude or Codex.
+2. Download and extact the ktp profiler (free for a week from [profiler.kerntief.net](https://profiler.kerntief.net)). Then run `ktp-install.exe` and follow instructions.
+3. Open a Claude/Codex session in your Unity project's folder. Write `Use the profiler in C:/path/to/ktp to analyze domain reload timings in this Unity project`. Depending on your settings, claude/Codex will require permissions to use some tools.
+
+Instead of `analyze`, you can also tell it to `optimize`. Or say "my builds are slow." It will analyze your specific problem and come back with suggestions.
 
 # First, Measure
 Before we talk about any reasons for why things are slow, the most important thing to establish is that you need to start measuring the performance of your editor workflows regularly. Yes, _you_. It's not exactly great that this is on you, but this is the best way to stay on top of things and have a good editor experience. You should assume this responsibility, in your own self interest. Some of the nicest projects I have looked at had a warning popup if an asset import took longer than a second so that whoever ran into it could escalate it to a programmer on the project, or they always logged the time it took to enter playmode.
